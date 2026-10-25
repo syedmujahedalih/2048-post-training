@@ -1,0 +1,3702 @@
+{
+  "seed": 42,
+  "initial_board": [
+    [
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "steps": [
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        13,
+        2
+      ],
+      "score": 0
+    },
+    {
+      "board": [
+        [
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        13,
+        2
+      ],
+      "score": 4
+    },
+    {
+      "board": [
+        [
+          0,
+          4,
+          2,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        2,
+        2
+      ],
+      "score": 8
+    },
+    {
+      "board": [
+        [
+          4,
+          2,
+          4,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 8
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          4,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 8
+    },
+    {
+      "board": [
+        [
+          4,
+          2,
+          4,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        13,
+        2
+      ],
+      "score": 12
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          4,
+          4
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 16
+    },
+    {
+      "board": [
+        [
+          4,
+          4,
+          4,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        13,
+        2
+      ],
+      "score": 16
+    },
+    {
+      "board": [
+        [
+          4,
+          4,
+          4,
+          2
+        ],
+        [
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        13,
+        2
+      ],
+      "score": 16
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          8,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        0,
+        2
+      ],
+      "score": 24
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          8,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          4
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        8,
+        2
+      ],
+      "score": 24
+    },
+    {
+      "board": [
+        [
+          4,
+          4,
+          8,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        12,
+        2
+      ],
+      "score": 28
+    },
+    {
+      "board": [
+        [
+          4,
+          4,
+          8,
+          2
+        ],
+        [
+          2,
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        10,
+        2
+      ],
+      "score": 28
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          4,
+          0,
+          8,
+          4
+        ],
+        [
+          2,
+          4,
+          4,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        5,
+        4
+      ],
+      "score": 32
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          2
+        ],
+        [
+          4,
+          0,
+          8,
+          4
+        ],
+        [
+          2,
+          8,
+          4,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        6,
+        2
+      ],
+      "score": 40
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          4
+        ],
+        [
+          0,
+          4,
+          8,
+          4
+        ],
+        [
+          2,
+          8,
+          4,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        5,
+        2
+      ],
+      "score": 44
+    },
+    {
+      "board": [
+        [
+          2,
+          2,
+          8,
+          8
+        ],
+        [
+          2,
+          4,
+          4,
+          2
+        ],
+        [
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        4,
+        2
+      ],
+      "score": 52
+    },
+    {
+      "board": [
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          8,
+          8
+        ],
+        [
+          4,
+          8,
+          4,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        1,
+        2
+      ],
+      "score": 56
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          4,
+          0,
+          4,
+          16
+        ],
+        [
+          4,
+          8,
+          4,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 16,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        8,
+        4
+      ],
+      "score": 72
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          16
+        ],
+        [
+          8,
+          8,
+          8,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 20,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        4,
+        2
+      ],
+      "score": 92
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          16
+        ],
+        [
+          2,
+          8,
+          16,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 16,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        12,
+        2
+      ],
+      "score": 108
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          4,
+          0,
+          2
+        ],
+        [
+          16,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          8,
+          16,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        7,
+        2
+      ],
+      "score": 108
+    },
+    {
+      "board": [
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          4,
+          2,
+          0
+        ],
+        [
+          16,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          8,
+          16,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        1,
+        2
+      ],
+      "score": 108
+    },
+    {
+      "board": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          16,
+          4,
+          16,
+          0
+        ],
+        [
+          2,
+          8,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        10,
+        2
+      ],
+      "score": 108
+    },
+    {
+      "board": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          16,
+          4,
+          16,
+          0
+        ],
+        [
+          2,
+          8,
+          2,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        0,
+        2
+      ],
+      "score": 108
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          16,
+          4,
+          16
+        ],
+        [
+          2,
+          2,
+          8,
+          4
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        12,
+        2
+      ],
+      "score": 116
+    },
+    {
+      "board": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          4,
+          0,
+          0
+        ],
+        [
+          16,
+          4,
+          16,
+          0
+        ],
+        [
+          4,
+          8,
+          4,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 120
+    },
+    {
+      "board": [
+        [
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          4,
+          0,
+          0
+        ],
+        [
+          16,
+          4,
+          16,
+          0
+        ],
+        [
+          4,
+          8,
+          4,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 124
+    },
+    {
+      "board": [
+        [
+          4,
+          8,
+          16,
+          2
+        ],
+        [
+          2,
+          8,
+          4,
+          0
+        ],
+        [
+          16,
+          0,
+          2,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        10,
+        2
+      ],
+      "score": 132
+    },
+    {
+      "board": [
+        [
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          16,
+          0
+        ],
+        [
+          16,
+          2,
+          4,
+          0
+        ],
+        [
+          4,
+          16,
+          2,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 16,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        9,
+        2
+      ],
+      "score": 148
+    },
+    {
+      "board": [
+        [
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          16,
+          0,
+          0
+        ],
+        [
+          16,
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          16,
+          4,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        11,
+        2
+      ],
+      "score": 152
+    },
+    {
+      "board": [
+        [
+          4,
+          16,
+          8,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          16,
+          16,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        13,
+        2
+      ],
+      "score": 160
+    },
+    {
+      "board": [
+        [
+          4,
+          16,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          16,
+          16,
+          2,
+          0
+        ],
+        [
+          4,
+          2,
+          8,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        10,
+        2
+      ],
+      "score": 160
+    },
+    {
+      "board": [
+        [
+          4,
+          16,
+          0,
+          2
+        ],
+        [
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          32,
+          2,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          8,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 36,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 196
+    },
+    {
+      "board": [
+        [
+          8,
+          16,
+          8,
+          4
+        ],
+        [
+          32,
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 16,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        11,
+        2
+      ],
+      "score": 212
+    },
+    {
+      "board": [
+        [
+          8,
+          16,
+          8,
+          4
+        ],
+        [
+          32,
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        11,
+        4
+      ],
+      "score": 212
+    },
+    {
+      "board": [
+        [
+          8,
+          16,
+          8,
+          4
+        ],
+        [
+          32,
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 212
+    },
+    {
+      "board": [
+        [
+          8,
+          16,
+          8,
+          4
+        ],
+        [
+          32,
+          4,
+          2,
+          0
+        ],
+        [
+          4,
+          2,
+          4,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        6,
+        2
+      ],
+      "score": 212
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          0,
+          0
+        ],
+        [
+          32,
+          16,
+          8,
+          0
+        ],
+        [
+          4,
+          4,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          4,
+          4
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        1,
+        2
+      ],
+      "score": 212
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          32,
+          16,
+          8
+        ],
+        [
+          2,
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          0,
+          4,
+          8
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 20,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        8,
+        2
+      ],
+      "score": 232
+    },
+    {
+      "board": [
+        [
+          0,
+          2,
+          8,
+          2
+        ],
+        [
+          0,
+          32,
+          16,
+          8
+        ],
+        [
+          0,
+          2,
+          8,
+          2
+        ],
+        [
+          0,
+          0,
+          4,
+          8
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        1,
+        2
+      ],
+      "score": 232
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          2,
+          16,
+          8
+        ],
+        [
+          0,
+          32,
+          8,
+          2
+        ],
+        [
+          4,
+          2,
+          4,
+          8
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        12,
+        4
+      ],
+      "score": 232
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          16,
+          8,
+          2
+        ],
+        [
+          32,
+          8,
+          2,
+          0
+        ],
+        [
+          4,
+          2,
+          4,
+          8
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        7,
+        2
+      ],
+      "score": 232
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          2,
+          16,
+          2,
+          8
+        ],
+        [
+          32,
+          8,
+          4,
+          0
+        ],
+        [
+          4,
+          2,
+          2,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        14,
+        2
+      ],
+      "score": 232
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          2,
+          16,
+          2,
+          8
+        ],
+        [
+          0,
+          32,
+          8,
+          4
+        ],
+        [
+          0,
+          2,
+          4,
+          4
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        13,
+        2
+      ],
+      "score": 236
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          2,
+          16,
+          2,
+          8
+        ],
+        [
+          32,
+          8,
+          4,
+          0
+        ],
+        [
+          2,
+          8,
+          2,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        14,
+        2
+      ],
+      "score": 244
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          2,
+          16,
+          2,
+          8
+        ],
+        [
+          0,
+          32,
+          8,
+          4
+        ],
+        [
+          2,
+          2,
+          8,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        12,
+        2
+      ],
+      "score": 244
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          2,
+          16,
+          2,
+          8
+        ],
+        [
+          32,
+          8,
+          4,
+          0
+        ],
+        [
+          4,
+          8,
+          2,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 248
+    },
+    {
+      "board": [
+        [
+          8,
+          0,
+          8,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          32,
+          16,
+          4,
+          8
+        ],
+        [
+          4,
+          16,
+          2,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 16,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 264
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          4
+        ],
+        [
+          2,
+          32,
+          2,
+          8
+        ],
+        [
+          32,
+          2,
+          4,
+          2
+        ],
+        [
+          4,
+          0,
+          2,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 36,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        9,
+        2
+      ],
+      "score": 300
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          4
+        ],
+        [
+          32,
+          32,
+          4,
+          8
+        ],
+        [
+          4,
+          2,
+          2,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        1,
+        2
+      ],
+      "score": 300
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          0
+        ],
+        [
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          32,
+          32,
+          4,
+          8
+        ],
+        [
+          4,
+          2,
+          2,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        1,
+        2
+      ],
+      "score": 304
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          64,
+          4,
+          8,
+          0
+        ],
+        [
+          4,
+          4,
+          2,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 68,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 372
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          2
+        ],
+        [
+          2,
+          8,
+          2,
+          4
+        ],
+        [
+          64,
+          4,
+          8,
+          0
+        ],
+        [
+          4,
+          2,
+          2,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        13,
+        2
+      ],
+      "score": 380
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          0
+        ],
+        [
+          2,
+          8,
+          2,
+          2
+        ],
+        [
+          64,
+          4,
+          8,
+          2
+        ],
+        [
+          4,
+          2,
+          2,
+          4
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        7,
+        2
+      ],
+      "score": 380
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          4
+        ],
+        [
+          2,
+          8,
+          2,
+          4
+        ],
+        [
+          64,
+          4,
+          8,
+          0
+        ],
+        [
+          4,
+          2,
+          2,
+          2
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 384
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          8,
+          4
+        ],
+        [
+          2,
+          8,
+          2,
+          4
+        ],
+        [
+          2,
+          64,
+          4,
+          8
+        ],
+        [
+          0,
+          4,
+          2,
+          4
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        8,
+        2
+      ],
+      "score": 388
+    },
+    {
+      "board": [
+        [
+          2,
+          2,
+          8,
+          0
+        ],
+        [
+          0,
+          8,
+          2,
+          8
+        ],
+        [
+          8,
+          64,
+          4,
+          8
+        ],
+        [
+          4,
+          4,
+          2,
+          4
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 12,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        0,
+        2
+      ],
+      "score": 400
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          4,
+          8
+        ],
+        [
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          8,
+          64,
+          4,
+          8
+        ],
+        [
+          0,
+          8,
+          2,
+          4
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 12,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        4,
+        2
+      ],
+      "score": 412
+    },
+    {
+      "board": [
+        [
+          4,
+          8,
+          0,
+          2
+        ],
+        [
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          8,
+          64,
+          4,
+          8
+        ],
+        [
+          8,
+          2,
+          4,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 412
+    },
+    {
+      "board": [
+        [
+          4,
+          8,
+          2,
+          0
+        ],
+        [
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          8,
+          64,
+          4,
+          8
+        ],
+        [
+          8,
+          2,
+          4,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 412
+    },
+    {
+      "board": [
+        [
+          4,
+          16,
+          4,
+          16
+        ],
+        [
+          2,
+          64,
+          8,
+          2
+        ],
+        [
+          16,
+          2,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 60,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        10,
+        2
+      ],
+      "score": 472
+    },
+    {
+      "board": [
+        [
+          4,
+          16,
+          4,
+          16
+        ],
+        [
+          2,
+          64,
+          8,
+          2
+        ],
+        [
+          16,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        4
+      ],
+      "score": 476
+    },
+    {
+      "board": [
+        [
+          4,
+          16,
+          4,
+          16
+        ],
+        [
+          2,
+          64,
+          8,
+          2
+        ],
+        [
+          16,
+          4,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 476
+    },
+    {
+      "board": [
+        [
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          16,
+          0,
+          2
+        ],
+        [
+          16,
+          64,
+          4,
+          16
+        ],
+        [
+          4,
+          4,
+          8,
+          4
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        7,
+        2
+      ],
+      "score": 480
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          4,
+          4
+        ],
+        [
+          0,
+          2,
+          16,
+          2
+        ],
+        [
+          16,
+          64,
+          4,
+          16
+        ],
+        [
+          0,
+          8,
+          8,
+          4
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        2,
+        4
+      ],
+      "score": 488
+    },
+    {
+      "board": [
+        [
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          16,
+          2,
+          0
+        ],
+        [
+          16,
+          64,
+          4,
+          16
+        ],
+        [
+          16,
+          4,
+          2,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 24,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        14,
+        2
+      ],
+      "score": 512
+    },
+    {
+      "board": [
+        [
+          0,
+          2,
+          0,
+          8
+        ],
+        [
+          0,
+          2,
+          16,
+          2
+        ],
+        [
+          16,
+          64,
+          4,
+          16
+        ],
+        [
+          0,
+          16,
+          4,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        1,
+        2
+      ],
+      "score": 512
+    },
+    {
+      "board": [
+        [
+          16,
+          4,
+          16,
+          8
+        ],
+        [
+          0,
+          64,
+          8,
+          2
+        ],
+        [
+          2,
+          16,
+          0,
+          16
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 12,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        8,
+        2
+      ],
+      "score": 524
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          8
+        ],
+        [
+          0,
+          4,
+          2,
+          2
+        ],
+        [
+          16,
+          64,
+          16,
+          16
+        ],
+        [
+          2,
+          16,
+          8,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        6,
+        2
+      ],
+      "score": 524
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          8
+        ],
+        [
+          0,
+          4,
+          4,
+          4
+        ],
+        [
+          0,
+          16,
+          64,
+          32
+        ],
+        [
+          2,
+          16,
+          8,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 36,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        5,
+        4
+      ],
+      "score": 560
+    },
+    {
+      "board": [
+        [
+          2,
+          0,
+          0,
+          8
+        ],
+        [
+          0,
+          0,
+          4,
+          4
+        ],
+        [
+          0,
+          4,
+          64,
+          32
+        ],
+        [
+          2,
+          32,
+          8,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 32,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        0,
+        2
+      ],
+      "score": 592
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          2,
+          8
+        ],
+        [
+          0,
+          0,
+          4,
+          4
+        ],
+        [
+          0,
+          4,
+          64,
+          32
+        ],
+        [
+          4,
+          32,
+          8,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        2,
+        2
+      ],
+      "score": 596
+    },
+    {
+      "board": [
+        [
+          2,
+          8,
+          0,
+          0
+        ],
+        [
+          8,
+          2,
+          0,
+          0
+        ],
+        [
+          4,
+          64,
+          32,
+          0
+        ],
+        [
+          4,
+          32,
+          8,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        5,
+        2
+      ],
+      "score": 604
+    },
+    {
+      "board": [
+        [
+          0,
+          8,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          8,
+          64,
+          32,
+          0
+        ],
+        [
+          8,
+          32,
+          8,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        2,
+        2
+      ],
+      "score": 612
+    },
+    {
+      "board": [
+        [
+          8,
+          2,
+          2,
+          0
+        ],
+        [
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          64,
+          32,
+          0
+        ],
+        [
+          8,
+          32,
+          8,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        2,
+        2
+      ],
+      "score": 616
+    },
+    {
+      "board": [
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          8,
+          2,
+          2,
+          0
+        ],
+        [
+          4,
+          64,
+          32,
+          0
+        ],
+        [
+          16,
+          32,
+          8,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 16,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 632
+    },
+    {
+      "board": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          4,
+          0,
+          2
+        ],
+        [
+          4,
+          64,
+          32,
+          0
+        ],
+        [
+          16,
+          32,
+          8,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        7,
+        2
+      ],
+      "score": 636
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          4
+        ],
+        [
+          8,
+          64,
+          8,
+          0
+        ],
+        [
+          4,
+          32,
+          2,
+          0
+        ],
+        [
+          16,
+          0,
+          0,
+          0
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        10,
+        2
+      ],
+      "score": 640
+    },
+    {
+      "board": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          4,
+          32,
+          0
+        ],
+        [
+          4,
+          64,
+          8,
+          2
+        ],
+        [
+          16,
+          32,
+          2,
+          4
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        11,
+        2
+      ],
+      "score": 640
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          8,
+          64,
+          8,
+          4
+        ],
+        [
+          4,
+          32,
+          2,
+          0
+        ],
+        [
+          16,
+          0,
+          0,
+          2
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 640
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          8,
+          64,
+          8,
+          4
+        ],
+        [
+          4,
+          32,
+          2,
+          0
+        ],
+        [
+          16,
+          2,
+          0,
+          4
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        4
+      ],
+      "score": 640
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          8,
+          64,
+          8,
+          4
+        ],
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          0,
+          16,
+          2,
+          4
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        8,
+        2
+      ],
+      "score": 640
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          8,
+          64,
+          8,
+          4
+        ],
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          16,
+          2,
+          4,
+          2
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 640
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          8,
+          64,
+          8,
+          4
+        ],
+        [
+          2,
+          4,
+          32,
+          4
+        ],
+        [
+          16,
+          2,
+          4,
+          4
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        4
+      ],
+      "score": 644
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          8,
+          64,
+          8,
+          2
+        ],
+        [
+          2,
+          4,
+          32,
+          4
+        ],
+        [
+          16,
+          2,
+          4,
+          8
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 652
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          8,
+          64,
+          8,
+          4
+        ],
+        [
+          2,
+          4,
+          32,
+          4
+        ],
+        [
+          16,
+          2,
+          4,
+          8
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 656
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          8,
+          64,
+          8,
+          8
+        ],
+        [
+          2,
+          4,
+          32,
+          8
+        ],
+        [
+          16,
+          2,
+          4,
+          2
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        15,
+        2
+      ],
+      "score": 664
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          2,
+          8,
+          64,
+          16
+        ],
+        [
+          2,
+          4,
+          32,
+          8
+        ],
+        [
+          16,
+          2,
+          4,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 16,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        4,
+        2
+      ],
+      "score": 680
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          2,
+          8,
+          64,
+          16
+        ],
+        [
+          4,
+          4,
+          32,
+          8
+        ],
+        [
+          16,
+          2,
+          4,
+          2
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        0,
+        2
+      ],
+      "score": 684
+    },
+    {
+      "board": [
+        [
+          2,
+          4,
+          32,
+          2
+        ],
+        [
+          2,
+          8,
+          64,
+          16
+        ],
+        [
+          2,
+          8,
+          32,
+          8
+        ],
+        [
+          16,
+          2,
+          4,
+          2
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        8,
+        2
+      ],
+      "score": 692
+    },
+    {
+      "board": [
+        [
+          4,
+          4,
+          32,
+          2
+        ],
+        [
+          2,
+          16,
+          64,
+          16
+        ],
+        [
+          16,
+          2,
+          32,
+          8
+        ],
+        [
+          2,
+          0,
+          4,
+          2
+        ]
+      ],
+      "action": "UP",
+      "score_gain": 20,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        12,
+        2
+      ],
+      "score": 712
+    },
+    {
+      "board": [
+        [
+          8,
+          32,
+          2,
+          2
+        ],
+        [
+          2,
+          16,
+          64,
+          16
+        ],
+        [
+          16,
+          2,
+          32,
+          8
+        ],
+        [
+          2,
+          4,
+          2,
+          0
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 8,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 720
+    },
+    {
+      "board": [
+        [
+          8,
+          32,
+          2,
+          2
+        ],
+        [
+          2,
+          16,
+          64,
+          2
+        ],
+        [
+          16,
+          2,
+          32,
+          16
+        ],
+        [
+          2,
+          4,
+          2,
+          8
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 720
+    },
+    {
+      "board": [
+        [
+          8,
+          32,
+          2,
+          2
+        ],
+        [
+          2,
+          16,
+          64,
+          4
+        ],
+        [
+          16,
+          2,
+          32,
+          16
+        ],
+        [
+          2,
+          4,
+          2,
+          8
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 724
+    },
+    {
+      "board": [
+        [
+          2,
+          8,
+          32,
+          4
+        ],
+        [
+          2,
+          16,
+          64,
+          4
+        ],
+        [
+          16,
+          2,
+          32,
+          16
+        ],
+        [
+          2,
+          4,
+          2,
+          8
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 4,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        0,
+        2
+      ],
+      "score": 728
+    },
+    {
+      "board": [
+        [
+          0,
+          8,
+          32,
+          2
+        ],
+        [
+          4,
+          16,
+          64,
+          8
+        ],
+        [
+          16,
+          2,
+          32,
+          16
+        ],
+        [
+          2,
+          4,
+          2,
+          8
+        ]
+      ],
+      "action": "DOWN",
+      "score_gain": 12,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 740
+    },
+    {
+      "board": [
+        [
+          8,
+          32,
+          2,
+          2
+        ],
+        [
+          4,
+          16,
+          64,
+          8
+        ],
+        [
+          16,
+          2,
+          32,
+          16
+        ],
+        [
+          2,
+          4,
+          2,
+          8
+        ]
+      ],
+      "action": "LEFT",
+      "score_gain": 0,
+      "valid": true,
+      "done": false,
+      "spawned": [
+        3,
+        2
+      ],
+      "score": 740
+    },
+    {
+      "board": [
+        [
+          2,
+          8,
+          32,
+          4
+        ],
+        [
+          4,
+          16,
+          64,
+          8
+        ],
+        [
+          16,
+          2,
+          32,
+          16
+        ],
+        [
+          2,
+          4,
+          2,
+          8
+        ]
+      ],
+      "action": "RIGHT",
+      "score_gain": 4,
+      "valid": true,
+      "done": true,
+      "spawned": [
+        0,
+        2
+      ],
+      "score": 744
+    }
+  ],
+  "score": 744,
+  "max_tile": 64,
+  "reached_2048": false,
+  "attempts": 99,
+  "invalid_attempts": 0,
+  "terminated": true,
+  "truncated": false,
+  "max_steps": 3000
+}
