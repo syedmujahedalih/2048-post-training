@@ -1,0 +1,42 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "examples_checked": 8000,
+  "max_tokens": 361,
+  "median_tokens": 346.0,
+  "target_token_lengths": [
+    20
+  ],
+  "all_prefixes_match": true,
+  "all_targets_roundtrip": true,
+  "sample": {
+    "id": "train-1000-42",
+    "rendered_full": "<|im_start|>system\nYou play 2048 on a 4x4 board. Zero is an empty cell. A move slides all tiles in one direction; adjacent equal tiles merge once per move. Each merge adds its resulting tile value to the score. After a valid move, a random empty cell receives a 2 (90%) or a 4 (10%). Maximize the eventual game score. Choose a legal move by calling move with a direction. Do not add commentary.\n\n# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{\"type\": \"function\", \"function\": {\"name\": \"move\", \"description\": \"Slide the 2048 board in one direction and return the next observation.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"direction\": {\"type\": \"string\", \"enum\": [\"UP\", \"DOWN\", \"LEFT\", \"RIGHT\"]}}, \"required\": [\"direction\"], \"additionalProperties\": false}}}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call><|im_end|>\n<|im_start|>user\nBoard (rows top to bottom):\n2 0 0 0\n0 4 16 8\n0 32 8 2\n2 16 4 8\nLegal moves: UP, DOWN, LEFT, RIGHT<|im_end|>\n<|im_start|>assistant\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|>\n",
+    "prompt_tokens": 325,
+    "target_tokens": 20,
+    "target_text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|>\n",
+    "prompt_labels": "-100 (ignored)",
+    "target_labels": [
+      151657,
+      198,
+      4913,
+      606,
+      788,
+      330,
+      3397,
+      497,
+      330,
+      16370,
+      788,
+      5212,
+      19071,
+      788,
+      330,
+      3124,
+      95642,
+      151658,
+      151645,
+      198
+    ]
+  }
+}

@@ -13,6 +13,8 @@ ACTIONS = ("UP", "DOWN", "LEFT", "RIGHT")  # Also the upstream solver's integer 
 def board(values: Iterable[int] | Iterable[Iterable[int]]) -> Board:
     items = list(values)
     if len(items) == 4 and all(isinstance(row, (list, tuple)) for row in items):
+        if any(len(row) != 4 for row in items):
+            raise ValueError("A board must have four rows of four cells")
         items = [value for row in items for value in row]
     if len(items) != 16:
         raise ValueError("A board must have exactly 16 cells")

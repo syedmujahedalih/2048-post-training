@@ -1,0 +1,19 @@
+{
+  "source": "data/demonstrations",
+  "format": "conversational prompt/completion with tools",
+  "completion_only_loss": true,
+  "splits": {
+    "train": {
+      "examples": 8000,
+      "sha256": "2bc76ab7c7c7bb734f6affa5d9dc418c444e97be29e69d6639777b5aa46e6403"
+    },
+    "validation": {
+      "examples": 1000,
+      "sha256": "de15be18610915889b3d2cd1bf2428862ab66fdb51748927728e08590c846271"
+    },
+    "test": {
+      "examples": 1000,
+      "sha256": "031c13de4c4295e248dd4b78c8097c47a057972e12c8507acaa9a337d885f1ce"
+    }
+  }
+}

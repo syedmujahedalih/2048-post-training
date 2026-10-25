@@ -1,0 +1,77 @@
+{
+  "splits": {
+    "train": {
+      "examples": 800,
+      "games": 8,
+      "actions": {
+        "UP": 133,
+        "LEFT": 184,
+        "DOWN": 265,
+        "RIGHT": 218
+      },
+      "stages": {
+        "early": 371,
+        "middle": 297,
+        "late": 132
+      },
+      "behavior_policies": {
+        "random": 200,
+        "priority": 200,
+        "teacher": 400
+      },
+      "sha256": "16fe990e0e1dbc9e74b403975463a332cf9d8470deaaf7aac68e85f8c0b2e84a"
+    },
+    "validation": {
+      "examples": 100,
+      "games": 1,
+      "actions": {
+        "LEFT": 34,
+        "RIGHT": 30,
+        "UP": 25,
+        "DOWN": 11
+      },
+      "stages": {
+        "early": 71,
+        "middle": 29
+      },
+      "behavior_policies": {
+        "random": 100
+      },
+      "sha256": "3051a359288f90fa87553bac3d5b4387e615697347a55333f83e77f3211a1500"
+    },
+    "test": {
+      "examples": 100,
+      "games": 1,
+      "actions": {
+        "LEFT": 24,
+        "RIGHT": 32,
+        "UP": 28,
+        "DOWN": 16
+      },
+      "stages": {
+        "early": 72,
+        "middle": 28
+      },
+      "behavior_policies": {
+        "random": 100
+      },
+      "sha256": "0cbd01b9c0933b831a17084a481e51c6da2bc0302070fd1ac553e524e7456b7b"
+    }
+  },
+  "board_leakage": 0,
+  "game_leakage": 0,
+  "symmetry_leakage": 0,
+  "requested_sizes": [
+    800,
+    100,
+    100
+  ],
+  "depth": 2,
+  "seed": 1000,
+  "per_game": 100,
+  "max_steps": 3000,
+  "elapsed_seconds": 0.9850979167968035,
+  "teacher_revision": "41e298f4571a9505e421e3a19af7a1cb372a368c",
+  "generator_sha256": "ac900d9298275bd6d410b1fcfb020075895a8194592ee71a7e26639ebaf910b3",
+  "complete": true
+}

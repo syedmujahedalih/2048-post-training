@@ -1,0 +1,10 @@
+{"game_id": "train-1000", "seed": 1000, "policy": "random", "score": 1008, "max_tile": 128, "moves": 106, "terminated": true}
+{"game_id": "train-1001", "seed": 1001, "policy": "priority", "score": 2892, "max_tile": 256, "moves": 254, "terminated": true}
+{"game_id": "train-1002", "seed": 1002, "policy": "teacher", "score": 39248, "max_tile": 2048, "moves": 1972, "terminated": true}
+{"game_id": "train-1003", "seed": 1003, "policy": "teacher", "score": 67040, "max_tile": 4096, "moves": 3000, "terminated": false}
+{"game_id": "train-1004", "seed": 1004, "policy": "teacher", "score": 64888, "max_tile": 4096, "moves": 3000, "terminated": false}
+{"game_id": "train-1005", "seed": 1005, "policy": "random", "score": 1628, "max_tile": 128, "moves": 161, "terminated": true}
+{"game_id": "train-1006", "seed": 1006, "policy": "priority", "score": 1812, "max_tile": 128, "moves": 187, "terminated": true}
+{"game_id": "train-1007", "seed": 1007, "policy": "teacher", "score": 37060, "max_tile": 2048, "moves": 1931, "terminated": true}
+{"game_id": "validation-101000", "seed": 101000, "policy": "random", "score": 1228, "max_tile": 128, "moves": 129, "terminated": true}
+{"game_id": "test-201000", "seed": 201000, "policy": "random", "score": 1088, "max_tile": 128, "moves": 120, "terminated": true}

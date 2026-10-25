@@ -85,3 +85,8 @@ def test_move_conserves_mass_for_random_boards():
 def test_reject_bad_boards(cells):
     with pytest.raises(ValueError):
         board(cells)
+
+
+def test_reject_ragged_board():
+    with pytest.raises(ValueError, match="four rows"):
+        board([[2, 2, 2], [2, 2, 2, 2, 2], [0] * 4, [0] * 4])
