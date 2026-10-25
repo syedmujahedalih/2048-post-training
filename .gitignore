@@ -1,0 +1,17 @@
+.venv*/
+.cache/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*.so
+*.dylib
+*.egg-info/
+dist/
+build/
+.DS_Store
+.env
+.env.*
+checkpoints/
+models/
+logs/
