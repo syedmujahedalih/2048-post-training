@@ -3,8 +3,8 @@
 ## Repository initialized
 
 - Created a separate local and private GitHub repository.
-- Copied the agreed weekend plan; the README's seven-step numbering is the
-  execution sequence (the original plan groups some of these activities).
+- Copied the agreed weekend plan and aligned its seven-step numbering with
+  the README's execution sequence.
 - Local machine: Apple M4 Mac mini, 24 GB unified memory, macOS 26.6.2.
 - No cloud instances or training runs have been started.
 

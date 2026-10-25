@@ -1,7 +1,8 @@
 # Weekend project: post-training a language model to play 2048
 
-Status: plan only. The simulator, datasets, training code, and model benchmarks
-have not been built or run. No cloud resources have been provisioned.
+Status: local steps 1–3 are complete. See `PROGRESS.md`, `DATASET.md`, and
+`DECIDER_REPORT.md` for measured results. Steps 4–7 remain planned; no student
+training or cloud provisioning has taken place.
 
 ## Questions
 
@@ -54,7 +55,7 @@ report this context difference and inspect it as a possible source of regression
 
 Checkpoint: replaying a seed and action list reproduces the same state and score.
 
-## 2. Generate demonstrations and benchmark Decider — approximately 2 hours
+## 2. Generate demonstrations — approximately 2 hours
 
 - Integrate the open expectimax solver as the SFT teacher. Bound its search
   effort and record the solver revision and settings.
@@ -67,6 +68,12 @@ Checkpoint: replaying a seed and action list reproduces the same state and score
   board duplicates across splits. Reserve separate seeds for full-game testing.
 - Audit 20 examples by hand. Check that target moves are legal and formatting
   round-trips through the tokenizer and move parser.
+
+Checkpoint: versioned data manifest, leakage checks, example inspection, and a
+verified tokenizer boundary exist before a longer GPU run.
+
+## 3. Benchmark Decider locally — approximately 1 hour
+
 - Run Decider locally on held-out validation boards and a small gameplay pilot.
   Compare legality, agreement with the solver, score, and latency with baselines.
   Agreement with the solver is diagnostic, not the definition of game skill.
@@ -74,10 +81,10 @@ Checkpoint: replaying a seed and action list reproduces the same state and score
   signal. Record a weak or negative pilot rather than treating Decider as an
   established 2048 expert. Do not use its confidence as a reward.
 
-Checkpoint: versioned data manifest, leakage checks, example inspection, and a
-Decider pilot report exist before a longer GPU run.
+Checkpoint: a Decider pilot report establishes whether the adviser experiment
+has enough support to prioritize. The completed pilot did not establish this.
 
-## 3. Train the SFT checkpoint — approximately 2 focused hours
+## 4. Train the SFT checkpoint — approximately 2 focused hours
 
 - Record the untouched Instruct model's baseline before changing its weights.
 - Run a small GPU smoke test and measure memory, speed, and estimated cost.
@@ -92,7 +99,7 @@ Checkpoint: the checkpoint produces executable move calls and is evaluated on
 held-out boards and a small set of games. A working pipeline is required;
 improvement over the starting model is a result to measure, not assume.
 
-## 4. Connect online GRPO — approximately 2–3 hours
+## 5. Connect online GRPO — approximately 2–3 hours
 
 - Wrap the simulator as a stateful environment for TRL. Each episode begins
   from a saved training board, with freshly sampled student actions.
@@ -118,7 +125,7 @@ improvement over the starting model is a result to measure, not assume.
 Checkpoint: actual sampled gameplay produces real policy updates. Completion of
 this integration is not evidence that GRPO improves the model.
 
-## 5. Compare frozen Decider advice — conditional, approximately 2 hours
+## 6. Compare frozen Decider advice — conditional, approximately 2 hours
 
 - Branch both RL arms from the identical SFT checkpoint: A gets no advice; B
   gets the frozen Decider's suggested direction in each observation.
@@ -136,7 +143,7 @@ this integration is not evidence that GRPO improves the model.
 Checkpoint: a comparison measures a clearly defined intervention. One training
 seed per arm is an exploratory result; repeat with another seed if budget allows.
 
-## 6. Evaluate and explain — approximately 2 hours
+## 7. Evaluate and explain — approximately 2 hours
 
 - Begin with 10 validation games per checkpoint for debugging. Use a separate
   fixed list of 30 test seeds for the final report, with a 3,000-decision cap per
@@ -184,10 +191,12 @@ beta. No rented DPO run is part of this plan.
 - Proposed compute allocation: 20% baseline/SFT, 40% core RL, 20% evaluation,
   20% adviser pilot or a justified rerun. Preserve the evaluation allocation.
 
-## Immediate next implementation
+## Immediate next implementation after local preparation
 
-Build the seeded simulator, deterministic correctness checks, replay entry point,
-and baseline agents. Then generate the pilot dataset. This work can begin locally.
+Review the completed local artifacts and `GPU_HANDOFF.md`. Implement and verify
+the SFT trainer setup on the user's rented GPU, beginning with the untouched
+student baseline and a 20-example overfit check. The local phase has stopped
+before this work and before any rented resource is provisioned.
 
 ## Sources
 
