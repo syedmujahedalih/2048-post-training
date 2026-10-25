@@ -1,8 +1,9 @@
 # Weekend project: post-training a language model to play 2048
 
 Status: local steps 1–3 are complete. See `PROGRESS.md`, `DATASET.md`, and
-`DECIDER_REPORT.md` for measured results. Steps 4–7 remain planned; no student
-training or cloud provisioning has taken place.
+`DECIDER_REPORT.md` for measured results. One-update MPS compatibility probes
+also pass; see `MPS_TRL_CHECK.md`. The full steps 4–7 remain planned, and no
+cloud instance has been provisioned.
 
 ## Questions
 

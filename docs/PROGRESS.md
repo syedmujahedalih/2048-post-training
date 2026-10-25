@@ -59,3 +59,16 @@
   and caption boundaries match the 8,757-frame timeline.
 - The preview is local. Source and transcript are versioned; generated system
   speech and review renders stay local. No student training or paid compute.
+
+## MPS / TRL compatibility checkpoint — 2026-10-25
+
+- Isolated `.venv-trl-mps` uses managed CPython 3.11.15, TRL 1.16.0, Torch
+  2.14.1, Transformers 5.20.2, PEFT 0.21.2, Accelerate 1.15.0, Datasets 5.1.0.
+- SFT and GRPO pass on a tiny Qwen2 and on the real Qwen2.5-1.5B-Instruct,
+  with unsupported MPS operator fallback disabled.
+- Checked nonzero finite MPS gradients, changed LoRA weights, and exact saved
+  adapter tensor reload. SFT checks the audited 20-token move-call loss boundary.
+- Each probe performs one update. GRPO uses four short text generations and a
+  synthetic token reward; it does not play the stateful 2048 environment.
+- Adapters are temporary and removed after checking. No production checkpoint,
+  20-example overfit result, or improved gameplay is claimed. No paid compute.

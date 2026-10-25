@@ -1,7 +1,9 @@
 # Morning review and GPU session
 
-Local preparation is separate from GPU training. No student SFT or RL run has
-been performed, and no rented instance has been provisioned.
+Full student training remains pending; no rented instance has been provisioned.
+The [local MPS checks](MPS_TRL_CHECK.md) now verify one SFT update and one
+synthetic-reward GRPO update with the actual student. These do not replace the
+20-example overfit check, full SFT, or the stateful 2048 RL integration below.
 
 ## Review these first
 
@@ -15,8 +17,9 @@ The test seeds 800000–800029 are reserved for the later student evaluation.
 
 ## Step 4: supervised fine-tuning
 
-- Clone this private repository to a single rented Linux GPU instance with
-  24 GB VRAM. Set up the CUDA training environment separately from macOS/MLX.
+- The public repository can be used on a single rented Linux GPU instance with
+  24 GB VRAM. Alternatively, continue small experiments locally through MPS
+  after measuring memory and throughput. CUDA setup is separate from macOS.
 - Pin tested versions of PyTorch, Transformers, PEFT, TRL, and Datasets on that
   machine. The local Decider dependency snapshot is for inference on macOS;
   it is not a tested CUDA SFT/GRPO lockfile.
@@ -35,8 +38,8 @@ The test seeds 800000–800029 are reserved for the later student evaluation.
   accumulation. Measure memory before increasing batch size.
 - Save/reload the adapter and evaluate on validation boards and validation games.
 
-Training scripts are deliberately not claimed to be tested or ready yet. The
-next coding work is the actual trainer setup and its first-batch checks.
+The bounded compatibility script is tested; the complete training runner and
+stateful game integration are still to implement and verify.
 
 ## Step 5: online GRPO
 

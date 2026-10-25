@@ -51,7 +51,9 @@ Read the full [transcript](TRANSCRIPT.md) or edit the original [script](narratio
   A reference-policy KL term is optional and distinct from the rollout policy.
 - Four trajectories, 16 attempts, the reward formula, and the 10-update inspection
   are the proposed experiment in [the project plan](../docs/PLAN.md). Neither SFT
-  nor online RL has run yet. No learning curves or improvement claims are shown.
+  nor online RL had run when the video was authored. Subsequent one-update MPS
+  compatibility checks are documented in [the local report](../docs/MPS_TRL_CHECK.md).
+  No learning curves or improvement claims are shown.
 
 ## Regenerate and verify
 

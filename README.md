@@ -16,8 +16,10 @@ whether it gives useful 2048 advice.
 6. Compare adviser-assisted RL if the local pilot supports it.
 7. Evaluate full games and write up the findings.
 
-**Local steps 1–3 are complete.** Steps 4–7 are reserved for review and the later
-GPU session. No student model has been trained and no rented compute was used.
+**Local steps 1–3 are complete.** One-update SFT and synthetic-reward GRPO
+compatibility checks also pass on the Mac's MPS GPU, including the actual 1.5B
+Qwen student. Full SFT and game-environment RL remain to do; no rented compute
+was used. See the [MPS check and its limits](docs/MPS_TRL_CHECK.md).
 
 Before the GPU session, watch the narrated [GRPO and online RL explainer](grpo-explainer/README.md)
 or read its [transcript](grpo-explainer/TRANSCRIPT.md). It uses 2048 to explain

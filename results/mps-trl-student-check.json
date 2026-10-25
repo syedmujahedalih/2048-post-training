@@ -1,0 +1,72 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.15",
+  "versions": {
+    "torch": "2.14.1",
+    "transformers": "5.20.2",
+    "trl": "1.16.0",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "datasets": "5.1.0"
+  },
+  "cpu_operator_fallback": false,
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "stages": {
+    "sft": {
+      "status": "passed",
+      "device": "mps",
+      "training_seconds": 1.2190246251411736,
+      "training_loss": 0.34095534682273865,
+      "max_adapter_weight_change": 0.0009999999310821295,
+      "gradients": [
+        {
+          "devices": [
+            "mps:0"
+          ],
+          "finite": true,
+          "nonzero_tensors": 56
+        }
+      ],
+      "sft_loss_mask": {
+        "ignored_tokens": 324,
+        "target_tokens": 20
+      },
+      "synthetic_grpo_rewards": [],
+      "adapter_roundtrip_exact": true,
+      "model_parameter_count": 1544259072,
+      "trainable_parameter_count": 544768,
+      "mps_driver_allocated_bytes": 5607473152
+    },
+    "grpo": {
+      "status": "passed",
+      "device": "mps",
+      "training_seconds": 5.530607416760176,
+      "training_loss": 1.1920928955078125e-07,
+      "max_adapter_weight_change": 0.0009999996982514858,
+      "gradients": [
+        {
+          "devices": [
+            "mps:0"
+          ],
+          "finite": true,
+          "nonzero_tensors": 56
+        }
+      ],
+      "sft_loss_mask": null,
+      "synthetic_grpo_rewards": [
+        [
+          0.16666666666666666,
+          0.3333333333333333,
+          0.3333333333333333,
+          0.5833333333333334
+        ]
+      ],
+      "adapter_roundtrip_exact": true,
+      "model_parameter_count": 1544259072,
+      "trainable_parameter_count": 544768,
+      "mps_driver_allocated_bytes": 12058411008
+    }
+  },
+  "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "student_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+}
