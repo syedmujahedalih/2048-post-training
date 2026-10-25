@@ -47,3 +47,15 @@
 - Local steps 1–3 are complete. See `GPU_HANDOFF.md` for steps 4–7.
 - No paid cloud resources, student inference baseline, SFT, or RL run was started.
 - This separate repository leaves the existing inference-engineering work intact.
+
+## GRPO explainer
+
+- Built a 4:52 narrated Remotion composition with 11 replayable chapters.
+- Original teaching script, Mac Samantha narration, and measured phrase captions.
+- Valid simulator rollouts, a worked mean/subtraction/normalization example,
+  clipping and optional KL, credit assignment, and the proposed TRL experiment.
+- Rendered and visually reviewed all chapters; corrected card overflow and
+  early-terminal rollout handling. TypeScript/ESLint pass; narration lengths
+  and caption boundaries match the 8,757-frame timeline.
+- The preview is local. Source and transcript are versioned; generated system
+  speech and review renders stay local. No student training or paid compute.

@@ -19,6 +19,10 @@ whether it gives useful 2048 advice.
 **Local steps 1–3 are complete.** Steps 4–7 are reserved for review and the later
 GPU session. No student model has been trained and no rented compute was used.
 
+Before the GPU session, watch the narrated [GRPO and online RL explainer](grpo-explainer/README.md)
+or read its [transcript](grpo-explainer/TRANSCRIPT.md). It uses 2048 to explain
+rollouts, group-relative advantages, policy updates, clipping, and evaluation.
+
 ## Results to review
 
 - **10,000 demonstrations:** 8,000 training / 1,000 validation / 1,000 test.
