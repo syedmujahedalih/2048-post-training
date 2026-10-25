@@ -1,0 +1,35 @@
+{
+  "mode": "directions",
+  "health": {
+    "status": "ok",
+    "model": "strands-decider-2B-qwen3.5-v1-2610",
+    "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+    "base_model": "Qwen/Qwen3.5-2B-Base",
+    "num_slots": 24,
+    "max_length": 4096,
+    "temperature": 1.0545210242263665,
+    "device": "mlx",
+    "prefix_cache": true,
+    "vision": false
+  },
+  "teacher_depth": 2,
+  "hardware": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "chip": "Apple M4",
+    "unified_memory_gb": 24
+  },
+  "position_count": 128,
+  "diagnostic_legal_mask": false,
+  "gameplay_legal_mask": true,
+  "max_steps": 3000,
+  "game_seed_start": 700000,
+  "positions": {
+    "legal_rate": 1,
+    "teacher_agreement": 0.3046875,
+    "first_request_ms": 552.9895001091063,
+    "warm_median_ms": 270.3479160554707,
+    "warm_p95_ms": 276.1691673658788,
+    "teacher_relative_regret_mean": 0.023579217792592592
+  }
+}

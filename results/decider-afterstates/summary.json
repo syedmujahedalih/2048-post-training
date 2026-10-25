@@ -1,0 +1,172 @@
+{
+  "mode": "afterstates",
+  "health": {
+    "status": "ok",
+    "model": "strands-decider-2B-qwen3.5-v1-2610",
+    "checkpoint": "StrandsAgents/strands-decider-2B-qwen3.5-v1-2610",
+    "base_model": "Qwen/Qwen3.5-2B-Base",
+    "num_slots": 24,
+    "max_length": 4096,
+    "temperature": 1.0545210242263665,
+    "device": "mlx",
+    "prefix_cache": true,
+    "vision": false
+  },
+  "teacher_depth": 2,
+  "hardware": {
+    "machine": "arm64",
+    "system": "Darwin",
+    "chip": "Apple M4",
+    "unified_memory_gb": 24
+  },
+  "position_count": 128,
+  "diagnostic_legal_mask": false,
+  "gameplay_legal_mask": true,
+  "max_steps": 3000,
+  "game_seed_start": 700000,
+  "positions": {
+    "legal_rate": 1,
+    "teacher_agreement": 0.3515625,
+    "first_request_ms": 1397.1630418673158,
+    "warm_median_ms": 485.8257081359625,
+    "warm_p95_ms": 536.1913330852985,
+    "teacher_relative_regret_mean": 0.03554153109857879
+  },
+  "gameplay": {
+    "random": {
+      "games": 6,
+      "mean_score": 1020,
+      "median_score": 898.0,
+      "scores": [
+        568,
+        1704,
+        1068,
+        728,
+        592,
+        1460
+      ],
+      "max_tiles": [
+        64,
+        128,
+        128,
+        64,
+        64,
+        128
+      ],
+      "reached_2048": 0,
+      "invalid_attempts": 0,
+      "truncated": 0
+    },
+    "priority": {
+      "games": 6,
+      "mean_score": 1486.6666666666667,
+      "median_score": 1414.0,
+      "scores": [
+        1600,
+        1088,
+        1224,
+        1636,
+        2144,
+        1228
+      ],
+      "max_tiles": [
+        128,
+        128,
+        128,
+        128,
+        128,
+        64
+      ],
+      "reached_2048": 0,
+      "invalid_attempts": 0,
+      "truncated": 0
+    },
+    "greedy": {
+      "games": 6,
+      "mean_score": 1985.3333333333333,
+      "median_score": 1760.0,
+      "scores": [
+        768,
+        1380,
+        1520,
+        2000,
+        2904,
+        3340
+      ],
+      "max_tiles": [
+        64,
+        64,
+        128,
+        128,
+        256,
+        256
+      ],
+      "reached_2048": 0,
+      "invalid_attempts": 0,
+      "truncated": 0
+    },
+    "teacher": {
+      "games": 6,
+      "mean_score": 52158,
+      "median_score": 51848.0,
+      "scores": [
+        67048,
+        36992,
+        61480,
+        66876,
+        42216,
+        38336
+      ],
+      "max_tiles": [
+        4096,
+        2048,
+        4096,
+        4096,
+        2048,
+        2048
+      ],
+      "reached_2048": 6,
+      "invalid_attempts": 0,
+      "truncated": 2
+    },
+    "decider": {
+      "games": 6,
+      "mean_score": 1591.3333333333333,
+      "median_score": 1580.0,
+      "scores": [
+        1880,
+        2332,
+        1280,
+        564,
+        1092,
+        2400
+      ],
+      "max_tiles": [
+        128,
+        256,
+        128,
+        64,
+        128,
+        256
+      ],
+      "reached_2048": 0,
+      "invalid_attempts": 0,
+      "truncated": 0
+    }
+  },
+  "paired_score_differences_decider_minus_priority": [
+    280,
+    1244,
+    56,
+    -1072,
+    -1052,
+    1172
+  ],
+  "notes": [
+    "Exploratory local inference benchmark, not an RL training result.",
+    "Position diagnostics supply all four actions; gameplay supplies only legal actions to every agent.",
+    "Afterstate mode exposes deterministic slides and immediate score gains, not future random spawns or teacher scores.",
+    "Teacher agreement measures imitation, not long-term optimality.",
+    "Small game count does not establish a statistically reliable adviser benefit."
+  ]
+}

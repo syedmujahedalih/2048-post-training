@@ -16,17 +16,36 @@ whether it gives useful 2048 advice.
 6. Compare adviser-assisted RL if the local pilot supports it.
 7. Evaluate full games and write up the findings.
 
-Steps 1–3 are the current work. Steps 4–7 are reserved for the user's review and
-later GPU session. No rented resources are used for the local work.
+**Local steps 1–3 are complete.** Steps 4–7 are reserved for review and the later
+GPU session. No student model has been trained and no rented compute was used.
 
-See [the project plan](docs/PLAN.md) and [progress](docs/PROGRESS.md).
+## Results to review
+
+- **10,000 demonstrations:** 8,000 training / 1,000 validation / 1,000 test.
+- **28 passing tests**, including independent checks against the original game
+  and native solver. The core checks also pass GitHub CI on Linux.
+- **Student tokenizer validated:** all 8,000 training rows render correct move
+  calls with an explicit completion-loss boundary; maximum 361 tokens.
+- **Decider tested locally:** 128 diagnostic positions and six paired-seed games
+  on Apple M4 through MLX. Its mean score was 1,591, versus 1,487 for a direction
+  priority baseline, 1,985 for immediate-score greedy play, and 52,158 for the
+  solver teacher. The small pilot does not establish a useful adviser benefit.
+
+Start with [the morning handoff](docs/GPU_HANDOFF.md),
+[dataset notes](docs/DATASET.md), and [benchmark findings](docs/DECIDER_REPORT.md).
+The original [project plan](docs/PLAN.md) and [progress log](docs/PROGRESS.md)
+provide the full context.
 
 ## Local setup
 
 ```bash
-uv sync
+uv sync --locked
+uv run python scripts/build_teacher.py
 uv run pytest
+uv run posttrain2048 play --agent teacher --seed 42 --output results/my-game.json
+uv run posttrain2048 replay results/my-game.json
 ```
 
 The simulator and data-generation package use Python's standard library.
 Decider runs in a separate environment to isolate its model dependencies.
+See [local reproduction commands](docs/LOCAL_COMMANDS.md).

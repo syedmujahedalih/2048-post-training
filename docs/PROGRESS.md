@@ -27,8 +27,23 @@
   prompt prefixes, legal rendered calls, max 361 tokens, 20 target tokens each.
 - No student weights loaded and no model trained.
 
-## Decider checkpoint in progress
+## Decider checkpoint
 
 - Source and checkpoint versions recorded; native MLX serving works on the M4.
-- 128-board afterstate diagnostic completed; full-game pilot is running.
-- Final findings and the GPU-session handoff will be recorded after gameplay.
+- 128-board afterstate diagnostic completed: 100% legal choices with simulator
+  information provided, 35.2% agreement with the teacher's first choice.
+- Six complete Decider games, compared on the same seed list with random,
+  priority, greedy, and solver policies; every stored game trace replay-verified.
+- Decider mean score 1,591; priority 1,487; greedy 1,985; solver 52,158.
+- The pilot provides no clear evidence to justify extra adviser-assisted RL
+  compute yet. Keep the results as a measured comparison and start GPU work with
+  the unassisted SFT-to-RL path.
+- A directions-only diagnostic checks the simpler input variant separately.
+- Linux GitHub CI passed native compilation, lint/format, all 28 tests, the
+  full dataset audit, and saved-game replay at commit `89f2529`.
+
+## Handoff
+
+- Local steps 1–3 are complete. See `GPU_HANDOFF.md` for steps 4–7.
+- No paid cloud resources, student inference baseline, SFT, or RL run was started.
+- This separate repository leaves the existing inference-engineering work intact.
