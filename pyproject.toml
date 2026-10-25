@@ -6,6 +6,8 @@ build-backend = "hatchling.build"
 name = "posttrain2048"
 version = "0.1.0"
 description = "A reproducible 2048 laboratory for supervised fine-tuning and online RL"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.11"
 dependencies = []
 

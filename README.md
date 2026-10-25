@@ -49,3 +49,9 @@ uv run posttrain2048 replay results/my-game.json
 The simulator and data-generation package use Python's standard library.
 Decider runs in a separate environment to isolate its model dependencies.
 See [local reproduction commands](docs/LOCAL_COMMANDS.md).
+
+## License
+
+This project's original code is licensed under the [MIT License](LICENSE),
+which permits commercial and non-commercial use. Third-party components retain
+their own licenses and copyright notices; see [attributions](docs/THIRD_PARTY.md).
