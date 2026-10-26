@@ -1,4 +1,8 @@
-"""Export the completed adapter into an FP32 Hugging Face master checkpoint, offline."""
+"""Export the completed adapter into an offline FP32 Hugging Face checkpoint.
+
+SFT and GRPO ran on the Mac GPU through MPS in BF16. This separate export
+uses the CPU in FP32 for merging and numerical verification; it does not train.
+"""
 
 import gc
 import hashlib
@@ -39,6 +43,8 @@ def main():
         raise FileExistsError("Refusing to overwrite an existing export or report")
     summary = json.loads((ROOT / "results/local-mps-full-v1/grpo-summary.json").read_text())
     assert summary["completed_steps"] == 100 and summary["reload_predictions_exact"]
+    # This short export runs on CPU; the training runner uses MPS.
+    # FP32 avoids rounding the adapter update into BF16 master weights.
     torch.set_num_threads(4)
     tokenizer = AutoTokenizer.from_pretrained(MODEL, revision=REVISION, local_files_only=True)
     base = AutoModelForCausalLM.from_pretrained(
@@ -75,7 +81,8 @@ def main():
         "adapter_sha256": digest(adapter / "adapter_model.safetensors"),
         "output": str(output.relative_to(ROOT)),
         "dtype": "float32",
-        "device": "cpu",
+        "training_device": "mps",
+        "export_device": str(next(model.parameters()).device),
         "check": "One validation prompt; final-position logits before/after FP32 merge",
         "example_id": validation[0]["id"],
         "max_abs_logit_difference": float(difference.max()),

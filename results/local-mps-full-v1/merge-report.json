@@ -5,7 +5,6 @@
   "adapter_sha256": "f4de1dad92c9eb45705e30b0b6b1bea22a1e2f662bcf94f88128788f107b755c",
   "output": "checkpoints/local-mps-full-v1/merged-fp32",
   "dtype": "float32",
-  "device": "cpu",
   "check": "One validation prompt; final-position logits before/after FP32 merge",
   "example_id": "validation-101000-91",
   "max_abs_logit_difference": 0.00020051002502441406,
@@ -27,5 +26,7 @@
     "model.safetensors.index.json": 27729,
     "tokenizer.json": 11421892,
     "tokenizer_config.json": 693
-  }
+  },
+  "training_device": "mps",
+  "export_device": "cpu"
 }

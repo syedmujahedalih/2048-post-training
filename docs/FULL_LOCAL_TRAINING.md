@@ -70,6 +70,7 @@ checkpoints/local-mps-full-v1/merged-fp32/
 
 It includes sharded weights, tokenizer, chat template and generation config.
 Original adapters are retained; all model weights remain excluded from Git.
+Training used the Mac GPU through MPS; merging and export verification used CPU.
 FP32 export avoids rounding the low-rank update into BF16 weight storage at this
 stage. It does not add precision to the original pretrained weights.
 
