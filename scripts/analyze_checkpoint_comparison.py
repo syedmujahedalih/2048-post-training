@@ -16,6 +16,7 @@ from plot_experiments import BLUE, GOLD, GRID, MUTED, ORANGE, plt, save, style
 
 from posttrain2048.cli import replay
 from posttrain2048.data import read_jsonl
+from posttrain2048.game import ACTIONS
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results/checkpoint-comparison-v1"
@@ -125,6 +126,26 @@ def analyze():
     for policy in POLICIES:
         summary = summaries[policy]
         records = model_records[policy]
+        text_diagnostic = {
+            "bare_direction_replies": 0,
+            "interpretable_positions": 0,
+            "legal_directions": 0,
+            "teacher_matches": 0,
+        }
+        for original, record in zip(source, records, strict=True):
+            action = record["decision"]["direction"] if record["legal"] else None
+            if action is None:
+                content = (record.get("failed_message") or {}).get("content") or ""
+                if content.strip() in ACTIONS:
+                    action = content.strip()
+                    text_diagnostic["bare_direction_replies"] += 1
+            if action is not None:
+                text_diagnostic["interpretable_positions"] += 1
+                legal = action in original["legal_moves"]
+                text_diagnostic["legal_directions"] += int(legal)
+                text_diagnostic["teacher_matches"] += int(
+                    legal and action == original["teacher_move"]
+                )
         models[policy] = {
             "label": LABELS[policy],
             "games": summary["games"][policy],
@@ -145,6 +166,10 @@ def analyze():
             ),
             "checkpoint": manifests[policy]["checkpoint"],
             "run": f"results/served-{policy}-v1",
+            "optional_direction_text_diagnostic": {
+                **text_diagnostic,
+                "limits": "Offline interpretation of exact uppercase direction words (ignoring surrounding whitespace) or primary legal tool calls. Not executed in games; primary metrics are unchanged. Does not evaluate a fallback controller's gameplay.",
+            },
         }
     contrasts = {}
     for after, before in (("sft", "base"), ("grpo", "sft"), ("grpo", "base")):
@@ -338,7 +363,7 @@ def figure(analysis, traces):
     fig.text(
         0.07,
         0.035,
-        "Intervals reflect evaluation seeds/source games, not repeated training. A regression alone does not establish reward hacking.",
+        "Original's zero scores reflect missing tool calls, not raw game strategy. Intervals cover evaluation data, not repeated training.",
         fontsize=9,
         color=MUTED,
     )

@@ -149,5 +149,6 @@ the final BF16 server started. Those two requests should not be treated as a
 controlled model-quality comparison.
 
 The subsequent [served-model evaluation](SERVED_EVALUATION.md) covers all 1,000
-test boards and 30 new game seeds against four baseline players. A matching
-SFT-only comparison is still pending.
+test boards and 30 new game seeds against four baseline players. The
+[matching original/SFT controls](CHECKPOINT_COMPARISON.md) are also complete;
+GRPO serving was restored afterward.

@@ -57,8 +57,9 @@ GRPO repeatedly used 32 early-game training boards with four seeded rollouts per
 group and a 16-attempt horizon. There was one training seed per path. At training
 completion, complete-game and test-split evaluation remained unmeasured. A later
 [served-model benchmark](SERVED_EVALUATION.md) evaluated 1,000 held-out boards and
-30 new game seeds. It does not include a matching SFT/base control, an adviser
-benefit study or a PPO comparison.
+30 new game seeds. A subsequent [matched checkpoint comparison](CHECKPOINT_COMPARISON.md)
+adds original-instruct and SFT controls. An adviser-benefit study and a PPO
+comparison remain unmeasured.
 
 ## Reward exploitation audit
 
@@ -112,9 +113,10 @@ prevents directly comparing training exits with served API failure rates.
 The short horizon also rewards immediate merges without measuring the later
 board's survival. Treat early stopping and short-horizon optimization as reward
 design weaknesses, not demonstrated learned exploitation. Reward hacking does
-not require conscious intent. Compare full SFT and
-post-SFT policies on complete held-out games before another RL run or reward
-change. Keep the current checkpoint and reward definition as the baseline.
+not require conscious intent. The matched serving comparison now covers SFT and
+post-SFT policies on the same held-out games; it finds no reliable GRPO score
+gain. Native multi-turn rollout diagnosis remains important before another RL
+run or reward change. Keep the checkpoints and reward definition as baselines.
 
 ## Merged checkpoint
 

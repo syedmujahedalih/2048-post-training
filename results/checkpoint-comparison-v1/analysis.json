@@ -1,0 +1,631 @@
+{
+  "models": {
+    "base": {
+      "label": "Original instruct",
+      "games": {
+        "games": 30,
+        "mean_score": 0,
+        "median_score": 0.0,
+        "mean_executed_moves": 0,
+        "score_min": 0,
+        "score_max": 0,
+        "highest_tile": 4,
+        "reached_2048": 0,
+        "game_over": 0,
+        "policy_failures": 30,
+        "move_cap": 0,
+        "failure_reasons": {
+          "no_tool_call": 30
+        }
+      },
+      "test_positions": {
+        "all": {
+          "positions": 1000,
+          "source_games": 11,
+          "legal": 51,
+          "teacher_matches": 22,
+          "legal_rate": 0.051,
+          "teacher_match_rate": 0.022,
+          "errors": {
+            "no_tool_call": 949
+          },
+          "latency_p50_seconds": 0.13812762475572526,
+          "latency_p95_seconds": 0.6873637607321144
+        },
+        "early": {
+          "positions": 448,
+          "source_games": 11,
+          "legal": 16,
+          "teacher_matches": 6,
+          "legal_rate": 0.03571428571428571,
+          "teacher_match_rate": 0.013392857142857142,
+          "errors": {
+            "no_tool_call": 432
+          },
+          "latency_p50_seconds": 0.13756127073429525,
+          "latency_p95_seconds": 0.6865754058817402
+        },
+        "middle": {
+          "positions": 354,
+          "source_games": 11,
+          "legal": 28,
+          "teacher_matches": 13,
+          "legal_rate": 0.07909604519774012,
+          "teacher_match_rate": 0.03672316384180791,
+          "errors": {
+            "no_tool_call": 326
+          },
+          "latency_p50_seconds": 0.13824514602310956,
+          "latency_p95_seconds": 0.6876739667495713
+        },
+        "late": {
+          "positions": 198,
+          "source_games": 6,
+          "legal": 7,
+          "teacher_matches": 3,
+          "legal_rate": 0.03535353535353535,
+          "teacher_match_rate": 0.015151515151515152,
+          "errors": {
+            "no_tool_call": 191
+          },
+          "latency_p50_seconds": 0.13910452043637633,
+          "latency_p95_seconds": 0.6870524607598781
+        }
+      },
+      "seen_probe": {
+        "all": {
+          "positions": 32,
+          "source_games": 25,
+          "legal": 2,
+          "teacher_matches": 2,
+          "legal_rate": 0.0625,
+          "teacher_match_rate": 0.0625,
+          "errors": {
+            "no_tool_call": 30
+          },
+          "latency_p50_seconds": 0.12843164545483887,
+          "latency_p95_seconds": 0.6686165019171313
+        },
+        "early": {
+          "positions": 32,
+          "source_games": 25,
+          "legal": 2,
+          "teacher_matches": 2,
+          "legal_rate": 0.0625,
+          "teacher_match_rate": 0.0625,
+          "errors": {
+            "no_tool_call": 30
+          },
+          "latency_p50_seconds": 0.12843164545483887,
+          "latency_p95_seconds": 0.6686165019171313
+        }
+      },
+      "position_latency_seconds": {
+        "p50": 0.13812762475572526,
+        "p95": 0.6873637607321144,
+        "mean": 0.19776274583442136
+      },
+      "game_latency_seconds": {
+        "requests": 30,
+        "p50": 0.13405922916717827,
+        "p95": 0.4195999350631595
+      },
+      "mean_score_95_bootstrap": [
+        0.0,
+        0.0
+      ],
+      "teacher_match_95_source_game_bootstrap": [
+        0.014620608636540636,
+        0.029880478087649404
+      ],
+      "reached_2048_95_wilson": [
+        0,
+        0.11351339317396876
+      ],
+      "mean_position_completion_tokens": 3.877,
+      "position_length_finishes": 0,
+      "checkpoint": "checkpoints/local-mps-full-v1/base-serving-bf16",
+      "run": "results/served-base-v1",
+      "optional_direction_text_diagnostic": {
+        "bare_direction_replies": 899,
+        "interpretable_positions": 950,
+        "legal_directions": 950,
+        "teacher_matches": 259,
+        "limits": "Offline interpretation of exact uppercase direction words (ignoring surrounding whitespace) or primary legal tool calls. Not executed in games; primary metrics are unchanged. Does not evaluate a fallback controller's gameplay."
+      }
+    },
+    "sft": {
+      "label": "SFT",
+      "games": {
+        "games": 30,
+        "mean_score": 1928.9333333333334,
+        "median_score": 1430.0,
+        "mean_executed_moves": 175.4,
+        "score_min": 336,
+        "score_max": 5764,
+        "highest_tile": 512,
+        "reached_2048": 0,
+        "game_over": 30,
+        "policy_failures": 0,
+        "move_cap": 0,
+        "failure_reasons": {}
+      },
+      "test_positions": {
+        "all": {
+          "positions": 1000,
+          "source_games": 11,
+          "legal": 1000,
+          "teacher_matches": 450,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.45,
+          "errors": {},
+          "latency_p50_seconds": 0.6802184374537319,
+          "latency_p95_seconds": 0.688420649478212
+        },
+        "early": {
+          "positions": 448,
+          "source_games": 11,
+          "legal": 448,
+          "teacher_matches": 196,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.4375,
+          "errors": {},
+          "latency_p50_seconds": 0.6795597914606333,
+          "latency_p95_seconds": 0.6889891392318532
+        },
+        "middle": {
+          "positions": 354,
+          "source_games": 11,
+          "legal": 354,
+          "teacher_matches": 156,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.4406779661016949,
+          "errors": {},
+          "latency_p50_seconds": 0.6804440205451101,
+          "latency_p95_seconds": 0.6876347729004919
+        },
+        "late": {
+          "positions": 198,
+          "source_games": 6,
+          "legal": 198,
+          "teacher_matches": 98,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.494949494949495,
+          "errors": {},
+          "latency_p50_seconds": 0.6811697713565081,
+          "latency_p95_seconds": 0.6935128811979663
+        }
+      },
+      "seen_probe": {
+        "all": {
+          "positions": 32,
+          "source_games": 25,
+          "legal": 32,
+          "teacher_matches": 17,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.53125,
+          "errors": {},
+          "latency_p50_seconds": 0.6849924998823553,
+          "latency_p95_seconds": 0.6924812873592601
+        },
+        "early": {
+          "positions": 32,
+          "source_games": 25,
+          "legal": 32,
+          "teacher_matches": 17,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.53125,
+          "errors": {},
+          "latency_p50_seconds": 0.6849924998823553,
+          "latency_p95_seconds": 0.6924812873592601
+        }
+      },
+      "position_latency_seconds": {
+        "p50": 0.6802184374537319,
+        "p95": 0.688420649478212,
+        "mean": 0.6811083979401737
+      },
+      "game_latency_seconds": {
+        "requests": 5262,
+        "p50": 0.6812366247177124,
+        "p95": 0.6902798019582406
+      },
+      "mean_score_95_bootstrap": [
+        1417.29,
+        2487.7533333333326
+      ],
+      "teacher_match_95_source_game_bootstrap": [
+        0.374749498997996,
+        0.5165865573219256
+      ],
+      "reached_2048_95_wilson": [
+        0,
+        0.11351339317396876
+      ],
+      "mean_position_completion_tokens": 19.0,
+      "position_length_finishes": 0,
+      "checkpoint": "checkpoints/local-mps-full-v1/sft-serving-bf16",
+      "run": "results/served-sft-v1",
+      "optional_direction_text_diagnostic": {
+        "bare_direction_replies": 0,
+        "interpretable_positions": 1000,
+        "legal_directions": 1000,
+        "teacher_matches": 450,
+        "limits": "Offline interpretation of exact uppercase direction words (ignoring surrounding whitespace) or primary legal tool calls. Not executed in games; primary metrics are unchanged. Does not evaluate a fallback controller's gameplay."
+      }
+    },
+    "grpo": {
+      "label": "SFT + GRPO",
+      "games": {
+        "games": 30,
+        "mean_score": 1904.1333333333334,
+        "median_score": 1410.0,
+        "mean_executed_moves": 174.63333333333333,
+        "score_min": 356,
+        "score_max": 6152,
+        "highest_tile": 512,
+        "reached_2048": 0,
+        "game_over": 30,
+        "policy_failures": 0,
+        "move_cap": 0,
+        "failure_reasons": {}
+      },
+      "test_positions": {
+        "all": {
+          "positions": 1000,
+          "source_games": 11,
+          "legal": 1000,
+          "teacher_matches": 445,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.445,
+          "errors": {},
+          "latency_p50_seconds": 0.6792144582141191,
+          "latency_p95_seconds": 0.6868675619829446
+        },
+        "early": {
+          "positions": 448,
+          "source_games": 11,
+          "legal": 448,
+          "teacher_matches": 193,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.43080357142857145,
+          "errors": {},
+          "latency_p50_seconds": 0.6785083955619484,
+          "latency_p95_seconds": 0.6853987586218864
+        },
+        "middle": {
+          "positions": 354,
+          "source_games": 11,
+          "legal": 354,
+          "teacher_matches": 153,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.4322033898305085,
+          "errors": {},
+          "latency_p50_seconds": 0.679267666535452,
+          "latency_p95_seconds": 0.6863927727332338
+        },
+        "late": {
+          "positions": 198,
+          "source_games": 6,
+          "legal": 198,
+          "teacher_matches": 99,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.5,
+          "errors": {},
+          "latency_p50_seconds": 0.6804430834017694,
+          "latency_p95_seconds": 0.693368064635433
+        }
+      },
+      "seen_probe": {
+        "all": {
+          "positions": 32,
+          "source_games": 25,
+          "legal": 32,
+          "teacher_matches": 17,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.53125,
+          "errors": {},
+          "latency_p50_seconds": 0.6810361873358488,
+          "latency_p95_seconds": 0.6870107997674495
+        },
+        "early": {
+          "positions": 32,
+          "source_games": 25,
+          "legal": 32,
+          "teacher_matches": 17,
+          "legal_rate": 1,
+          "teacher_match_rate": 0.53125,
+          "errors": {},
+          "latency_p50_seconds": 0.6810361873358488,
+          "latency_p95_seconds": 0.6870107997674495
+        }
+      },
+      "position_latency_seconds": {
+        "p50": 0.6792144582141191,
+        "p95": 0.6868675619829446,
+        "mean": 0.6800521626598202
+      },
+      "game_latency_seconds": {
+        "requests": 5239,
+        "p50": 0.6805125419050455,
+        "p95": 0.6881131251808256
+      },
+      "mean_score_95_bootstrap": [
+        1439.4533333333334,
+        2444.1833333333325
+      ],
+      "teacher_match_95_source_game_bootstrap": [
+        0.3744989258457728,
+        0.5076758603238867
+      ],
+      "reached_2048_95_wilson": [
+        0,
+        0.11351339317396876
+      ],
+      "mean_position_completion_tokens": 19.0,
+      "position_length_finishes": 0,
+      "checkpoint": "checkpoints/local-mps-full-v1/serving-bf16",
+      "run": "results/served-grpo-v1",
+      "optional_direction_text_diagnostic": {
+        "bare_direction_replies": 0,
+        "interpretable_positions": 1000,
+        "legal_directions": 1000,
+        "teacher_matches": 445,
+        "limits": "Offline interpretation of exact uppercase direction words (ignoring surrounding whitespace) or primary legal tool calls. Not executed in games; primary metrics are unchanged. Does not evaluate a fallback controller's gameplay."
+      }
+    }
+  },
+  "contrasts": {
+    "sft_minus_base": {
+      "before": "base",
+      "after": "sft",
+      "mean_score_difference": 1928.9333333333334,
+      "mean_score_difference_95_paired_bootstrap": [
+        1417.29,
+        2487.7533333333326
+      ],
+      "seeds_with_higher_score": 30,
+      "seeds_tied_score": 0,
+      "seeds_with_lower_score": 0,
+      "teacher_match_rate_difference": 0.428,
+      "positions_with_different_directions": 974,
+      "teacher_match_gains": 436,
+      "teacher_match_losses": 8,
+      "teacher_match_rate_difference_95_source_game_bootstrap": [
+        0.34953507003024825,
+        0.49631206979137094
+      ]
+    },
+    "grpo_minus_sft": {
+      "before": "sft",
+      "after": "grpo",
+      "mean_score_difference": -24.8,
+      "mean_score_difference_95_paired_bootstrap": [
+        -731.08,
+        646.9399999999998
+      ],
+      "seeds_with_higher_score": 19,
+      "seeds_tied_score": 0,
+      "seeds_with_lower_score": 11,
+      "teacher_match_rate_difference": -0.005,
+      "positions_with_different_directions": 83,
+      "teacher_match_gains": 26,
+      "teacher_match_losses": 31,
+      "teacher_match_rate_difference_95_source_game_bootstrap": [
+        -0.021217712177121772,
+        0.009259688723974431
+      ]
+    },
+    "grpo_minus_base": {
+      "before": "base",
+      "after": "grpo",
+      "mean_score_difference": 1904.1333333333334,
+      "mean_score_difference_95_paired_bootstrap": [
+        1439.4533333333334,
+        2444.1833333333325
+      ],
+      "seeds_with_higher_score": 30,
+      "seeds_tied_score": 0,
+      "seeds_with_lower_score": 0,
+      "teacher_match_rate_difference": 0.423,
+      "positions_with_different_directions": 975,
+      "teacher_match_gains": 432,
+      "teacher_match_losses": 9,
+      "teacher_match_rate_difference_95_source_game_bootstrap": [
+        0.3473557692307692,
+        0.48842009411921566
+      ]
+    }
+  },
+  "reference_run": "results/served-grpo-v1",
+  "baseline_games": {
+    "grpo": {
+      "games": 30,
+      "mean_score": 1904.1333333333334,
+      "median_score": 1410.0,
+      "mean_executed_moves": 174.63333333333333,
+      "score_min": 356,
+      "score_max": 6152,
+      "highest_tile": 512,
+      "reached_2048": 0,
+      "game_over": 30,
+      "policy_failures": 0,
+      "move_cap": 0,
+      "failure_reasons": {}
+    },
+    "random": {
+      "games": 30,
+      "mean_score": 1160.1333333333334,
+      "median_score": 1196.0,
+      "mean_executed_moves": 123.8,
+      "score_min": 408,
+      "score_max": 2564,
+      "highest_tile": 256,
+      "reached_2048": 0,
+      "game_over": 30,
+      "policy_failures": 0,
+      "move_cap": 0,
+      "failure_reasons": {}
+    },
+    "priority": {
+      "games": 30,
+      "mean_score": 2581.4666666666667,
+      "median_score": 2662.0,
+      "mean_executed_moves": 228.4,
+      "score_min": 444,
+      "score_max": 6364,
+      "highest_tile": 512,
+      "reached_2048": 0,
+      "game_over": 30,
+      "policy_failures": 0,
+      "move_cap": 0,
+      "failure_reasons": {}
+    },
+    "greedy": {
+      "games": 30,
+      "mean_score": 3633.6,
+      "median_score": 3084.0,
+      "mean_executed_moves": 291.8,
+      "score_min": 1172,
+      "score_max": 13532,
+      "highest_tile": 1024,
+      "reached_2048": 0,
+      "game_over": 30,
+      "policy_failures": 0,
+      "move_cap": 0,
+      "failure_reasons": {}
+    },
+    "teacher": {
+      "games": 30,
+      "mean_score": 50315.333333333336,
+      "median_score": 58548.0,
+      "mean_executed_moves": 2361.8333333333335,
+      "score_min": 11588,
+      "score_max": 67300,
+      "highest_tile": 4096,
+      "reached_2048": 26,
+      "game_over": 19,
+      "policy_failures": 0,
+      "move_cap": 11,
+      "failure_reasons": {}
+    }
+  },
+  "baseline_score_intervals": {
+    "grpo": {
+      "mean_score_95_bootstrap": [
+        1439.4533333333334,
+        2444.1833333333325
+      ],
+      "reached_2048_95_wilson": [
+        0,
+        0.11351339317396876
+      ]
+    },
+    "random": {
+      "mean_score_95_bootstrap": [
+        970.53,
+        1370.0033333333333
+      ],
+      "reached_2048_95_wilson": [
+        0,
+        0.11351339317396876
+      ],
+      "grpo_minus_baseline_mean_score": 744.0,
+      "grpo_minus_baseline_95_paired_bootstrap": [
+        217.97000000000003,
+        1339.6333333333328
+      ]
+    },
+    "priority": {
+      "mean_score_95_bootstrap": [
+        2134.5266666666666,
+        3060.5466666666666
+      ],
+      "reached_2048_95_wilson": [
+        0,
+        0.11351339317396876
+      ],
+      "grpo_minus_baseline_mean_score": -677.3333333333334,
+      "grpo_minus_baseline_95_paired_bootstrap": [
+        -1176.5366666666666,
+        -224.66666666666666
+      ]
+    },
+    "greedy": {
+      "mean_score_95_bootstrap": [
+        2858.2533333333336,
+        4618.5633333333335
+      ],
+      "reached_2048_95_wilson": [
+        0,
+        0.11351339317396876
+      ],
+      "grpo_minus_baseline_mean_score": -1729.4666666666667,
+      "grpo_minus_baseline_95_paired_bootstrap": [
+        -2866.8500000000004,
+        -759.7233333333335
+      ]
+    },
+    "teacher": {
+      "mean_score_95_bootstrap": [
+        43458.83,
+        56279.64333333333
+      ],
+      "reached_2048_95_wilson": [
+        0.703186733179637,
+        0.9469034451594526
+      ],
+      "grpo_minus_baseline_mean_score": -48411.2,
+      "grpo_minus_baseline_95_paired_bootstrap": [
+        -54331.24,
+        -41700.67666666667
+      ]
+    }
+  },
+  "checks": {
+    "matched_test_positions_per_checkpoint": 1000,
+    "matched_game_seeds": [
+      800000,
+      800001,
+      800002,
+      800003,
+      800004,
+      800005,
+      800006,
+      800007,
+      800008,
+      800009,
+      800010,
+      800011,
+      800012,
+      800013,
+      800014,
+      800015,
+      800016,
+      800017,
+      800018,
+      800019,
+      800020,
+      800021,
+      800022,
+      800023,
+      800024,
+      800025,
+      800026,
+      800027,
+      800028,
+      800029
+    ],
+    "all_protocol_and_tokenizer_checks_passed": true,
+    "game_traces_replayed": 210,
+    "game_attempts_replayed": 100676
+  },
+  "uncertainty_method": "10,000 shared bootstrap resamples: 30 paired game seeds for scores; 11 paired source-game clusters for teacher agreement. Conditional on one training seed and these exported checkpoints.",
+  "limits": [
+    "Original means the pinned vendor instruct model before our SFT, not a raw pretrained model.",
+    "Scores include policy failures and move caps; neither is natural game over.",
+    "Differences measure this model-plus-parser agent; automatic Hermes parsing is shared.",
+    "The fixed test set is reused for checkpoint comparison without tuning any checkpoint or decoding.",
+    "A performance regression does not by itself establish reward hacking."
+  ]
+}

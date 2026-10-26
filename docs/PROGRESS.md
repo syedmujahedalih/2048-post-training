@@ -156,3 +156,20 @@
 - Added `SERVED_EVALUATION.md` with protocol and causal limits. Model quality is
   measured for the assembled stateless agent; SFT/base controls remain pending.
 - Runtime addresses, ports, process IDs and complete HTTP records stay local.
+
+## Matched checkpoint controls completed
+
+- Prepared verified, separate BF16 exports for the full SFT checkpoint and the
+  pinned original instruct model; kept all earlier checkpoints unchanged.
+- Evaluated both on the frozen 1,000-board/30-seed protocol, reusing algorithmic
+  baseline traces. Protocol and tokenizer hashes match the completed GRPO run.
+- SFT produced 1,000 legal calls and 450 teacher matches; mean game score 1,929.
+- GRPO's existing results are 1,000 legal calls, 445 matches and mean score 1,904.
+  The paired score difference is −24.8, with 95% interval −731 to +647.
+- Original Qwen produced 51 legal calls; its 30 game trials failed before a move
+  because it returned no tool call. A separate offline text diagnostic preserves
+  the distinction between interface failure and move-choice ability.
+- Replayed 210 traces / 100,676 attempts across the three checkpoints and shared
+  baselines. Added `CHECKPOINT_COMPARISON.md` and a paired-effects figure.
+- Restored GRPO serving after the sequential controls. All runtime endpoints
+  and process records remain ignored and listeners are loopback-only.

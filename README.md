@@ -22,8 +22,8 @@ whether it gives useful 2048 advice.
 
 **Steps 1–5 are complete.** The final adapter is also merged into a local FP32
 Hugging Face checkpoint for serving. The first served-model game evaluation is
-also complete; matching SFT/base comparisons and any useful adviser comparison
-remain unfinished experiments. No rented compute was used.
+also complete, including matching SFT/original controls. A useful adviser
+comparison and further training experiments remain open. No rented compute was used.
 The earlier [MPS check](docs/MPS_TRL_CHECK.md) and
 [first GRPO run](docs/FIRST_LOCAL_GRPO.md) document how the local path started.
 
@@ -31,10 +31,13 @@ Local [vLLM Metal serving](docs/LOCAL_SERVING.md) uses a separate BF16 copy of t
 merged model. The [held-out evaluation](docs/SERVED_EVALUATION.md) measured 1,000
 test boards and 30 new game seeds: 100% legal calls, 44.5% teacher agreement,
 and mean game score 1,904. The model beat random play but lost to fixed priority
-and greedy baselines. SFT-versus-GRPO comparisons remain unmeasured.
+and greedy baselines.
 
-The [matched original/SFT/GRPO comparison](docs/CHECKPOINT_COMPARISON.md) is now
-running with the same held-out boards, seeds and serving protocol.
+The [matched original/SFT/GRPO comparison](docs/CHECKPOINT_COMPARISON.md) is complete.
+SFT averaged 1,929 points versus GRPO's 1,904, with no reliable GRPO gain on the
+30 shared seeds. Original Qwen often replied with bare direction words and
+failed the required tool-call interface; that result does not measure its
+strategy with a fallback controller.
 
 ![Both complete GRPO runs](docs/figures/local-grpo-comparison.png)
 

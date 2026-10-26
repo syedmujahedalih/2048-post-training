@@ -81,8 +81,9 @@ deployment baseline, not evidence of solver-level performance or a GRPO gain.
 Poor scores alone do not establish reward hacking. No premature stops occurred
 here, and every score came from the simulator. However, the parser, conversation
 history, decoding and output budget differ from training; this run cannot resolve
-what caused the historical 185 exits. A matched SFT-only and original-model
-comparison is still needed before attributing gains or regressions to GRPO.
+what caused the historical 185 exits. The later
+[matched SFT/original controls](CHECKPOINT_COMPARISON.md) address stage effects
+under this deployment protocol and find no reliable additional GRPO score gain.
 
 All 150 model/baseline traces and **95,414 attempted moves** replayed exactly.
 Every test ID and recomputed teacher first-choice label was checked. Saved
@@ -160,8 +161,11 @@ from repeating model training.
 
 ## Interpretation limits
 
-This run evaluates one checkpoint. Without a matching SFT-only evaluation, it
-cannot establish that GRPO caused a benefit, overfitting or reward exploitation.
+This first run evaluated one checkpoint and could not establish that GRPO caused
+a benefit, overfitting or reward exploitation.
+The subsequent [matched checkpoint comparison](CHECKPOINT_COMPARISON.md) now
+provides original-instruct and SFT controls. It finds reliable tool use after SFT
+and no clear additional GRPO score benefit on the shared seeds.
 Teacher agreement measures imitation of a bounded solver, not optimal play.
 The 1,000 positions are correlated within 11 games, not 1,000 independent trials.
 

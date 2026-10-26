@@ -1,0 +1,45 @@
+{
+  "evaluated_policy": "sft",
+  "evaluation_code_commit": "5a4f9db3afd8fe9e9d0787c80e658a51c7533544",
+  "source_sha256": {
+    "scripts/evaluate_served_model.py": "9e51b2e6c3c02fdf36f3e2516003e0c8aea926dec9606f3f62224947ebf5ffb2",
+    "src/posttrain2048/serving_eval.py": "95ec13e0d2231c6181640216d12e7504dca635d83f877fb29533206d5970c9e7",
+    "src/posttrain2048/game.py": "763616ad9545e0f65f0fea3e413809a89b4129a6efa75da6948b72862905b168",
+    "src/posttrain2048/agents.py": "27a90ac064048cc0eef8f3968feeea54bda815293c220122f1a79b288ae0274b",
+    "src/posttrain2048/teacher.py": "196d60e57691f7c26ea1c6445a8524fe4838726c76131fd1995a61f17600e974",
+    "build/lib2048.dylib": "05fa232f6da59514859bbafc7023bb9e974c57af6e189ac97d4452fa3fe64a90"
+  },
+  "evaluator_python": "3.11.8",
+  "hardware": {
+    "chip": "Apple M4",
+    "unified_memory_gb": 24
+  },
+  "serving_configuration": {
+    "checkpoint": "checkpoints/local-mps-full-v1/sft-serving-bf16",
+    "weight_dtype": "bfloat16",
+    "weight_dtype_evidence": "All 338 tensor headers verified BF16 in export manifest; installed plain MLX-LM loader preserves tensor dtypes",
+    "upstream_dtype": "bfloat16",
+    "kv_dtype": "bfloat16",
+    "mlx_device": "gpu",
+    "metal_device": "Apple M4",
+    "max_model_len": 8192,
+    "max_num_seqs": 1,
+    "max_num_batched_tokens": 512,
+    "gpu_memory_utilization": 0.3,
+    "actual_kv_blocks": 1024,
+    "actual_kv_bytes": 469762048,
+    "tool_parser": "hermes",
+    "generation_config": "vllm",
+    "versions": {
+      "vllm": "0.32.0+cpu",
+      "vllm-metal": "0.32.0",
+      "mlx": "0.32.2",
+      "mlx-lm": "0.32.0",
+      "torch": "2.13.0",
+      "transformers": "5.19.0"
+    }
+  },
+  "all_requests": 6294,
+  "checkpoint_export_report": "results/local-mps-full-v1/sft-serving-bf16-export.json",
+  "connection_details": "Retained only in ignored local records"
+}
