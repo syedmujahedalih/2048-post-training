@@ -189,7 +189,9 @@ def main():
     parser.add_argument("--sft-run-name", default="local-mps-pilot")
     parser.add_argument("--max-seconds", type=int, default=0)
     args = parser.parse_args()
-    steps = args.steps or (80 if args.phase == "sft" else 10)
+    steps = args.steps or (
+        math.ceil(args.examples / args.batch_size) if args.phase == "sft" else 100
+    )
     run = ROOT / "results" / args.run_name
     checkpoints = ROOT / "checkpoints" / args.run_name
     sft_adapter = ROOT / "checkpoints" / args.sft_run_name / "sft-adapter"
