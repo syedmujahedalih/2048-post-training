@@ -22,7 +22,7 @@ def request_json(url: str, payload: dict | None = None) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--port", type=int, required=True, help="Port from ignored local config")
     parser.add_argument("--model", default="2048-grpo")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
@@ -61,8 +61,13 @@ def main() -> None:
             parse_error = str(error)
     legal = direction in example["legal_moves"]
     report = {
-        "base_url": base_url,
-        "served_models": models,
+        "endpoint_scope": "loopback; address supplied in local configuration",
+        "served_models": {
+            "data": [
+                {"id": item["id"], "max_model_len": item.get("max_model_len")}
+                for item in models["data"]
+            ]
+        },
         "validation_example_id": example["id"],
         "legal_moves": example["legal_moves"],
         "request": payload,

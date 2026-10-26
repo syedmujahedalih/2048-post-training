@@ -1,32 +1,9 @@
 {
-  "base_url": "http://127.0.0.1:8000/v1",
   "served_models": {
-    "object": "list",
     "data": [
       {
         "id": "2048-grpo",
-        "object": "model",
-        "created": 1793011678,
-        "owned_by": "vllm",
-        "root": "/Users/mujahed/Documents/2048-post-training/checkpoints/local-mps-full-v1/serving-bf16",
-        "parent": null,
-        "max_model_len": 8192,
-        "permission": [
-          {
-            "id": "modelperm-9523aa29acb9dff7",
-            "object": "model_permission",
-            "created": 1793011678,
-            "allow_create_engine": false,
-            "allow_sampling": true,
-            "allow_logprobs": true,
-            "allow_search_indices": false,
-            "allow_view": true,
-            "allow_fine_tuning": false,
-            "organization": "*",
-            "group": null,
-            "is_blocking": false
-          }
-        ]
+        "max_model_len": 8192
       }
     ]
   },
@@ -147,9 +124,6 @@
     "kv_dtype": "bfloat16",
     "mlx_device": "gpu",
     "metal_device": "Apple M4",
-    "api_pid": 98302,
-    "engine_pid": 98311,
-    "startup_log": "logs/vllm-metal-grpo-bf16.log",
     "max_model_len": 8192,
     "max_num_seqs": 1,
     "max_num_batched_tokens": 512,
@@ -166,5 +140,6 @@
       "torch": "2.13.0",
       "transformers": "5.19.0"
     }
-  }
+  },
+  "endpoint_scope": "loopback; address retained only in ignored local records"
 }

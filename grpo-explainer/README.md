@@ -6,11 +6,16 @@ simulator board transitions, a worked advantage example, and a clipping diagram.
 
 ## Watch and edit
 
+Keep the chosen `REMOTION_PORT` in an ignored `.local/visuals.env` file at the
+repository root. Local port values and credentials are not versioned.
+
 ```sh
 cd grpo-explainer
 npm ci
 # On macOS, with ffmpeg installed:
 npm run audio
+. ../.local/visuals.env
+export REMOTION_PORT
 npm run dev
 ```
 

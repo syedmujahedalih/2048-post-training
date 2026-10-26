@@ -136,7 +136,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, default=Path("data/demonstrations"))
     parser.add_argument("--output", type=Path, default=Path("results/decider-afterstates"))
-    parser.add_argument("--endpoint", default="http://127.0.0.1:8099")
+    parser.add_argument("--endpoint", required=True, help="Local endpoint supplied at runtime")
     parser.add_argument("--mode", choices=["directions", "afterstates"], default="afterstates")
     parser.add_argument("--positions", type=int, default=128)
     parser.add_argument("--games", type=int, default=6)

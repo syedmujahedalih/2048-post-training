@@ -127,3 +127,16 @@
 - One unconstrained validation call produced a legal move with automatic tool
   parsing. Full-game and unseen-data comparisons remain pending; see
   `LOCAL_SERVING.md` for startup commands and reproducibility limits.
+
+## Local networking and private configuration
+
+- Removed concrete network port values from current tracked source, docs and
+  serving records. Runtime settings, process IDs and raw listener audits stay
+  in ignored `.local/` files; credentials and logs remain ignored.
+- Stopped the initial server after finding internal Gloo listeners on the LAN
+  interface. Forced both API and internal communication onto loopback.
+- Verified all 14 TCP listeners across the corrected API and its descendants
+  are loopback-only, with no UDP sockets. Health and tool parsing still pass.
+- A local credential-pattern scan across 249 historical text blobs found no
+  matches. Historical commits still contain earlier local port values; the
+  current tree removes them without rewriting public Git history.

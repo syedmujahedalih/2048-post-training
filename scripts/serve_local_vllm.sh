@@ -3,9 +3,21 @@
 set -eu
 
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+LOCAL_CONFIG="$ROOT/.local/serving.env"
+if [ ! -f "$LOCAL_CONFIG" ]; then
+    echo "Create the ignored .local/serving.env file with PORT set before starting." >&2
+    exit 1
+fi
+. "$LOCAL_CONFIG"
+: "${PORT:?Set PORT in the ignored .local/serving.env file}"
+case "$PORT" in
+    ''|*[!0-9]*)
+        echo "PORT must contain only decimal digits in the ignored local configuration." >&2
+        exit 1
+        ;;
+esac
 MODEL_DIR=${MODEL_DIR:-"$ROOT/checkpoints/local-mps-full-v1/serving-bf16"}
 SERVED_MODEL_NAME=${SERVED_MODEL_NAME:-2048-grpo}
-PORT=${PORT:-8000}
 
 if [ ! -f "$MODEL_DIR/model.safetensors.index.json" ]; then
     echo "Missing merged Hugging Face checkpoint: $MODEL_DIR" >&2
@@ -16,7 +28,7 @@ if ! command -v vllm >/dev/null 2>&1; then
     exit 1
 fi
 if /usr/sbin/lsof -nP "-iTCP:$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
-    echo "Port $PORT already has a listener; refusing to load a second model." >&2
+    echo "The configured port already has a listener; refusing to load a second model." >&2
     exit 1
 fi
 
@@ -26,6 +38,11 @@ export VLLM_DO_NOT_TRACK=1
 export DO_NOT_TRACK=1
 export TOKENIZERS_PARALLELISM=false
 export VLLM_MLX_DEVICE=gpu
+# API binding alone does not constrain Gloo's internal TCP sockets. Keep every
+# single-machine communication interface on macOS loopback as well.
+export VLLM_HOST_IP=127.0.0.1
+export GLOO_SOCKET_IFNAME=lo0
+export MASTER_ADDR=127.0.0.1
 
 # The installed MLX loader preserves unquantized checkpoint tensor dtypes;
 # --dtype alone does not cast FP32 master weights. Load the separate BF16 copy.

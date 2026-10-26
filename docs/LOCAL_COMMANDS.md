@@ -31,18 +31,21 @@ new directory as shown in `DATASET.md`; the generator refuses overwriting.
 The exact working Python environment is recorded separately from the core
 package. It includes MLX, the pinned Decider source revision, and the inference
 dependencies. No model weights are in Git.
+Keep the chosen `DECIDER_PORT` in an ignored `.local/decider.env` file.
 
 ```bash
 uv venv --python 3.11 .venv-decider
 uv pip install --python .venv-decider/bin/python -r docs/decider-macos-requirements.txt
-.venv-decider/bin/strands-decider serve StrandsAgents/strands-decider-2B-qwen3.5-v1-2610 --device mlx --port 8099
+. .local/decider.env
+.venv-decider/bin/strands-decider serve StrandsAgents/strands-decider-2B-qwen3.5-v1-2610 --device mlx --port "$DECIDER_PORT"
 ```
 
 The first load downloads the adapter and its Qwen3.5 base weights from Hugging
 Face. In another terminal:
 
 ```bash
-uv run python scripts/benchmark_decider.py --output results/my-decider-pilot
+. .local/decider.env
+uv run python scripts/benchmark_decider.py --endpoint "http://127.0.0.1:$DECIDER_PORT" --output results/my-decider-pilot
 ```
 
 The benchmark sends requests only to the configured local server. It writes

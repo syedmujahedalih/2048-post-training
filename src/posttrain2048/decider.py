@@ -11,7 +11,7 @@ from .game import ACTIONS, Board, legal_moves, move, rows
 
 
 class DeciderAgent:
-    def __init__(self, endpoint: str = "http://127.0.0.1:8099", mode: str = "afterstates"):
+    def __init__(self, endpoint: str, mode: str = "afterstates"):
         if mode not in {"directions", "afterstates"}:
             raise ValueError(mode)
         self.endpoint = endpoint.rstrip("/")

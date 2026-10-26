@@ -44,11 +44,17 @@ BF16 rounding can change predictions; no exact behavioral parity is claimed.
 
 From the project root:
 
+Keep the chosen port in `PORT` inside the ignored `.local/serving.env` file.
+The local file is already configured on this Mac. There is no committed port
+default, and credentials must never be added to source, reports or local examples.
+
 ```sh
 sh scripts/serve_local_vllm.sh
 ```
 
-The API binds to `127.0.0.1:8000` and exposes model name `2048-grpo`. It loads
+The API binds only to loopback and exposes model name `2048-grpo`. Startup also
+forces internal vLLM and Gloo communication onto macOS's loopback interface;
+the API bind address alone is insufficient. It loads
 `checkpoints/local-mps-full-v1/serving-bf16`, uses one concurrent sequence,
 an 8,192-token context, `--gpu-memory-utilization 0.30`, and an explicit
 1,024-block KV override (448 MiB for this model's BF16 GQA cache). The installed
@@ -71,11 +77,13 @@ models. This setup does not register a login service or expose the API to other
 computers.
 
 ```sh
-curl --fail http://127.0.0.1:8000/health
-curl --fail http://127.0.0.1:8000/v1/models
+. .local/serving.env
+curl --fail "http://127.0.0.1:$PORT/health"
+curl --fail "http://127.0.0.1:$PORT/v1/models"
 ```
 
-`PORT`, `MODEL_DIR`, and `SERVED_MODEL_NAME` can be set before starting the script.
+`PORT` belongs in the ignored local configuration. `MODEL_DIR` and
+`SERVED_MODEL_NAME` can also be set there or before starting the script.
 For an SFT comparison, merge the preserved SFT adapter into a separate directory
 first, then serve that directory with the same options. Never overwrite the
 GRPO export or compare different serving dtypes without recording the change.
@@ -83,13 +91,16 @@ GRPO export or compare different serving dtypes without recording the change.
 ## Verify one move
 
 ```sh
-.venv/bin/python scripts/check_local_serving.py \
+. .local/serving.env
+.venv/bin/python scripts/check_local_serving.py --port "$PORT" \
   --output results/local-mps-full-v1/serving-check.json
 ```
 
 This sends the first validation board using the project's actual `SYSTEM`,
 `TOOLS`, and saved chat template. It stores the full request and response,
-including returned tool calls, completion finish reason, and usage. The script
+including returned tool calls, completion finish reason, and usage. Saved public
+reports omit endpoint addresses and runtime process IDs; raw runtime records
+belong in ignored `.local/` files. The script
 refuses to overwrite an existing output file. It does not inspect the test set.
 
 Hermes automatic tool parsing matches
@@ -107,9 +118,16 @@ observations rather than silently fixing them.
 
 ## Verification recorded on October 26, 2026
 
-The active server is API PID `98302`, engine PID `98311`, with startup log
-`logs/vllm-metal-grpo-bf16.log`. These PIDs identify this launch and change on
-restart. Stop this launch with `kill 98302`.
+The current runtime PID is stored only in `.local/serving-api.pid`; stop it with
+`kill "$(cat .local/serving-api.pid)"`. Runtime addresses and process IDs remain
+in ignored `.local/` records and `logs/`, rather than committed reports.
+
+The initial API bind was loopback-only, but an audit found Gloo's internal
+listeners on the LAN interface. That server was stopped. Startup now sets
+`VLLM_HOST_IP` and `MASTER_ADDR` to loopback and `GLOO_SOCKET_IFNAME=lo0`.
+The corrected runtime's API and descendants had 14 TCP listeners, all loopback,
+with no LAN or wildcard binding. The private audit is
+`.local/serving-network-audit.json`. No public tunnel was configured.
 
 The log confirms `Device(gpu, 0)`, the `serving-bf16` checkpoint, native Metal
 paged-attention kernels, and **1,024 cache blocks / 0.44 GiB** across 28 layers.

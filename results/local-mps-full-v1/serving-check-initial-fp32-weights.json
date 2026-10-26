@@ -1,32 +1,9 @@
 {
-  "base_url": "http://127.0.0.1:8000/v1",
   "served_models": {
-    "object": "list",
     "data": [
       {
         "id": "2048-grpo",
-        "object": "model",
-        "created": 1793011476,
-        "owned_by": "vllm",
-        "root": "/Users/mujahed/Documents/2048-post-training/checkpoints/local-mps-full-v1/merged-fp32",
-        "parent": null,
-        "max_model_len": 8192,
-        "permission": [
-          {
-            "id": "modelperm-80cb7630f1cf4e8a",
-            "object": "model_permission",
-            "created": 1793011476,
-            "allow_create_engine": false,
-            "allow_sampling": true,
-            "allow_logprobs": true,
-            "allow_search_indices": false,
-            "allow_view": true,
-            "allow_fine_tuning": false,
-            "organization": "*",
-            "group": null,
-            "is_blocking": false
-          }
-        ]
+        "max_model_len": 8192
       }
     ]
   },
@@ -148,5 +125,6 @@
     "actual_kv_bytes": 4795793408,
     "status": "Initial validation only; server stopped and replaced by explicit BF16 serving copy",
     "limits": "Original --kv-cache-memory-bytes request ignored by installed Metal planner. Weight dtype established from source headers and installed loader path, not upstream dtype log."
-  }
+  },
+  "endpoint_scope": "loopback; address retained only in ignored local records"
 }

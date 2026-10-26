@@ -25,7 +25,7 @@
     "typescript": "5.9.3"
   },
   "scripts": {
-    "dev": "remotion studio --port 3038",
+    "dev": "remotion studio --port \"${REMOTION_PORT:?Set REMOTION_PORT in your local environment}\"",
     "audio": "python3 scripts/prepare_assets.py",
     "review": "node scripts/review_stills.mjs",
     "build": "remotion bundle",
