@@ -59,6 +59,29 @@ complete-game evaluation, test-split benchmark, 2048 win rate, adviser benefit,
 or PPO comparison has been established.** Complete held-out games through the
 intended inference backend remain the next evaluation.
 
+## Reward exploitation audit
+
+No score tampering was found: all recorded rewards match replayed simulator
+scores, rather than score claims in assistant text. This does not rule out
+behavior that exploits the reward's incentives.
+
+There is a stopping loophole: ending early incurs only a 0.1 penalty while
+retaining accumulated score reward. Of 185 post-SFT early exits, 180 retained
+positive absolute reward and 25 were highest-reward rollouts in their group
+(including ties). Positive absolute reward alone is not a GRPO advantage.
+
+The final assistant replies in those 185 cases were 79 empty tails, 49 unclosed
+tool calls and 57 other text replies. These categories indicate output-format
+and termination problems; they do not prove intentional stopping or establish
+why a reply ended. No post-terminal or unexecuted structured tail calls were
+recorded in this run.
+
+The short horizon also rewards immediate merges without measuring the later
+board's survival. Treat early stopping and short-horizon optimization as reward
+design weaknesses, not demonstrated deliberate hacking. Compare full SFT and
+post-SFT policies on complete held-out games before another RL run or reward
+change. Keep the current checkpoint and reward definition as the baseline.
+
 ## Merged checkpoint
 
 The final adapter was merged once into the pinned original base, producing this

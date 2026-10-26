@@ -26,7 +26,20 @@
     "training_seconds": 4911.238463082816,
     "max_adapter_change": 0.0008970443159341812,
     "validation_legal": 12,
-    "validation_teacher_matches": 5
+    "validation_teacher_matches": 5,
+    "reward_audit": {
+      "early_exit_final_reply_categories": {
+        "empty_tail": 250,
+        "other_text": 85,
+        "unclosed_tool_call": 36
+      },
+      "early_exits_with_positive_reward": 331,
+      "early_exit_group_winners_including_ties": 98,
+      "group_winners_including_ties": 111,
+      "post_terminal_calls": 3,
+      "unexecuted_tail_calls": 0,
+      "interpretation_limit": "Reply categories do not establish intentional stopping or its cause. Positive absolute rewards are not the same as positive GRPO advantages."
+    }
   },
   "full_sft_grpo": {
     "updates": 100,
@@ -46,7 +59,20 @@
     "training_seconds": 11093.177605000325,
     "max_adapter_change": 0.0007479190826416016,
     "validation_legal": 12,
-    "validation_teacher_matches": 8
+    "validation_teacher_matches": 8,
+    "reward_audit": {
+      "early_exit_final_reply_categories": {
+        "empty_tail": 79,
+        "other_text": 57,
+        "unclosed_tool_call": 49
+      },
+      "early_exits_with_positive_reward": 180,
+      "early_exit_group_winners_including_ties": 25,
+      "group_winners_including_ties": 103,
+      "post_terminal_calls": 0,
+      "unexecuted_tail_calls": 0,
+      "interpretation_limit": "Reply categories do not establish intentional stopping or its cause. Positive absolute rewards are not the same as positive GRPO advantages."
+    }
   },
   "evaluation_limit": "12 fixed one-move validation boards; no complete-game evaluation"
 }

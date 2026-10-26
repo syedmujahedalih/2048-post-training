@@ -3,13 +3,27 @@
 import json
 import math
 import statistics
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from posttrain2048.data import read_jsonl
 from posttrain2048.game import ACTIONS, Game, board, rows
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def early_exit_category(episode):
+    """Describe the saved final reply; this does not infer why generation ended."""
+    assistants = [m for m in episode["completion"] if m["role"] == "assistant"]
+    last = assistants[-1] if assistants else {}
+    text = last.get("content", "").strip()
+    if last.get("tool_calls"):
+        return "structured_tool_call"
+    if not text:
+        return "empty_tail"
+    if "<tool_call>" in text and "</tool_call>" not in text:
+        return "unclosed_tool_call"
+    return "other_text"
 
 
 def summarize_grpo(name):
@@ -51,6 +65,13 @@ def summarize_grpo(name):
     assert all(g["finite"] for g in summary["gradients"])
     masks = read_jsonl(run / "grpo-mask-audit.jsonl")
     assert len(masks) == 100
+    early = [e for e in episodes if e["early_exit"]]
+    winners = [
+        e
+        for group in groups.values()
+        for e in group
+        if e["reward"] == max(r["reward"] for r in group)
+    ]
     result = {
         "updates": len(metrics),
         "rollouts": len(episodes),
@@ -72,6 +93,20 @@ def summarize_grpo(name):
         "validation_teacher_matches": sum(
             p["teacher_match"] for p in summary["after_validation"]["predictions"]
         ),
+        "reward_audit": {
+            "early_exit_final_reply_categories": dict(
+                sorted(Counter(early_exit_category(e) for e in early).items())
+            ),
+            "early_exits_with_positive_reward": sum(e["reward"] > 0 for e in early),
+            "early_exit_group_winners_including_ties": sum(e["early_exit"] for e in winners),
+            "group_winners_including_ties": len(winners),
+            "post_terminal_calls": sum(e["post_terminal_calls"] for e in episodes),
+            "unexecuted_tail_calls": sum(e["unexecuted_tail_calls"] for e in episodes),
+            "interpretation_limit": (
+                "Reply categories do not establish intentional stopping or its cause. "
+                "Positive absolute rewards are not the same as positive GRPO advantages."
+            ),
+        },
     }
     return result
 
