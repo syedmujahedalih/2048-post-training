@@ -5,6 +5,33 @@ Both SFT and GRPO performed a real LoRA optimizer update on MPS, first using a
 tiny random Qwen2 and then the actual `Qwen/Qwen2.5-1.5B-Instruct` checkpoint.
 These are compatibility probes, not completed post-training experiments.
 
+## Measurements at a glance
+
+![Observed MPS training time and driver memory allocation](figures/mps-trl-overview.png)
+
+Each bar is one recorded observation from the actual 1.5B student check. The
+workloads differ: SFT updates on one example; GRPO generates four short outputs
+before updating. Timing excludes model loading. Memory is a driver-allocation
+snapshot taken after training, not a peak-memory measurement or all system RAM.
+These measurements establish feasibility for this small check, not sustained
+throughput or an expected full-training cost.
+
+![Recorded synthetic rewards and their centered values](figures/mps-grpo-reward-group.png)
+
+All four synthetic rewards are shown. The right panel is calculated from the
+saved rewards by subtracting their group mean, before any standard-deviation
+normalization. The different signs show the relative signal available to this
+update. This is one group, not a reward learning curve or game-skill evaluation.
+
+Regenerate both figures, and the Decider figures, without running a model:
+
+```sh
+uv run --managed-python --script scripts/plot_experiments.py
+```
+
+The script reads the committed JSON measurements and writes PNG and SVG files
+to `docs/figures/`. Dependencies are pinned in the script's metadata.
+
 ## Evidence
 
 - [Tiny model report](../results/mps-trl-check.json).

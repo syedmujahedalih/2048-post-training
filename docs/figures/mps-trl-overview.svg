@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="756pt" height="381.6pt" viewBox="0 0 756 381.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 381.6
+L 756 381.6
+L 756 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 68.04 244.224
+L 327.152903 244.224
+L 327.152903 110.664
+L 68.04 110.664
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 68.04 244.224
+L 68.04 110.664
+" clip-path="url(#p0e0d23f834)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="68.04" y="256.081422" transform="rotate(-0 68.04 256.081422)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 137.448464 244.224
+L 137.448464 110.664
+" clip-path="url(#p0e0d23f834)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="137.448464" y="256.081422" transform="rotate(-0 137.448464 256.081422)">2</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 206.856929 244.224
+L 206.856929 110.664
+" clip-path="url(#p0e0d23f834)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="206.856929" y="256.081422" transform="rotate(-0 206.856929 256.081422)">4</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 276.265393 244.224
+L 276.265393 110.664
+" clip-path="url(#p0e0d23f834)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="276.265393" y="256.081422" transform="rotate(-0 276.265393 256.081422)">6</text>
+     </g>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172a3a" x="197.596452" y="278.322437" transform="rotate(-0 197.596452 278.322437)">Seconds (model loading excluded)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_9"/>
+     <g id="text_6">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #172a3a" x="64.54" y="151.268165" transform="rotate(-0 64.54 151.268165)">SFT</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_10"/>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #172a3a" x="64.54" y="211.977256" transform="rotate(-0 64.54 211.977256)">GRPO</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 68.04 244.224
+L 327.152903 244.224
+" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 68.04 133.429909
+L 110.345314 133.429909
+L 110.345314 160.749
+L 68.04 160.749
+z
+" clip-path="url(#p0e0d23f834)" style="fill: #2855c5"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 68.04 194.139
+L 259.975484 194.139
+L 259.975484 221.458091
+L 68.04 221.458091
+z
+" clip-path="url(#p0e0d23f834)" style="fill: #b96432"/>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="117.063056" y="149.946876" transform="rotate(-0 117.063056 149.946876)">1.22 s</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="266.693226" y="210.655967" transform="rotate(-0 266.693226 210.655967)">5.53 s</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="68.04" y="93.664" transform="rotate(-0 68.04 93.664)">Observed training time</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_6">
+    <path d="M 451.527097 244.224
+L 710.64 244.224
+L 710.64 110.664
+L 451.527097 110.664
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_5">
+     <g id="line2d_11">
+      <path d="M 451.527097 244.224
+L 451.527097 110.664
+" clip-path="url(#p76340ef5d3)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12"/>
+     <g id="text_11">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="451.527097" y="256.081422" transform="rotate(-0 451.527097 256.081422)">0.0</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_13">
+      <path d="M 494.254359 244.224
+L 494.254359 110.664
+" clip-path="url(#p76340ef5d3)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14"/>
+     <g id="text_12">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="494.254359" y="256.081422" transform="rotate(-0 494.254359 256.081422)">2.5</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_15">
+      <path d="M 536.981622 244.224
+L 536.981622 110.664
+" clip-path="url(#p76340ef5d3)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16"/>
+     <g id="text_13">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="536.981622" y="256.081422" transform="rotate(-0 536.981622 256.081422)">5.0</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_17">
+      <path d="M 579.708884 244.224
+L 579.708884 110.664
+" clip-path="url(#p76340ef5d3)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18"/>
+     <g id="text_14">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="579.708884" y="256.081422" transform="rotate(-0 579.708884 256.081422)">7.5</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_19">
+      <path d="M 622.436146 244.224
+L 622.436146 110.664
+" clip-path="url(#p76340ef5d3)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20"/>
+     <g id="text_15">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="622.436146" y="256.081422" transform="rotate(-0 622.436146 256.081422)">10.0</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_21">
+      <path d="M 665.163409 244.224
+L 665.163409 110.664
+" clip-path="url(#p76340ef5d3)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22"/>
+     <g id="text_16">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="665.163409" y="256.081422" transform="rotate(-0 665.163409 256.081422)">12.5</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_23">
+      <path d="M 707.890671 244.224
+L 707.890671 110.664
+" clip-path="url(#p76340ef5d3)" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_24"/>
+     <g id="text_17">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #566674" x="707.890671" y="256.081422" transform="rotate(-0 707.890671 256.081422)">15.0</text>
+     </g>
+    </g>
+    <g id="text_18">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #172a3a" x="581.083548" y="278.322437" transform="rotate(-0 581.083548 278.322437)">GiB (snapshot, not peak memory)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_3">
+     <g id="line2d_25"/>
+     <g id="text_19">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #172a3a" x="448.027097" y="151.268165" transform="rotate(-0 448.027097 151.268165)">SFT</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_26"/>
+     <g id="text_20">
+      <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #172a3a" x="448.027097" y="211.977256" transform="rotate(-0 448.027097 211.977256)">GRPO</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_7">
+    <path d="M 451.527097 244.224
+L 710.64 244.224
+" style="fill: none; stroke: #e2e7eb; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 451.527097 133.429909
+L 540.782063 133.429909
+L 540.782063 160.749
+L 451.527097 160.749
+z
+" clip-path="url(#p76340ef5d3)" style="fill: #2855c5"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 451.527097 194.139
+L 643.462581 194.139
+L 643.462581 221.458091
+L 451.527097 221.458091
+z
+" clip-path="url(#p76340ef5d3)" style="fill: #b96432"/>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="547.499805" y="149.947306" transform="rotate(-0 547.499805 149.947306)">5.22 GiB</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="650.180323" y="210.656397" transform="rotate(-0 650.180323 210.656397)">11.23 GiB</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="451.527097" y="93.664" transform="rotate(-0 451.527097 93.664)">MPS driver allocation at readout</text>
+   </g>
+  </g>
+  <g id="text_24">
+   <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="52.92" y="33.517031" transform="rotate(-0 52.92 33.517031)">Qwen 1.5B: SFT and GRPO updates ran on MPS</text>
+  </g>
+  <g id="text_25">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566674" x="52.92" y="55.298437" transform="rotate(-0 52.92 55.298437)">Apple M4 / 24 GB unified memory · TRL 1.16.0 · LoRA rank 4 · one observed update per stage</text>
+  </g>
+  <g id="text_26">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="52.92" y="309.096" transform="rotate(-0 52.92 309.096)">Both checks: finite, nonzero MPS gradients · changed adapter weights · exact adapter save/load</text>
+  </g>
+  <g id="text_27">
+   <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566674" x="52.92" y="331.992" transform="rotate(-0 52.92 331.992)">SFT: 1 example, 20 target tokens. GRPO: 4 outputs, capped at 8 tokens, synthetic reward.</text>
+  </g>
+  <g id="text_28">
+   <text style="font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566674" x="52.92" y="349.164" transform="rotate(-0 52.92 349.164)">One observation per workload; no timing error bars or learning curve. Allocation is not total system RAM.</text>
+  </g>
+  <g id="text_29">
+   <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566674" x="52.92" y="368.244" transform="rotate(-0 52.92 368.244)">Source: results/mps-trl-student-check.json · unsupported MPS operator fallback disabled</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0e0d23f834">
+   <rect x="68.04" y="110.664" width="259.112903" height="133.56"/>
+  </clipPath>
+  <clipPath id="p76340ef5d3">
+   <rect x="451.527097" y="110.664" width="259.112903" height="133.56"/>
+  </clipPath>
+ </defs>
+</svg>

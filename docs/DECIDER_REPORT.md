@@ -71,10 +71,31 @@ Teacher scores for the two capped games are partial. All Decider games reached
 terminal state; its largest tile was 256 in two games. Full traces are saved and
 were replay-verified against the seeded simulator.
 
+![Each game score across the five players, with capped teacher games identified](figures/decider-game-scores.png)
+
+Each dot is an individual game; open squares identify the two capped teacher
+games. The score axis is logarithmic so all five players fit on one figure.
+Arithmetic means appear in the right-hand column; vertical offsets separate
+individual seeds and do not encode an additional measurement.
+
 Decider minus fixed-priority paired score differences were +280, +1244, +56,
 -1072, -1052, and +1172. Six games are far too few to make a broad performance
 claim. This also tests Decider as a standalone player, not whether an RL learner
 can make selective use of its suggestions. An adviser benefit remains untested.
+
+![Paired Decider-minus-priority score differences for all six game seeds](figures/decider-paired-differences.png)
+
+The paired view shows four positive differences and two negative differences,
+including large swings in both directions. It presents the observed six games;
+it does not establish that the mean difference will persist on new seeds.
+
+Regenerate these figures directly from the saved summary and game traces:
+
+```sh
+uv run --managed-python --script scripts/plot_experiments.py
+```
+
+PNG and editable SVG versions are committed in `docs/figures/`.
 
 ## Artifacts
 

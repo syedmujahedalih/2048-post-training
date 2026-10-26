@@ -21,6 +21,8 @@ compatibility checks also pass on the Mac's MPS GPU, including the actual 1.5B
 Qwen student. Full SFT and game-environment RL remain to do; no rented compute
 was used. See the [MPS check and its limits](docs/MPS_TRL_CHECK.md).
 
+![MPS compatibility check: observed update time and memory snapshots](docs/figures/mps-trl-overview.png)
+
 Before the GPU session, watch the narrated [GRPO and online RL explainer](grpo-explainer/README.md)
 or read its [transcript](grpo-explainer/TRANSCRIPT.md). It uses 2048 to explain
 rollouts, group-relative advantages, policy updates, clipping, and evaluation.
@@ -41,6 +43,9 @@ Start with [the morning handoff](docs/GPU_HANDOFF.md),
 [dataset notes](docs/DATASET.md), and [benchmark findings](docs/DECIDER_REPORT.md).
 The original [project plan](docs/PLAN.md) and [progress log](docs/PROGRESS.md)
 provide the full context.
+
+Experimental write-ups include plots generated from their saved measurements.
+See the [reporting conventions and figure regeneration command](docs/EXPERIMENT_WRITEUPS.md).
 
 ## Local setup
 

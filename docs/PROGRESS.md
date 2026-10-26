@@ -72,3 +72,12 @@
   synthetic token reward; it does not play the stateful 2048 environment.
 - Adapters are temporary and removed after checking. No production checkpoint,
   20-example overfit result, or improved gameplay is claimed. No paid compute.
+
+## Visual experimental reports
+
+- Added reproducible PNG/SVG plots for MPS timing/allocation and synthetic rewards.
+- Added Decider individual-game scores and paired differences, including explicit
+  markers for partial teacher games at the decision cap.
+- Embedded figures in both reports and the README, with sample counts and limits.
+- Recorded the reporting convention in `EXPERIMENT_WRITEUPS.md`: future reports
+  should include useful plots from saved results, with regeneration commands.
