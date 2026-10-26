@@ -54,10 +54,11 @@ listed in the prompt, and generation is greedy with a 48-token cap. Teacher
 agreement measures imitation; one board changes this rate by 8.3 percentage points.
 
 GRPO repeatedly used 32 early-game training boards with four seeded rollouts per
-group and a 16-attempt horizon. There was one training seed per path. **No
-complete-game evaluation, test-split benchmark, 2048 win rate, adviser benefit,
-or PPO comparison has been established.** Complete held-out games through the
-intended inference backend remain the next evaluation.
+group and a 16-attempt horizon. There was one training seed per path. At training
+completion, complete-game and test-split evaluation remained unmeasured. A later
+[served-model benchmark](SERVED_EVALUATION.md) evaluated 1,000 held-out boards and
+30 new game seeds. It does not include a matching SFT/base control, an adviser
+benefit study or a PPO comparison.
 
 ## Reward exploitation audit
 
@@ -102,6 +103,12 @@ not an established explanation for all exits. The SFT examples demonstrate
 single-turn board-to-move outputs, whereas these RL rollouts require repeated
 tool calls in a growing conversation; this is another hypothesis to test.
 
+A later static [serving-parser audit](SERVED_EVALUATION.md#parser-differences-matter)
+found that 33 of the 49 unclosed replies contain valid, legal moves recognized
+by vLLM's more permissive Hermes extraction rule. They remain early exits in
+the historical training run. Parser behavior, along with context and decoding,
+prevents directly comparing training exits with served API failure rates.
+
 The short horizon also rewards immediate merges without measuring the later
 board's survival. Treat early stopping and short-horizon optimization as reward
 design weaknesses, not demonstrated learned exploitation. Reward hacking does
@@ -127,8 +134,9 @@ stage. It does not add precision to the original pretrained weights.
 A separate BF16 serving copy is now configured in [vLLM Metal](LOCAL_SERVING.md).
 All 338 saved tensors match their intended casts, and the FP32 master's hashes
 are unchanged. One unconstrained validation request returned a legal `UP` tool
-call. This verifies serving and parsing, not BF16 numerical parity, unseen-board
-accuracy or complete-game quality.
+call. That single request verifies serving and parsing, not BF16 numerical parity
+or game quality; the later [evaluation](SERVED_EVALUATION.md) measures held-out
+decisions and gameplay separately.
 
 On one validation prompt, maximum final-position logit difference between FP32
 adapter and merged evaluation was **0.00020051**, within `atol=0.0005` and

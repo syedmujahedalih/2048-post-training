@@ -140,3 +140,19 @@
 - A local credential-pattern scan across 249 historical text blobs found no
   matches. Historical commits still contain earlier local port values; the
   current tree removes them without rewriting public Git history.
+
+## First served-model benchmark completed
+
+- Evaluated all 1,000 test boards: 1,000 legal calls, 445 teacher first-choice
+  matches, versus 28.73% expected agreement from uniform random legal moves.
+- Completed 30 new-seed GRPO games: mean score 1,904, median 1,410, highest tile
+  512, zero 2048-reaching games and zero policy failures.
+- Ran four baseline players on the same 30 seeds. GRPO beat random legal play
+  but scored below direction-priority, immediate-score greedy and the teacher.
+- Replayed all 150 trajectories and 95,414 attempted moves; added paired-seed
+  bootstrap intervals, a four-panel results figure and a median-game replay figure.
+- Audited parser behavior: 33 historical unclosed replies contain legal calls
+  accepted by the current Hermes extraction rule. Training outcomes are unchanged.
+- Added `SERVED_EVALUATION.md` with protocol and causal limits. Model quality is
+  measured for the assembled stateless agent; SFT/base controls remain pending.
+- Runtime addresses, ports, process IDs and complete HTTP records stay local.

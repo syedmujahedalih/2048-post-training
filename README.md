@@ -18,17 +18,20 @@ whether it gives useful 2048 advice.
 4. Train a LoRA SFT adapter (completed locally on MPS).
 5. Run short-episode online GRPO (completed locally on MPS).
 6. Compare adviser-assisted RL if the local pilot supports it.
-7. Evaluate full games and write up the findings.
+7. Evaluate full games and write up the findings (first served GRPO benchmark complete).
 
 **Steps 1–5 are complete.** The final adapter is also merged into a local FP32
-Hugging Face checkpoint for serving. Complete-game evaluation and any useful
-adviser comparison remain unfinished experiments. No rented compute was used.
+Hugging Face checkpoint for serving. The first served-model game evaluation is
+also complete; matching SFT/base comparisons and any useful adviser comparison
+remain unfinished experiments. No rented compute was used.
 The earlier [MPS check](docs/MPS_TRL_CHECK.md) and
 [first GRPO run](docs/FIRST_LOCAL_GRPO.md) document how the local path started.
 
-Local [vLLM Metal serving](docs/LOCAL_SERVING.md) is configured with a separate
-BF16 copy of the merged model. One validation tool call succeeded; full-game
-quality and SFT-versus-GRPO comparisons remain unmeasured.
+Local [vLLM Metal serving](docs/LOCAL_SERVING.md) uses a separate BF16 copy of the
+merged model. The [held-out evaluation](docs/SERVED_EVALUATION.md) measured 1,000
+test boards and 30 new game seeds: 100% legal calls, 44.5% teacher agreement,
+and mean game score 1,904. The model beat random play but lost to fixed priority
+and greedy baselines. SFT-versus-GRPO comparisons remain unmeasured.
 
 ![Both complete GRPO runs](docs/figures/local-grpo-comparison.png)
 

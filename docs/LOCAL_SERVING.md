@@ -147,3 +147,7 @@ despite requesting BF16 upstream, and its actual cache was 4.47 GiB despite
 requesting 512 MiB via the ignored byte-budget option. It was stopped before
 the final BF16 server started. Those two requests should not be treated as a
 controlled model-quality comparison.
+
+The subsequent [served-model evaluation](SERVED_EVALUATION.md) covers all 1,000
+test boards and 30 new game seeds against four baseline players. A matching
+SFT-only comparison is still pending.

@@ -6,15 +6,19 @@
 
 import json
 import math
+import re
 from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
+from matplotlib.patches import Rectangle
 from matplotlib.ticker import FuncFormatter, PercentFormatter
 from plot_experiments import BLUE, GOLD, GRID, MUTED, ORANGE, plt, save, style
 
 from posttrain2048.cli import replay
 from posttrain2048.data import read_jsonl
+from posttrain2048.game import board, legal_moves
+from posttrain2048.serving_eval import parse_move_response
 
 ROOT = Path(__file__).resolve().parents[1]
 RUN = ROOT / "results/served-grpo-v1"
@@ -39,6 +43,63 @@ def wilson(successes, count):
     half = z * math.sqrt(p * (1 - p) / count + z * z / (4 * count * count))
     half /= 1 + z * z / count
     return [max(0, center - half), min(1, center + half)]
+
+
+def training_parser_audit():
+    # Exact non-streaming extraction regex in the installed vLLM 0.32.0 Hermes parser.
+    pattern = re.compile(r"<tool_call>(.*?)</tool_call>|<tool_call>(.*)", re.DOTALL)
+    accepted = []
+    unclosed = 0
+    early_count = 0
+    for episode in read_jsonl(ROOT / "results/local-mps-full-v1/grpo-episodes.jsonl"):
+        if not episode["early_exit"]:
+            continue
+        early_count += 1
+        last = [m for m in episode["completion"] if m["role"] == "assistant"][-1]
+        text = last.get("content", "")
+        unclosed += int("<tool_call>" in text and "</tool_call>" not in text)
+        try:
+            calls = [json.loads(a or b) for a, b in pattern.findall(text)]
+            normalized = [
+                {
+                    "type": "function",
+                    "function": {"name": c["name"], "arguments": json.dumps(c["arguments"])},
+                }
+                for c in calls
+            ]
+            final_board = (
+                episode["attempts"][-1]["board"]
+                if episode["attempts"]
+                else episode["initial_board"]
+            )
+            parsed = parse_move_response(
+                {"choices": [{"message": {"tool_calls": normalized}}]},
+                legal_moves(board(final_board)),
+            )
+            if parsed["error"] is None:
+                accepted.append(
+                    {
+                        "update": episode["update_before_generation"] + 1,
+                        "example_id": episode["example_id"],
+                        "direction": parsed["direction"],
+                        "unclosed_wrapper": "</tool_call>" not in text,
+                    }
+                )
+        except (KeyError, TypeError, ValueError):
+            continue
+    return {
+        "reference_parser": "vLLM 0.32.0 Hermes2ProToolParser.extract_tool_calls, non-streaming",
+        "extraction_regex": pattern.pattern,
+        "training_early_exits": early_count,
+        "unclosed_final_replies": unclosed,
+        "static_legal_move_parses": len(accepted),
+        "accepted": accepted,
+        "limits": (
+            "Static parsing of saved training reply text, not a new model rollout. "
+            "Does not show these counterfactual trajectories would finish or score better. "
+            "Served API calls do not expose raw closing-tag correctness."
+        ),
+    }
 
 
 def analyze():
@@ -132,6 +193,7 @@ def analyze():
             for stage in ("all", "early", "middle", "late")
         },
         "games": games,
+        "training_tail_parser_audit": training_parser_audit(),
         "uncertainty_method": (
             "10,000 bootstrap resamples. Test-position teacher-match intervals resample 11 source "
             "games; score intervals resample 30 evaluation seeds, paired across policies. "
@@ -172,14 +234,14 @@ def figure(summary, analysis, records, traces):
         [data[s]["teacher_match_rate"] for s in stages],
         height=0.20,
         color=ORANGE,
-        label="Teacher",
+        label="Teacher match",
     )
     ax.barh(
         y + 0.24,
         [analysis["uniform_legal_expected_teacher_match"][s] for s in stages],
         height=0.20,
         color=GOLD,
-        label="Random legal",
+        label="Random expected",
     )
     ax.set_yticks(y, [f"{s.title()} (n={data[s]['positions']})" for s in stages])
     ax.invert_yaxis()
@@ -237,7 +299,15 @@ def figure(summary, analysis, records, traces):
     ax.set_xlim(0, 30)
     ax.set_xlabel("Games out of 30")
     ax.set_title("Why play ended", loc="left", pad=12)
-    ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(-0.2, -0.30), ncol=3, fontsize=8.5)
+    ax.legend(
+        frameon=False,
+        loc="upper left",
+        bbox_to_anchor=(-0.05, 1.31),
+        ncol=3,
+        fontsize=8.5,
+        handlelength=1.2,
+        columnspacing=1.1,
+    )
     ax = axes[1, 1]
     for values, label, color in [
         ([r["latency_seconds"] for r in records], "Test-board requests", BLUE),
@@ -266,7 +336,7 @@ def figure(summary, analysis, records, traces):
     fig.text(
         0.07,
         0.07,
-        "Stateless greedy policy; 128-token allowance. No repairs or fallback actions. Safety cap: 3,000 attempted moves.",
+        "Stateless greedy policy; 128-token allowance; Hermes parsing. No client-side repair or fallback. Cap: 3,000 moves.",
         fontsize=9,
         color=MUTED,
     )
@@ -280,6 +350,73 @@ def figure(summary, analysis, records, traces):
     save(fig, "served-grpo-v1")
 
 
+def replay_figure(traces):
+    ordered = sorted(traces, key=lambda t: (t["score"], t["seed"]))
+    trace = ordered[(len(ordered) - 1) // 2]
+    frames = np.linspace(0, len(trace["steps"]), 6).round().astype(int)
+    palette = {
+        0: "#E7E3DD",
+        2: "#EEE4DA",
+        4: "#EDE0C8",
+        8: "#F2B179",
+        16: "#F59563",
+        32: "#F67C5F",
+        64: "#F65E3B",
+        128: "#EDCF72",
+        256: "#EDCC61",
+        512: "#EDC850",
+        1024: "#EDC53F",
+        2048: "#EDC22E",
+    }
+    fig, axes = plt.subplots(2, 3, figsize=(10, 8.8))
+    fig.subplots_adjust(left=0.07, right=0.95, top=0.81, bottom=0.12, hspace=0.37, wspace=0.21)
+    fig.text(0.07, 0.95, "Actual gameplay: the median-scoring GRPO run", fontsize=18, weight="bold")
+    fig.text(
+        0.07,
+        0.89,
+        f"Seed {trace['seed']} · final recorded score {trace['score']:,} · highest tile {trace['max_tile']} · {trace['ending'].replace('_', ' ')}",
+        fontsize=11,
+        color=MUTED,
+    )
+    for ax, frame in zip(axes.flat, frames, strict=True):
+        state = trace["initial_board"] if frame == 0 else trace["steps"][frame - 1]["board"]
+        score = 0 if frame == 0 else trace["steps"][frame - 1]["score"]
+        for row, values in enumerate(state):
+            for column, value in enumerate(values):
+                ax.add_patch(
+                    Rectangle(
+                        (column, 3 - row),
+                        0.94,
+                        0.94,
+                        color=palette.get(value, GOLD),
+                    )
+                )
+                if value:
+                    ax.text(
+                        column + 0.47,
+                        3.47 - row,
+                        str(value),
+                        ha="center",
+                        va="center",
+                        fontsize=18,
+                        weight="bold",
+                        color="#172A3A",
+                    )
+        ax.set(xlim=(-0.04, 4), ylim=(-0.04, 4), aspect="equal")
+        ax.axis("off")
+        ax.set_title(f"Move {frame} · score {score:,}", fontsize=11, loc="left", pad=10)
+    fig.text(
+        0.07,
+        0.06,
+        "Selection: lower median of 30 scores at ending. All intermediate actions, spawns and scores replayed exactly.",
+        fontsize=9,
+        color=MUTED,
+    )
+    save(fig, "served-grpo-median-game")
+
+
 if __name__ == "__main__":
     style()
-    figure(*analyze())
+    results = analyze()
+    figure(*results)
+    replay_figure(results[-1]["grpo"])
