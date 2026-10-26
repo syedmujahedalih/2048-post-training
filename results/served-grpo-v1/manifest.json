@@ -1,0 +1,172 @@
+{
+  "run": "served-grpo-v1",
+  "served_model": "2048-grpo",
+  "checkpoint": "checkpoints/local-mps-full-v1/serving-bf16",
+  "checkpoint_manifest": {
+    "chat_template.jinja": {
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+    },
+    "config.json": {
+      "bytes": 1373,
+      "sha256": "5f86712078af1c9d43747d83a963986c4ddabad043bef4c548065ac939bc6a9d"
+    },
+    "generation_config.json": {
+      "bytes": 242,
+      "sha256": "006680c0a21f1e852da11f29d10737a85e9a5765d5566923995b0e812fd6cdc9"
+    },
+    "model-00001-of-00004.safetensors": {
+      "bytes": 989786120,
+      "sha256": "df2659dcc7abd1507a4159544e5955a1b5478a87b5fef0a8f44353fc3d42e85f"
+    },
+    "model-00002-of-00004.safetensors": {
+      "bytes": 974516488,
+      "sha256": "cd06f72e6149dda4cb4e5c4a379887d3829a28b5e5285c49a6b84576b73446d0"
+    },
+    "model-00003-of-00004.safetensors": {
+      "bytes": 991020488,
+      "sha256": "92c1ddac1a848c60ddf77b73210895c1b951e7399e549908820f46d2b12212e1"
+    },
+    "model-00004-of-00004.safetensors": {
+      "bytes": 132143528,
+      "sha256": "4078c12af403322448d4f2461e002c3fb28f43f58e4eaa78848cfa94384de881"
+    },
+    "model.safetensors.index.json": {
+      "bytes": 27729,
+      "sha256": "6d5bc5a4329f703cb507f8307952478424920bb189aed6fee04e50e3e951d508"
+    },
+    "tokenizer.json": {
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8"
+    },
+    "tokenizer_config.json": {
+      "bytes": 693,
+      "sha256": "c4f4c62b741ab2940841480f9942f378d7d3878d47c2babb862af7381c59b952"
+    }
+  },
+  "backend": "vLLM Metal 0.32.0 / MLX GPU; BF16 weights",
+  "decoding": {
+    "temperature": 0,
+    "top_p": 1,
+    "top_k": -1,
+    "repetition_penalty": 1,
+    "max_tokens": 128,
+    "seed": 2048,
+    "stream": false
+  },
+  "system": "You play 2048 on a 4x4 board. Zero is an empty cell. A move slides all tiles in one direction; adjacent equal tiles merge once per move. Each merge adds its resulting tile value to the score. After a valid move, a random empty cell receives a 2 (90%) or a 4 (10%). Maximize the eventual game score. Choose a legal move by calling move with a direction. Do not add commentary.",
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "move",
+        "description": "Slide the 2048 board in one direction and return the next observation.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "direction": {
+              "type": "string",
+              "enum": [
+                "UP",
+                "DOWN",
+                "LEFT",
+                "RIGHT"
+              ]
+            }
+          },
+          "required": [
+            "direction"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ],
+  "tool_choice": "auto; no forced grammar, repair, retry or fallback",
+  "test_file_sha256": "d29553558bc67fd0e1366627f5635ddc911208655e4e00d1672d230922547a21",
+  "test_positions": 1000,
+  "seen_probe_ids": [
+    "train-1001-6",
+    "train-1001-80",
+    "train-1001-85",
+    "train-1001-95",
+    "train-1007-9",
+    "train-1008-19",
+    "train-1009-24",
+    "train-1010-104",
+    "train-1012-17",
+    "train-1018-42",
+    "train-1020-70",
+    "train-1020-8",
+    "train-1021-57",
+    "train-1023-47",
+    "train-1026-101",
+    "train-1039-15",
+    "train-1039-56",
+    "train-1046-74",
+    "train-1050-22",
+    "train-1050-8",
+    "train-1051-6",
+    "train-1054-16",
+    "train-1055-89",
+    "train-1057-50",
+    "train-1059-27",
+    "train-1061-58",
+    "train-1064-35",
+    "train-1065-44",
+    "train-1067-23",
+    "train-1067-56",
+    "train-1068-6",
+    "train-1081-36"
+  ],
+  "game_seeds": [
+    800000,
+    800001,
+    800002,
+    800003,
+    800004,
+    800005,
+    800006,
+    800007,
+    800008,
+    800009,
+    800010,
+    800011,
+    800012,
+    800013,
+    800014,
+    800015,
+    800016,
+    800017,
+    800018,
+    800019,
+    800020,
+    800021,
+    800022,
+    800023,
+    800024,
+    800025,
+    800026,
+    800027,
+    800028,
+    800029
+  ],
+  "max_game_attempts": 3000,
+  "gameplay_context": "Fresh system+board prompt for each decision; no conversation history",
+  "failure_rule": "Stop game on first malformed or illegal action; record separately from game over",
+  "baseline_agents": [
+    "random",
+    "priority",
+    "greedy",
+    "teacher"
+  ],
+  "teacher_depth": 2,
+  "limits": [
+    "One trained checkpoint and one training seed; no causal SFT-versus-GRPO comparison.",
+    "Teacher match measures imitation of depth-2 expectimax, not optimality.",
+    "Test positions are clustered in 11 source games, not 1,000 independent games.",
+    "Stateless gameplay and 128-token budget differ from multi-turn 48-token GRPO generation.",
+    "Latency includes local HTTP and prefill/decode; server already warm, single sequential client.",
+    "Move-cap games and policy failures are not natural game overs."
+  ]
+}

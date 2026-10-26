@@ -119,6 +119,18 @@ def analyze():
             r["teacher_scores"][r["decision"]["direction"]] == max(r["teacher_scores"].values())
             for r in legal
         ),
+        "uniform_legal_expected_teacher_match": {
+            stage: float(
+                np.mean(
+                    [
+                        1 / len(r["legal_moves"])
+                        for r in source
+                        if stage == "all" or r["stage"] == stage
+                    ]
+                )
+            )
+            for stage in ("all", "early", "middle", "late")
+        },
         "games": games,
         "uncertainty_method": (
             "10,000 bootstrap resamples. Test-position teacher-match intervals resample 11 source "
@@ -149,25 +161,40 @@ def figure(summary, analysis, records, traces):
     y = np.arange(4)
     data = summary["test_positions"]
     ax.barh(
-        y - 0.16,
+        y - 0.24,
         [data[s]["legal_rate"] for s in stages],
-        height=0.28,
+        height=0.20,
         color=BLUE,
-        label="Legal move",
+        label="Legal",
     )
     ax.barh(
-        y + 0.16,
+        y,
         [data[s]["teacher_match_rate"] for s in stages],
-        height=0.28,
+        height=0.20,
         color=ORANGE,
-        label="Teacher match",
+        label="Teacher",
+    )
+    ax.barh(
+        y + 0.24,
+        [analysis["uniform_legal_expected_teacher_match"][s] for s in stages],
+        height=0.20,
+        color=GOLD,
+        label="Random legal",
     )
     ax.set_yticks(y, [f"{s.title()} (n={data[s]['positions']})" for s in stages])
     ax.invert_yaxis()
     ax.set_xlim(0, 1.05)
     ax.xaxis.set_major_formatter(PercentFormatter(1))
     ax.set_title("Held-out first decisions", loc="left", pad=12)
-    ax.legend(frameon=False, loc="upper left", bbox_to_anchor=(-0.03, 1.27), ncol=2, fontsize=9)
+    ax.legend(
+        frameon=False,
+        loc="upper left",
+        bbox_to_anchor=(-0.03, 1.27),
+        ncol=3,
+        fontsize=8,
+        handlelength=1,
+        columnspacing=0.8,
+    )
     ax.grid(axis="x", color=GRID)
     ax = axes[0, 1]
     for i, agent in enumerate(AGENTS):

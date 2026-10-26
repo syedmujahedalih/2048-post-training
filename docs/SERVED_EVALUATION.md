@@ -1,8 +1,32 @@
 # Served GRPO evaluation
 
-The first held-out evaluation is running against the completed GRPO model through
-the local vLLM Metal API. The protocol below was fixed before requesting the test
-positions. Results and figures will be added after the run completes.
+The first held-out evaluation uses the completed GRPO model through the local
+vLLM Metal API. The position test is complete; the 30-seed gameplay comparison
+is still running. The protocol below was fixed before requesting test positions.
+
+## Held-out first decisions
+
+| Test boards | Legal move | Teacher first-choice match | Random-legal expected match |
+| --- | ---: | ---: | ---: |
+| All 1,000 | 1,000/1,000 | 445/1,000 (44.5%) | 28.73% |
+| Early: 448 | 448/448 | 193/448 (43.08%) | 28.31% |
+| Middle: 354 | 354/354 | 153/354 (43.22%) | 29.76% |
+| Late: 198 | 198/198 | 99/198 (50.0%) | 27.82% |
+
+The random-legal reference is the expected first-choice match rate for uniformly
+sampling each board's legal moves: the mean of `1 / number_of_legal_moves`.
+It is not a separately sampled model result. The model exceeds that reference
+on these boards while leaving substantial room to imitate the bounded teacher.
+The prompt explicitly lists legal moves, so legality alone is a weak strategy test.
+
+The seen-board diagnostic matched the teacher on 17/32 GRPO training boards
+(53.13%), all early-stage positions. The comparable held-out early-stage match
+rate is 43.08%. The seen set is small and selected; this descriptive gap alone
+does not establish overfitting or show that GRPO caused it.
+
+Observed request latency on the warmed server was about 0.679 seconds at the
+median and 0.687 seconds at the 95th percentile. Gameplay results and the final
+replay-checked plots will follow when all reserved seeds finish.
 
 ## Fixed protocol
 
