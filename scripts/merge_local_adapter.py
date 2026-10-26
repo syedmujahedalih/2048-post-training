@@ -4,6 +4,7 @@ SFT and GRPO ran on the Mac GPU through MPS in BF16. This separate export
 uses the CPU in FP32 for merging and numerical verification; it does not train.
 """
 
+import argparse
 import gc
 import hashlib
 import json
@@ -35,14 +36,23 @@ def digest(path):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--phase", choices=["sft", "grpo"], default="grpo")
+    args = parser.parse_args()
     started = time.monotonic()
-    adapter = ROOT / "checkpoints/local-mps-full-v1/grpo-adapter"
-    output = ROOT / "checkpoints/local-mps-full-v1/merged-fp32"
-    report_path = ROOT / "results/local-mps-full-v1/merge-report.json"
+    adapter = ROOT / f"checkpoints/local-mps-full-v1/{args.phase}-adapter"
+    prefix = "sft-" if args.phase == "sft" else ""
+    output = ROOT / f"checkpoints/local-mps-full-v1/{prefix}merged-fp32"
+    report_path = ROOT / f"results/local-mps-full-v1/{prefix}merge-report.json"
     if output.exists() or report_path.exists():
         raise FileExistsError("Refusing to overwrite an existing export or report")
-    summary = json.loads((ROOT / "results/local-mps-full-v1/grpo-summary.json").read_text())
-    assert summary["completed_steps"] == 100 and summary["reload_predictions_exact"]
+    summary = json.loads(
+        (ROOT / f"results/local-mps-full-v1/{args.phase}-summary.json").read_text()
+    )
+    expected_steps = 2000 if args.phase == "sft" else 100
+    assert summary["completed_steps"] == expected_steps and summary["reload_predictions_exact"]
+    if args.phase == "sft":
+        assert len(set(summary["training_ids"])) == 8000
     # This short export runs on CPU; the training runner uses MPS.
     # FP32 avoids rounding the adapter update into BF16 master weights.
     torch.set_num_threads(4)

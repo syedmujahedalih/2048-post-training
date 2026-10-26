@@ -178,7 +178,7 @@ def served_game(client, seed, max_steps, output, private_status):
                 private_status,
                 {"stage": "game", "seed": seed, "requests": index + 1, "score": game.score},
             )
-            print(f"GRPO seed={seed}: move {index + 1}, score={game.score}", flush=True)
+            print(f"{client.model} seed={seed}: move {index + 1}, score={game.score}", flush=True)
     ending = "game_over" if game.done else "policy_failure" if failure else "move_cap"
     trace = {
         "seed": seed,
@@ -201,7 +201,7 @@ def served_game(client, seed, max_steps, output, private_status):
     replay(trace)
     write_json(output, trace)
     print(
-        f"GRPO seed={seed}: {ending}, score={game.score}, tile={max(game.board)}, requests={len(decisions)}",
+        f"{client.model} seed={seed}: {ending}, score={game.score}, tile={max(game.board)}, requests={len(decisions)}",
         flush=True,
     )
     return trace
@@ -212,6 +212,9 @@ def main():
     parser.add_argument("--port", type=int, required=True)
     parser.add_argument("--model", default="2048-grpo")
     parser.add_argument("--run", default="served-grpo-v1")
+    parser.add_argument("--policy", choices=["grpo", "sft", "base"], default="grpo")
+    parser.add_argument("--export-report", type=Path)
+    parser.add_argument("--reuse-baselines", type=Path)
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
     if not args.run.replace("-", "").isalnum():
@@ -239,9 +242,14 @@ def main():
     assert not set(seeds) & {
         r["seed"] for r in read_jsonl(ROOT / "data/demonstrations/games.jsonl")
     }
-    conversion = json.loads(
-        (ROOT / "results/local-mps-full-v1/serving-bf16-export.json").read_text()
+    conversion_path = (
+        args.export_report or ROOT / "results/local-mps-full-v1/serving-bf16-export.json"
     )
+    conversion_path.resolve().relative_to(ROOT)
+    conversion = json.loads(conversion_path.read_text())
+    baseline_reference = args.reuse_baselines.resolve() if args.reuse_baselines else None
+    if baseline_reference:
+        baseline_reference.relative_to(ROOT)
     manifest = {
         "run": args.run,
         "served_model": args.model,
@@ -270,6 +278,37 @@ def main():
             "Move-cap games and policy failures are not natural game overs.",
         ],
     }
+    if args.policy != "grpo":
+        reference = json.loads((ROOT / "results/served-grpo-v1/manifest.json").read_text())
+        for key in (
+            "backend",
+            "decoding",
+            "system",
+            "tools",
+            "tool_choice",
+            "test_file_sha256",
+            "test_positions",
+            "seen_probe_ids",
+            "game_seeds",
+            "max_game_attempts",
+            "gameplay_context",
+            "failure_rule",
+            "baseline_agents",
+            "teacher_depth",
+        ):
+            assert manifest[key] == reference[key], f"Comparison protocol differs: {key}"
+        for name in ("chat_template.jinja", "tokenizer.json", "tokenizer_config.json"):
+            assert (
+                conversion["output_manifest"][name]["sha256"]
+                == reference["checkpoint_manifest"][name]["sha256"]
+            )
+        manifest["evaluated_policy"] = args.policy
+        manifest["comparison_reference"] = "results/served-grpo-v1"
+        manifest["limits"][0] = (
+            "One fixed checkpoint per stage; contrasts are conditional on one training seed."
+        )
+    if baseline_reference:
+        manifest["baseline_reference"] = str(baseline_reference.relative_to(ROOT))
     manifest_path = output / "manifest.json"
     if manifest_path.exists():
         assert json.loads(manifest_path.read_text()) == manifest, "Resume configuration differs"
@@ -307,13 +346,16 @@ def main():
                 write_json(status, {"stage": split, "completed": index + 1, "total": len(entries)})
                 print(f"{split}: {index + 1}/{len(entries)}", flush=True)
     grouped = defaultdict(list)
-    for agent in ["grpo", *manifest["baseline_agents"]]:
+    for agent in [args.policy, *manifest["baseline_agents"]]:
         for index, seed in enumerate(seeds):
             target = output / "games" / f"{agent}-{seed}.json"
+            if agent != args.policy and baseline_reference:
+                target = baseline_reference / "games" / f"{agent}-{seed}.json"
+                assert target.is_file(), "A frozen baseline trace is missing"
             if target.exists():
                 trace = json.loads(target.read_text())
                 replay(trace)
-            elif agent == "grpo":
+            elif agent == args.policy:
                 write_json(
                     status,
                     {"stage": "games", "agent": agent, "completed": index, "total": len(seeds)},
@@ -331,7 +373,7 @@ def main():
     test_records = read_jsonl(output / "test-positions.jsonl")
     seen_records = read_jsonl(output / "seen-probe-positions.jsonl")
     latencies = [r["latency_seconds"] for r in test_records]
-    game_decisions = [d for t in grouped["grpo"] for d in t["decisions"]]
+    game_decisions = [d for t in grouped[args.policy] for d in t["decisions"]]
     summary = {
         "run": args.run,
         "test_positions": summarize_positions(test_records),

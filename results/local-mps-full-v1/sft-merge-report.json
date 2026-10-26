@@ -1,0 +1,32 @@
+{
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "adapter": "checkpoints/local-mps-full-v1/sft-adapter",
+  "adapter_sha256": "646ab13dbfbee908feff3c70175dc2f81fd40a042dbeaf4db38431f8d9e239f6",
+  "output": "checkpoints/local-mps-full-v1/sft-merged-fp32",
+  "dtype": "float32",
+  "training_device": "mps",
+  "export_device": "cpu",
+  "check": "One validation prompt; final-position logits before/after FP32 merge",
+  "example_id": "validation-101000-91",
+  "max_abs_logit_difference": 0.00018978118896484375,
+  "mean_abs_logit_difference": 3.2946791179711e-05,
+  "next_token_argmax_equal": true,
+  "atol": 0.0005,
+  "rtol": 0.0001,
+  "limits": "Checks FP32 adapter-versus-merged arithmetic, not BF16 backend parity, autoregressive behavior, or full-game quality. Serving casts need evaluation.",
+  "saved_checkpoint_logits_exact": true,
+  "elapsed_seconds": 15.658559000119567,
+  "files": {
+    "chat_template.jinja": 2507,
+    "config.json": 1372,
+    "generation_config.json": 242,
+    "model-00001-of-00004.safetensors": 1979565120,
+    "model-00002-of-00004.safetensors": 1949018408,
+    "model-00003-of-00004.safetensors": 1982027232,
+    "model-00004-of-00004.safetensors": 264284568,
+    "model.safetensors.index.json": 27729,
+    "tokenizer.json": 11421892,
+    "tokenizer_config.json": 693
+  }
+}

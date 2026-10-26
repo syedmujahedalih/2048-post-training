@@ -1,0 +1,100 @@
+{
+  "source": "checkpoints/local-mps-full-v1/sft-merged-fp32",
+  "output": "checkpoints/local-mps-full-v1/sft-serving-bf16",
+  "source_dtype": "float32",
+  "output_dtype": "bfloat16",
+  "conversion_device": "cpu",
+  "conversion": "FP32 to BF16 cast; no quantization, retraining, or adapter merge",
+  "tensor_count": 338,
+  "total_tensor_bytes": 3087428608,
+  "all_saved_tensors_match_cast_exactly": true,
+  "all_saved_tensor_headers_bf16": true,
+  "source_files_unchanged_sha256": true,
+  "source_manifest": {
+    "chat_template.jinja": {
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+    },
+    "config.json": {
+      "bytes": 1372,
+      "sha256": "2f032b81e5ba2f1d7d5de7e1e77575fe9000734d3fa4af2adc27be25d3f25daf"
+    },
+    "generation_config.json": {
+      "bytes": 242,
+      "sha256": "006680c0a21f1e852da11f29d10737a85e9a5765d5566923995b0e812fd6cdc9"
+    },
+    "model-00001-of-00004.safetensors": {
+      "bytes": 1979565120,
+      "sha256": "f855d9c569d5eca43529299896fcb1b37a4c05f6041a855c9b4956194405956d"
+    },
+    "model-00002-of-00004.safetensors": {
+      "bytes": 1949018408,
+      "sha256": "432890a33ee806a5f1b06bf528871d181c71b055f10971f0f1ecb0f497d56e5d"
+    },
+    "model-00003-of-00004.safetensors": {
+      "bytes": 1982027232,
+      "sha256": "6b5e23ad1f573782dbd7cc26b8fc795024c554e41e1ee694612c410932b5f6c0"
+    },
+    "model-00004-of-00004.safetensors": {
+      "bytes": 264284568,
+      "sha256": "8cd9d3c3d530ad1c757af5007023a7acc24d1a862e4f97dc5c521da9465fd434"
+    },
+    "model.safetensors.index.json": {
+      "bytes": 27729,
+      "sha256": "f487760f6b8480f97c51b281e2da30d5d659351aae9369c918caf6ede82b84f0"
+    },
+    "tokenizer.json": {
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8"
+    },
+    "tokenizer_config.json": {
+      "bytes": 693,
+      "sha256": "c4f4c62b741ab2940841480f9942f378d7d3878d47c2babb862af7381c59b952"
+    }
+  },
+  "output_manifest": {
+    "chat_template.jinja": {
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+    },
+    "config.json": {
+      "bytes": 1373,
+      "sha256": "5f86712078af1c9d43747d83a963986c4ddabad043bef4c548065ac939bc6a9d"
+    },
+    "generation_config.json": {
+      "bytes": 242,
+      "sha256": "006680c0a21f1e852da11f29d10737a85e9a5765d5566923995b0e812fd6cdc9"
+    },
+    "model-00001-of-00004.safetensors": {
+      "bytes": 989786120,
+      "sha256": "e9d72423d93515663ad167aabe0c8cdd29f2929be66397bcd2ed111aabd6a0ed"
+    },
+    "model-00002-of-00004.safetensors": {
+      "bytes": 974516488,
+      "sha256": "74447cdec8148a6c345aa3c4978759b514cc7f9ad74485f31beae060378a12c6"
+    },
+    "model-00003-of-00004.safetensors": {
+      "bytes": 991020488,
+      "sha256": "bb94df34e2466facfe6ec52f5f1861b9b4361f6cb25e54687eefdfdd0f35fbb0"
+    },
+    "model-00004-of-00004.safetensors": {
+      "bytes": 132143528,
+      "sha256": "81ba3d6acbeba52192a937ef74df04063e5fc927f2903b0d97d3daf3ee23944e"
+    },
+    "model.safetensors.index.json": {
+      "bytes": 27729,
+      "sha256": "6d5bc5a4329f703cb507f8307952478424920bb189aed6fee04e50e3e951d508"
+    },
+    "tokenizer.json": {
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8"
+    },
+    "tokenizer_config.json": {
+      "bytes": 693,
+      "sha256": "c4f4c62b741ab2940841480f9942f378d7d3878d47c2babb862af7381c59b952"
+    }
+  },
+  "torch_version": "2.14.1",
+  "elapsed_seconds": 10.189192292280495,
+  "limits": "BF16 rounding changes the FP32 master. Exact tensor casting and source preservation do not establish MPS/MLX numerical or gameplay parity."
+}

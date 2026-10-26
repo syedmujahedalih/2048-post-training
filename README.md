@@ -33,6 +33,9 @@ test boards and 30 new game seeds: 100% legal calls, 44.5% teacher agreement,
 and mean game score 1,904. The model beat random play but lost to fixed priority
 and greedy baselines. SFT-versus-GRPO comparisons remain unmeasured.
 
+The [matched original/SFT/GRPO comparison](docs/CHECKPOINT_COMPARISON.md) is now
+running with the same held-out boards, seeds and serving protocol.
+
 ![Both complete GRPO runs](docs/figures/local-grpo-comparison.png)
 
 For the concepts, watch the narrated [GRPO and online RL explainer](grpo-explainer/README.md)

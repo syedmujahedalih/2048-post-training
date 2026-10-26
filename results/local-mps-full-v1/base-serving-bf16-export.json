@@ -1,0 +1,50 @@
+{
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "output": "checkpoints/local-mps-full-v1/base-serving-bf16",
+  "output_dtype": "bfloat16",
+  "export_device": "cpu",
+  "conversion": "Original pinned instruct weights; no adapter or additional training",
+  "tensor_count": 338,
+  "total_tensor_bytes": 3087428608,
+  "all_saved_tensors_match_original_bf16_exactly": true,
+  "all_saved_tensor_headers_bf16": true,
+  "tokenizer_and_chat_template_match_grpo": true,
+  "output_manifest": {
+    "chat_template.jinja": {
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+    },
+    "config.json": {
+      "bytes": 1373,
+      "sha256": "5f86712078af1c9d43747d83a963986c4ddabad043bef4c548065ac939bc6a9d"
+    },
+    "generation_config.json": {
+      "bytes": 242,
+      "sha256": "006680c0a21f1e852da11f29d10737a85e9a5765d5566923995b0e812fd6cdc9"
+    },
+    "model-00001-of-00002.safetensors": {
+      "bytes": 1991828104,
+      "sha256": "0b4e1c0cd22c900532d71e425e70c3d4ea38db82e42b06f88716dd2c5fa50651"
+    },
+    "model-00002-of-00002.safetensors": {
+      "bytes": 1095638800,
+      "sha256": "892f36808633cf6ed930230f24c3a882fc0b611613bf7718c058d640eb1c6331"
+    },
+    "model.safetensors.index.json": {
+      "bytes": 27729,
+      "sha256": "f744be6cb51bee7997eda010f081ee5af2b9d86700abe413f8bd8c97c440bbc1"
+    },
+    "tokenizer.json": {
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8"
+    },
+    "tokenizer_config.json": {
+      "bytes": 693,
+      "sha256": "c4f4c62b741ab2940841480f9942f378d7d3878d47c2babb862af7381c59b952"
+    }
+  },
+  "torch_version": "2.14.1",
+  "elapsed_seconds": 15.183749292045832,
+  "limits": "Exact BF16 serialization does not establish equality across inference backends."
+}

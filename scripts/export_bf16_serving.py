@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import gc
 import hashlib
 import json
@@ -36,6 +37,15 @@ def manifest(directory: Path) -> dict:
 
 
 def main() -> None:
+    global SOURCE, OUTPUT, REPORT
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=SOURCE)
+    parser.add_argument("--output", type=Path, default=OUTPUT)
+    parser.add_argument("--report", type=Path, default=REPORT)
+    args = parser.parse_args()
+    SOURCE, OUTPUT, REPORT = (p.resolve() for p in (args.source, args.output, args.report))
+    for path in (SOURCE, OUTPUT, REPORT):
+        path.relative_to(ROOT)
     if OUTPUT.exists() or REPORT.exists():
         raise FileExistsError("Refusing to overwrite an existing serving export or report")
     started = time.monotonic()
