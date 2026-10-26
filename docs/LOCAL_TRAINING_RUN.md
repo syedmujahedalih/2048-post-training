@@ -1,4 +1,4 @@
-# Local training in progress
+# Local training completed
 
 The authorized sequence runs independently of chat turns through
 `scripts/run_full_pipeline.py` on Apple M4 / MPS, using the pinned environment
@@ -7,9 +7,12 @@ in `mps-trl-requirements.txt`. No rented GPU or paid service is used.
 1. **Completed:** 100 real 2048 GRPO updates, starting from the saved
    20-example SFT warmup adapter. Four trajectories per starting board, capped
    at 16 decisions. This is not the adapter trained on the full dataset.
-2. **Running:** one epoch over all 8,000 SFT examples, batch size 4 and 2,000
+2. **Completed:** one epoch over all 8,000 SFT examples, batch size 4 and 2,000
    optimizer updates, starting afresh from the original pretrained student.
-3. **Queued:** 100 GRPO updates starting from that full SFT adapter.
+3. **Completed:** 100 GRPO updates starting from that full SFT adapter.
+
+The [final report and comparison plots](FULL_LOCAL_TRAINING.md) cover all jobs
+and the merged checkpoint at `checkpoints/local-mps-full-v1/merged-fp32/`.
 
 The [first run's report and plots](FIRST_LOCAL_GRPO.md) include all 100 updates
 and replay-verified trajectories.
@@ -40,10 +43,8 @@ at the turn cap is also masked. Episode traces and mask audits are saved.
 
 GRPO checkpoints every five updates; full SFT checkpoints every 100 updates.
 The pipeline stops on a real process failure. Restarting it skips completed
-phases and resumes available trainer checkpoints. The existing thread heartbeat
-checks hourly, stays quiet during normal progress, and handles errors or final
-reporting. Final reports should include plots from recorded metrics and state
-evaluation limits; training reward alone is not evidence of better gameplay.
+phases and resumes available trainer checkpoints. The completion heartbeat is removed after the report is pushed. Complete-game
+evaluation remains pending; training reward alone is not evidence of better gameplay.
 
 ## Garbage collection
 

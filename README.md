@@ -2,11 +2,9 @@
 
 Learn post-training end to end by teaching a small language model to play 2048.
 
-**Local training is now running:** real GRPO, then the full 8,000-example SFT
-epoch and post-SFT GRPO. See the [run status and logs](docs/LOCAL_TRAINING_RUN.md).
-
-The [first 100-update GRPO run is complete](docs/FIRST_LOCAL_GRPO.md), with plots
-and verified trajectories. The pipeline has continued into full-data SFT.
+**Local training is complete:** all 8,000 SFT examples, 2,000 SFT updates, and
+100 post-SFT GRPO updates on the Mac. The separate warmup-GRPO comparison also
+finished. See the [final report, plots and merged export](docs/FULL_LOCAL_TRAINING.md).
 
 The experiment is **solver demonstrations → SFT → online GRPO → game evaluation**.
 A frozen Strands Decider adviser is a conditional comparison, after measuring
@@ -17,27 +15,27 @@ whether it gives useful 2048 advice.
 1. Build and verify a seeded simulator and baseline players locally.
 2. Generate solver-labeled demonstrations and verify the data locally.
 3. Benchmark Strands Decider on the Mac.
-4. Train a LoRA SFT adapter on a rented GPU.
-5. Run short-episode online GRPO on that GPU.
+4. Train a LoRA SFT adapter (completed locally on MPS).
+5. Run short-episode online GRPO (completed locally on MPS).
 6. Compare adviser-assisted RL if the local pilot supports it.
 7. Evaluate full games and write up the findings.
 
-**Local steps 1–3 are complete.** One-update SFT and synthetic-reward GRPO
-compatibility checks also pass on the Mac's MPS GPU, including the actual 1.5B
-Qwen student. The stateful 100-update GRPO run is now complete, and full SFT
-is running. No rented compute was used. See the [MPS check](docs/MPS_TRL_CHECK.md)
-and the [subsequent GRPO results](docs/FIRST_LOCAL_GRPO.md).
+**Steps 1–5 are complete.** The final adapter is also merged into a local FP32
+Hugging Face checkpoint for serving. Complete-game evaluation and any useful
+adviser comparison remain unfinished experiments. No rented compute was used.
+The earlier [MPS check](docs/MPS_TRL_CHECK.md) and
+[first GRPO run](docs/FIRST_LOCAL_GRPO.md) document how the local path started.
 
-![MPS compatibility check: observed update time and memory snapshots](docs/figures/mps-trl-overview.png)
+![Both complete GRPO runs](docs/figures/local-grpo-comparison.png)
 
-Before the GPU session, watch the narrated [GRPO and online RL explainer](grpo-explainer/README.md)
+For the concepts, watch the narrated [GRPO and online RL explainer](grpo-explainer/README.md)
 or read its [transcript](grpo-explainer/TRANSCRIPT.md). It uses 2048 to explain
 rollouts, group-relative advantages, policy updates, clipping, and evaluation.
 
 ## Results to review
 
 - **10,000 demonstrations:** 8,000 training / 1,000 validation / 1,000 test.
-- **28 passing tests**, including independent checks against the original game
+- **33 passing tests**, including independent checks against the original game
   and native solver. The core checks also pass GitHub CI on Linux.
 - **Student tokenizer validated:** all 8,000 training rows render correct move
   calls with an explicit completion-loss boundary; maximum 361 tokens.
@@ -46,7 +44,7 @@ rollouts, group-relative advantages, policy updates, clipping, and evaluation.
   priority baseline, 1,985 for immediate-score greedy play, and 52,158 for the
   solver teacher. The small pilot does not establish a useful adviser benefit.
 
-Start with [the morning handoff](docs/GPU_HANDOFF.md),
+Start with [the completed training report](docs/FULL_LOCAL_TRAINING.md),
 [dataset notes](docs/DATASET.md), and [benchmark findings](docs/DECIDER_REPORT.md).
 The original [project plan](docs/PLAN.md) and [progress log](docs/PROGRESS.md)
 provide the full context.

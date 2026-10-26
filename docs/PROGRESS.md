@@ -100,3 +100,14 @@
 - Added `FIRST_LOCAL_GRPO.md` and a reproducible four-panel training plot.
 - The pipeline automatically advanced into the full 8,000-example SFT epoch;
   the post-full-SFT GRPO job remains queued.
+
+
+## Full pipeline and merged checkpoint completed
+
+- Finished one epoch over all 8,000 examples: 2,000 batch-four SFT updates.
+- Finished 100 GRPO updates from full SFT; replay verified 4,874 attempted moves.
+- Saved/reloaded adapters with identical validation predictions.
+- Teacher first-choice agreement on 12 fixed boards: 7/12 after full SFT, 8/12 after GRPO.
+- Exported the final adapter into a local FP32 merged checkpoint and verified logits.
+- Added three reproducible figures and `FULL_LOCAL_TRAINING.md` with evaluation limits.
+- Complete-game evaluation remains pending. Educational artwork stays local and untracked.

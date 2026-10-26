@@ -1,0 +1,663 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "phase": "grpo",
+  "requested_steps": 100,
+  "horizon": 16,
+  "versions": {
+    "torch": "2.14.1",
+    "trl": "1.16.0",
+    "transformers": "5.20.2",
+    "peft": "0.21.2"
+  },
+  "cpu_operator_fallback": false,
+  "lora_rank": 4,
+  "batch_size": 1,
+  "configured_examples": 32,
+  "training_ids": [
+    "train-1057-50",
+    "train-1010-104",
+    "train-1001-95",
+    "train-1068-6",
+    "train-1026-101",
+    "train-1023-47",
+    "train-1020-70",
+    "train-1012-17",
+    "train-1067-23",
+    "train-1009-24",
+    "train-1061-58",
+    "train-1067-56",
+    "train-1081-36",
+    "train-1050-8",
+    "train-1007-9",
+    "train-1054-16",
+    "train-1039-56",
+    "train-1001-80",
+    "train-1001-85",
+    "train-1008-19",
+    "train-1020-8",
+    "train-1021-57",
+    "train-1046-74",
+    "train-1055-89",
+    "train-1001-6",
+    "train-1051-6",
+    "train-1018-42",
+    "train-1065-44",
+    "train-1059-27",
+    "train-1064-35",
+    "train-1050-22",
+    "train-1039-15"
+  ],
+  "completed_steps": 100,
+  "training_seconds": 11093.177605000325,
+  "training_loss": -4.5667402446269986e-08,
+  "max_adapter_weight_change": 0.0007479190826416016,
+  "gradients": [
+    {
+      "step": 1,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 2,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 3,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 4,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 5,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 6,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 7,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 8,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 9,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 10,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 11,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 12,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 13,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 14,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 15,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 16,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 17,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 18,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 19,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 20,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 21,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 22,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 23,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 24,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 25,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 26,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 27,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 28,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 29,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 30,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 31,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 32,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 33,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 34,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 35,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 36,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 37,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 38,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 39,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 40,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 41,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 42,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 43,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 44,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 45,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 46,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 47,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 48,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 49,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 50,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 51,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 52,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 53,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 54,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 55,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 56,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 57,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 58,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 59,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 60,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 61,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 62,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 63,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 64,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 65,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 66,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 67,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 68,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 69,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 70,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 71,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 72,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 73,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 74,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 75,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 76,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 77,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 78,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 79,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 80,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 81,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 82,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 83,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 84,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 85,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 86,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 87,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 88,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 89,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 90,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 91,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 92,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 93,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 94,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 95,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 96,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 97,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 98,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 99,
+      "finite": true,
+      "nonzero_tensors": 112
+    },
+    {
+      "step": 100,
+      "finite": true,
+      "nonzero_tensors": 112
+    }
+  ],
+  "after_validation": {
+    "examples": 12,
+    "legal_rate": 1.0,
+    "teacher_agreement": 0.6666666666666666,
+    "predictions": [
+      {
+        "id": "validation-101006-241",
+        "action": "LEFT",
+        "teacher_move": "DOWN",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"LEFT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101001-147",
+        "action": "DOWN",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101000-106",
+        "action": "RIGHT",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101007-261",
+        "action": "UP",
+        "teacher_move": "UP",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101002-53",
+        "action": "RIGHT",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101002-173",
+        "action": "RIGHT",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101002-26",
+        "action": "RIGHT",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101001-161",
+        "action": "LEFT",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"LEFT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101007-1587",
+        "action": "RIGHT",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101001-148",
+        "action": "LEFT",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"LEFT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101006-166",
+        "action": "DOWN",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101007-16",
+        "action": "DOWN",
+        "teacher_move": "DOWN",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|>"
+      }
+    ]
+  },
+  "adapter_tensor_roundtrip_exact": true,
+  "adapter_path": "checkpoints/local-mps-full-v1/grpo-adapter",
+  "reload_predictions_exact": true
+}

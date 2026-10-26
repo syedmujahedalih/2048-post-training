@@ -2,8 +2,8 @@
 
 The first GRPO job completed all 100 updates on the Apple M4 through TRL/MPS.
 Its adapter was saved and reloaded, with identical validation predictions.
-The pipeline then automatically continued into the full 8,000-example SFT epoch;
-post-SFT GRPO remains queued.
+The pipeline then continued into full SFT and post-SFT GRPO. Both have now
+completed; see the [final comparison report](FULL_LOCAL_TRAINING.md).
 
 This first run starts from the **20-example SFT warmup**, not the full-data SFT
 checkpoint. It establishes a working stateful learning loop, not strong 2048 play.

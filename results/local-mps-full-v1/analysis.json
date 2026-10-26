@@ -1,0 +1,52 @@
+{
+  "sft": {
+    "examples": 8000,
+    "updates": 2000,
+    "training_seconds": 10462.028756000102,
+    "loss_first100": 0.07387471832334995,
+    "loss_last100": 0.0538152245618403,
+    "validation_legal": 12.0,
+    "validation_teacher_matches": 7.0
+  },
+  "warmup_grpo": {
+    "updates": 100,
+    "rollouts": 400,
+    "replayed_attempts": 2115,
+    "mean_attempts": 5.2875,
+    "early_exits": 371,
+    "invalid_attempts": 425,
+    "tool_errors": 0,
+    "terminal_rollouts": 16,
+    "reward_first20": 2.4238174270838497,
+    "reward_last20": 3.2286803841590883,
+    "attempts_first20": 3.2625,
+    "attempts_last20": 6.35,
+    "tied_reward_groups": 1,
+    "zero_gradient_updates": 1,
+    "training_seconds": 4911.238463082816,
+    "max_adapter_change": 0.0008970443159341812,
+    "validation_legal": 12,
+    "validation_teacher_matches": 5
+  },
+  "full_sft_grpo": {
+    "updates": 100,
+    "rollouts": 400,
+    "replayed_attempts": 4874,
+    "mean_attempts": 12.185,
+    "early_exits": 185,
+    "invalid_attempts": 360,
+    "tool_errors": 0,
+    "terminal_rollouts": 18,
+    "reward_first20": 3.912287449836731,
+    "reward_last20": 4.289220941066742,
+    "attempts_first20": 10,
+    "attempts_last20": 12.725,
+    "tied_reward_groups": 0,
+    "zero_gradient_updates": 0,
+    "training_seconds": 11093.177605000325,
+    "max_adapter_change": 0.0007479190826416016,
+    "validation_legal": 12,
+    "validation_teacher_matches": 8
+  },
+  "evaluation_limit": "12 fixed one-move validation boards; no complete-game evaluation"
+}
