@@ -1,0 +1,166 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "phase": "grpo",
+  "requested_steps": 1,
+  "horizon": 2,
+  "versions": {
+    "torch": "2.14.1",
+    "trl": "1.16.0",
+    "transformers": "5.20.2",
+    "peft": "0.21.2"
+  },
+  "cpu_operator_fallback": false,
+  "lora_rank": 4,
+  "training_ids": [
+    "train-1057-50",
+    "train-1010-104",
+    "train-1001-95",
+    "train-1068-6",
+    "train-1026-101",
+    "train-1023-47",
+    "train-1020-70",
+    "train-1012-17",
+    "train-1067-23",
+    "train-1009-24",
+    "train-1061-58",
+    "train-1067-56",
+    "train-1081-36",
+    "train-1050-8",
+    "train-1007-9",
+    "train-1054-16",
+    "train-1039-56",
+    "train-1001-80",
+    "train-1001-85",
+    "train-1008-19",
+    "train-1020-8",
+    "train-1021-57",
+    "train-1046-74",
+    "train-1055-89",
+    "train-1001-6",
+    "train-1051-6",
+    "train-1018-42",
+    "train-1065-44",
+    "train-1059-27",
+    "train-1064-35",
+    "train-1050-22",
+    "train-1039-15"
+  ],
+  "completed_steps": 1,
+  "training_seconds": 15.00824754172936,
+  "training_loss": 2.9802322387695312e-08,
+  "max_adapter_weight_change": 2.00001522898674e-05,
+  "gradients": [
+    {
+      "step": 1,
+      "finite": true,
+      "nonzero_tensors": 112
+    }
+  ],
+  "after_validation": {
+    "examples": 12,
+    "legal_rate": 1.0,
+    "teacher_agreement": 0.16666666666666666,
+    "predictions": [
+      {
+        "id": "validation-101006-241",
+        "action": "RIGHT",
+        "teacher_move": "DOWN",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101001-147",
+        "action": "DOWN",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101000-106",
+        "action": "DOWN",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101007-261",
+        "action": "UP",
+        "teacher_move": "UP",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101002-53",
+        "action": "UP",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101002-173",
+        "action": "DOWN",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101002-26",
+        "action": "RIGHT",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": true,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101001-161",
+        "action": "RIGHT",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101007-1587",
+        "action": "DOWN",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101001-148",
+        "action": "RIGHT",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101006-166",
+        "action": "DOWN",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "validation-101007-16",
+        "action": "RIGHT",
+        "teacher_move": "DOWN",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      }
+    ]
+  },
+  "adapter_tensor_roundtrip_exact": true,
+  "adapter_path": "checkpoints/local-mps-integration-smoke/grpo-adapter",
+  "reload_predictions_exact": true
+}

@@ -1,0 +1,307 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "phase": "sft",
+  "requested_steps": 80,
+  "horizon": null,
+  "versions": {
+    "torch": "2.14.1",
+    "trl": "1.16.0",
+    "transformers": "5.20.2",
+    "peft": "0.21.2"
+  },
+  "cpu_operator_fallback": false,
+  "lora_rank": 4,
+  "training_ids": [
+    "train-1053-2759",
+    "train-1009-70",
+    "train-1002-397",
+    "train-1061-7",
+    "train-1022-306",
+    "train-1020-47",
+    "train-1018-1943",
+    "train-1011-181",
+    "train-1061-105",
+    "train-1008-43",
+    "train-1056-82",
+    "train-1061-78",
+    "train-1074-86",
+    "train-1045-67",
+    "train-1007-11",
+    "train-1049-18",
+    "train-1034-2459",
+    "train-1002-35",
+    "train-1002-604",
+    "train-1007-424"
+  ],
+  "before_validation": {
+    "examples": 12,
+    "legal_rate": 0.5,
+    "teacher_agreement": 0.08333333333333333,
+    "predictions": [
+      {
+        "id": "validation-101006-241",
+        "action": null,
+        "teacher_move": "DOWN",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\nI'll use the `move` function with the 'RIGHT' direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \""
+      },
+      {
+        "id": "validation-101001-147",
+        "action": null,
+        "teacher_move": "LEFT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\n**Move Right:** \n```\n2 0 2 0\n8 8 2 0\n16 32 1"
+      },
+      {
+        "id": "validation-101000-106",
+        "action": null,
+        "teacher_move": "LEFT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\nHere's the new board after moving right:\n\n0 2 8 4\n2 32 128 2\n0 "
+      },
+      {
+        "id": "validation-101007-261",
+        "action": "UP",
+        "teacher_move": "UP",
+        "legal": true,
+        "teacher_match": true,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "validation-101002-53",
+        "action": null,
+        "teacher_move": "RIGHT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's analyze the current state of the board:\n\n```\n4 2 4 64\n0 4 2 16\n0 0 2 8\n0 2 2 4\n```\n\n"
+      },
+      {
+        "id": "validation-101002-173",
+        "action": "UP",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "validation-101002-26",
+        "action": "UP",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "validation-101001-161",
+        "action": null,
+        "teacher_move": "LEFT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "The current state of the board is as follows:\n\n```\n2 2 0 0\n8 8 4 2\n64 16 8 8\n128 4 64 3"
+      },
+      {
+        "id": "validation-101007-1587",
+        "action": "UP",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "validation-101001-148",
+        "action": "UP",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "validation-101006-166",
+        "action": "UP",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "validation-101007-16",
+        "action": null,
+        "teacher_move": "DOWN",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\nI'll use the `move` function to simulate this move.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n"
+      }
+    ]
+  },
+  "before_training_boards": {
+    "examples": 20,
+    "legal_rate": 0.55,
+    "teacher_agreement": 0.15,
+    "predictions": [
+      {
+        "id": "train-1053-2759",
+        "action": null,
+        "teacher_move": "RIGHT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "The current board configuration is as follows:\n\n```\n16 2 2 2\n4 4 32 256\n2 64 64 1024\n4 2 5"
+      },
+      {
+        "id": "train-1009-70",
+        "action": "UP",
+        "teacher_move": "DOWN",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the specified direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1002-397",
+        "action": "UP",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1061-7",
+        "action": "RIGHT",
+        "teacher_move": "UP",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\nI'll use the `move` function for this.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "train-1022-306",
+        "action": "DOWN",
+        "teacher_move": "DOWN",
+        "legal": true,
+        "teacher_match": true,
+        "text": "Let's slide the board in the specified direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"DOWN\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1020-47",
+        "action": "UP",
+        "teacher_move": "UP",
+        "legal": true,
+        "teacher_match": true,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1018-1943",
+        "action": null,
+        "teacher_move": "RIGHT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the left first. \n\n({\"name\": \"move\", \"arguments\": {\"direction\": \"LEFT\"}})<|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1011-181",
+        "action": null,
+        "teacher_move": "LEFT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "The current state of the board is as follows:\n\n```\n4 2 2 2\n16 8 8 4\n64 32 16 8\n128 64 3"
+      },
+      {
+        "id": "train-1061-105",
+        "action": "UP",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1008-43",
+        "action": "RIGHT",
+        "teacher_move": "LEFT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\nI'll use the `move` function for this.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n</tool_call><|im_end|>"
+      },
+      {
+        "id": "train-1056-82",
+        "action": "UP",
+        "teacher_move": "DOWN",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the specified direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1061-78",
+        "action": null,
+        "teacher_move": "RIGHT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\nI'll use the `move` function with the 'RIGHT' direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \""
+      },
+      {
+        "id": "train-1074-86",
+        "action": null,
+        "teacher_move": "RIGHT",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the left first. \n\n({\"name\": \"move\", \"arguments\": {\"direction\": \"LEFT\"}})<|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1045-67",
+        "action": null,
+        "teacher_move": "UP",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\nI'll use the `move` function to simulate this move.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"RIGHT\"}}\n"
+      },
+      {
+        "id": "train-1007-11",
+        "action": null,
+        "teacher_move": "DOWN",
+        "legal": false,
+        "teacher_match": false,
+        "text": "The current board configuration is as follows:\n\n```\n4 2 2 2\n2 4 4 0\n4 2 0 0\n2 0 0 0\n```\n\nLegal moves available are"
+      },
+      {
+        "id": "train-1049-18",
+        "action": "UP",
+        "teacher_move": "UP",
+        "legal": true,
+        "teacher_match": true,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1034-2459",
+        "action": null,
+        "teacher_move": "UP",
+        "legal": false,
+        "teacher_match": false,
+        "text": "The current state of the board is as follows:\n\n```\n4096 | 1024 | 16 | 2\n------|-------|----|---\n128   | 64   | "
+      },
+      {
+        "id": "train-1002-35",
+        "action": null,
+        "teacher_move": "DOWN",
+        "legal": false,
+        "teacher_match": false,
+        "text": "Let's choose a legal move. I will slide the board to the right first. \n\nI'll use the `move` function with the 'RIGHT' direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \""
+      },
+      {
+        "id": "train-1002-604",
+        "action": "UP",
+        "teacher_move": "DOWN",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the UP direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      },
+      {
+        "id": "train-1007-424",
+        "action": "UP",
+        "teacher_move": "RIGHT",
+        "legal": true,
+        "teacher_match": false,
+        "text": "Let's slide the board in the specified direction.\n<tool_call>\n{\"name\": \"move\", \"arguments\": {\"direction\": \"UP\"}}\n</tool_call><|im_end|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>"
+      }
+    ]
+  }
+}

@@ -281,8 +281,8 @@ def main():
             args.output.parent.mkdir(parents=True, exist_ok=True)
             args.output.write_text(json.dumps(report, indent=2) + "\n")
             print(json.dumps(report["stages"][stage]), flush=True)
-            gc.collect()
-            torch.mps.empty_cache()
+            gc.collect()  # Reclaim unreachable Python objects, including reference cycles.
+            torch.mps.empty_cache()  # Release unused MPS cache blocks, not live tensors.
     print(f"Report: {args.output}", flush=True)
     if any(stage["status"] != "passed" for stage in report["stages"].values()):
         raise SystemExit(1)

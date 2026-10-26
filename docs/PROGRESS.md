@@ -81,3 +81,13 @@
 - Embedded figures in both reports and the README, with sample counts and limits.
 - Recorded the reporting convention in `EXPERIMENT_WRITEUPS.md`: future reports
   should include useful plots from saved results, with regeneration commands.
+
+## Local training launched
+
+- Completed an 80-update, 20-example SFT warmup and verified fresh-checkpoint
+  inference matches. This is recorded as a warmup, not the full SFT run.
+- Added the stateful TRL game environment, seeded trajectory isolation, reward
+  accounting, observation-mask audits, and unexecuted-tail masking.
+- Started a detached pipeline: 100 real GRPO updates now, followed by a full
+  8,000-example SFT epoch and another 100 GRPO updates from its checkpoint.
+- See `LOCAL_TRAINING_RUN.md` for active logs, checkpoints, and the queue.

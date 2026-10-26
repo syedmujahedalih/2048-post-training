@@ -2,6 +2,9 @@
 
 Learn post-training end to end by teaching a small language model to play 2048.
 
+**Local training is now running:** real GRPO, then the full 8,000-example SFT
+epoch and post-SFT GRPO. See the [run status and logs](docs/LOCAL_TRAINING_RUN.md).
+
 The experiment is **solver demonstrations → SFT → online GRPO → game evaluation**.
 A frozen Strands Decider adviser is a conditional comparison, after measuring
 whether it gives useful 2048 advice.
