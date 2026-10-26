@@ -111,3 +111,19 @@
 - Exported the final adapter into a local FP32 merged checkpoint and verified logits.
 - Added three reproducible figures and `FULL_LOCAL_TRAINING.md` with evaluation limits.
 - Complete-game evaluation remains pending. Educational artwork stays local and untracked.
+
+## Reward audit and local serving prepared
+
+- Expanded the early-exit audit: 185/400 short training rollouts stopped before
+  the horizon while legal moves remained. These counts span changing checkpoints.
+- Recorded 79 empty final replies, 49 unclosed tool calls and 57 other replies;
+  saved advantages were positive for 75 early exits and negative for 110.
+- Added a reproducible diagnostic plot; the observations do not establish learned
+  reward exploitation or a final-checkpoint failure rate.
+- Installed vLLM Metal in Homebrew's isolated environment and served the saved
+  model on the Mac GPU through a localhost-only API.
+- Created a separate BF16 serving copy, verified all 338 tensors and confirmed
+  the FP32 master's hashes stayed unchanged. Recorded actual cache allocation.
+- One unconstrained validation call produced a legal move with automatic tool
+  parsing. Full-game and unseen-data comparisons remain pending; see
+  `LOCAL_SERVING.md` for startup commands and reproducibility limits.

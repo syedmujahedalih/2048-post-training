@@ -79,7 +79,9 @@ recorded in this run.
 ![Saved reply categories and early exits across training](figures/local-grpo-early-exits.png)
 
 These 185 exits are 46.25% of the 400 short training rollouts, not 185 completed
-games. The other outcomes were 197 nonterminal rollouts at the 16-attempt limit
+games. They span changing checkpoints across 100 updates; 46.25% is not a
+measured failure rate for the final checkpoint. The other outcomes were 197
+nonterminal rollouts at the 16-attempt limit
 and 18 actual game overs. Early exits averaged 8.78 attempted moves. Across
 successive blocks of 20 updates, the early-exit counts were 49, 39, 27, 29 and 41
 out of 80 rollouts each; this was not a steadily increasing stopping pattern.
@@ -121,6 +123,12 @@ Original adapters are retained; all model weights remain excluded from Git.
 Training used the Mac GPU through MPS; merging and export verification used CPU.
 FP32 export avoids rounding the low-rank update into BF16 weight storage at this
 stage. It does not add precision to the original pretrained weights.
+
+A separate BF16 serving copy is now configured in [vLLM Metal](LOCAL_SERVING.md).
+All 338 saved tensors match their intended casts, and the FP32 master's hashes
+are unchanged. One unconstrained validation request returned a legal `UP` tool
+call. This verifies serving and parsing, not BF16 numerical parity, unseen-board
+accuracy or complete-game quality.
 
 On one validation prompt, maximum final-position logit difference between FP32
 adapter and merged evaluation was **0.00020051**, within `atol=0.0005` and

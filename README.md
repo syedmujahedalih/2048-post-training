@@ -26,6 +26,10 @@ adviser comparison remain unfinished experiments. No rented compute was used.
 The earlier [MPS check](docs/MPS_TRL_CHECK.md) and
 [first GRPO run](docs/FIRST_LOCAL_GRPO.md) document how the local path started.
 
+Local [vLLM Metal serving](docs/LOCAL_SERVING.md) is configured with a separate
+BF16 copy of the merged model. One validation tool call succeeded; full-game
+quality and SFT-versus-GRPO comparisons remain unmeasured.
+
 ![Both complete GRPO runs](docs/figures/local-grpo-comparison.png)
 
 For the concepts, watch the narrated [GRPO and online RL explainer](grpo-explainer/README.md)

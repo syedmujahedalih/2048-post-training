@@ -340,7 +340,7 @@ L 794.88 311.832
    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #172a3a" x="57.96" y="364.536" transform="rotate(-0 57.96 364.536)">The other 215 rollouts: 197 reached the 16-attempt limit; 18 reached game over.</text>
   </g>
   <g id="text_38">
-   <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566674" x="57.96" y="390.888" transform="rotate(-0 57.96 390.888)">Reply categories do not identify stop causes or establish reward hacking. Repeated training boards; no full-game evaluation.</text>
+   <text style="font-size: 9.2px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566674" x="57.96" y="390.888" transform="rotate(-0 57.96 390.888)">Reply categories do not establish reward hacking. Counts span training updates; this is not a final-model failure rate.</text>
   </g>
   <g id="text_39">
    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #566674" x="57.96" y="415.044" transform="rotate(-0 57.96 415.044)">Source: saved grpo-episodes.jsonl, replay-checked by scripts/analyze_local_training.py</text>

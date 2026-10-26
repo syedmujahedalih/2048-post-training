@@ -1,0 +1,170 @@
+{
+  "base_url": "http://127.0.0.1:8000/v1",
+  "served_models": {
+    "object": "list",
+    "data": [
+      {
+        "id": "2048-grpo",
+        "object": "model",
+        "created": 1793011678,
+        "owned_by": "vllm",
+        "root": "/Users/mujahed/Documents/2048-post-training/checkpoints/local-mps-full-v1/serving-bf16",
+        "parent": null,
+        "max_model_len": 8192,
+        "permission": [
+          {
+            "id": "modelperm-9523aa29acb9dff7",
+            "object": "model_permission",
+            "created": 1793011678,
+            "allow_create_engine": false,
+            "allow_sampling": true,
+            "allow_logprobs": true,
+            "allow_search_indices": false,
+            "allow_view": true,
+            "allow_fine_tuning": false,
+            "organization": "*",
+            "group": null,
+            "is_blocking": false
+          }
+        ]
+      }
+    ]
+  },
+  "validation_example_id": "validation-101000-91",
+  "legal_moves": [
+    "UP",
+    "LEFT",
+    "RIGHT"
+  ],
+  "request": {
+    "model": "2048-grpo",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You play 2048 on a 4x4 board. Zero is an empty cell. A move slides all tiles in one direction; adjacent equal tiles merge once per move. Each merge adds its resulting tile value to the score. After a valid move, a random empty cell receives a 2 (90%) or a 4 (10%). Maximize the eventual game score. Choose a legal move by calling move with a direction. Do not add commentary."
+      },
+      {
+        "role": "user",
+        "content": "Board (rows top to bottom):\n2 0 4 8\n8 32 8 64\n2 8 16 4\n8 2 32 2\nLegal moves: UP, LEFT, RIGHT"
+      }
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "move",
+          "description": "Slide the 2048 board in one direction and return the next observation.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "UP",
+                  "DOWN",
+                  "LEFT",
+                  "RIGHT"
+                ]
+              }
+            },
+            "required": [
+              "direction"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    ],
+    "tool_choice": "auto",
+    "temperature": 0,
+    "top_p": 1,
+    "top_k": -1,
+    "repetition_penalty": 1,
+    "max_tokens": 128,
+    "seed": 2048,
+    "stream": false
+  },
+  "response": {
+    "id": "chatcmpl-b34d5c5877029c6a",
+    "object": "chat.completion",
+    "created": 1793011678,
+    "model": "2048-grpo",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "tool_calls": [
+            {
+              "id": "chatcmpl-tool-8fc1607a64c13b6b",
+              "type": "function",
+              "function": {
+                "name": "move",
+                "arguments": "{\"direction\": \"UP\"}"
+              }
+            }
+          ],
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "tool_calls",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.32.0-c754d3fd",
+    "usage": {
+      "prompt_tokens": 324,
+      "total_tokens": 343,
+      "completion_tokens": 19,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "ec_transfer_params": null,
+    "metrics": null
+  },
+  "parsed_direction": "UP",
+  "parse_error": null,
+  "legal_single_move": true,
+  "elapsed_seconds": 1.025273332837969,
+  "limits": "One validation board checks serving and unconstrained automatic tool parsing. It does not measure held-out accuracy, full-game quality, or MPS/MLX parity. No required tool choice, grammar, repair, or retry was applied.",
+  "serving_configuration": {
+    "checkpoint": "checkpoints/local-mps-full-v1/serving-bf16",
+    "weight_dtype": "bfloat16",
+    "weight_dtype_evidence": "All 338 tensor headers verified BF16 in export manifest; installed plain MLX-LM loader preserves tensor dtypes",
+    "upstream_dtype": "bfloat16",
+    "kv_dtype": "bfloat16",
+    "mlx_device": "gpu",
+    "metal_device": "Apple M4",
+    "api_pid": 98302,
+    "engine_pid": 98311,
+    "startup_log": "logs/vllm-metal-grpo-bf16.log",
+    "max_model_len": 8192,
+    "max_num_seqs": 1,
+    "max_num_batched_tokens": 512,
+    "gpu_memory_utilization": 0.3,
+    "actual_kv_blocks": 1024,
+    "actual_kv_bytes": 469762048,
+    "tool_parser": "hermes",
+    "generation_config": "vllm",
+    "versions": {
+      "vllm": "0.32.0+cpu",
+      "vllm-metal": "0.32.0",
+      "mlx": "0.32.2",
+      "mlx-lm": "0.32.0",
+      "torch": "2.13.0",
+      "transformers": "5.19.0"
+    }
+  }
+}

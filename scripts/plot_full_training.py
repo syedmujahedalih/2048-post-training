@@ -259,7 +259,7 @@ def early_exit_audit():
     fig.text(
         0.07,
         0.11,
-        "Reply categories do not identify stop causes or establish reward hacking. Repeated training boards; no full-game evaluation.",
+        "Reply categories do not establish reward hacking. Counts span training updates; this is not a final-model failure rate.",
         fontsize=9.2,
         color=MUTED,
     )
