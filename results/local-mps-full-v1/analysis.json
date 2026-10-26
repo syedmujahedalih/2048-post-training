@@ -28,10 +28,53 @@
     "validation_legal": 12,
     "validation_teacher_matches": 5,
     "reward_audit": {
+      "outcomes": {
+        "early_exit": 371,
+        "game_over": 16,
+        "nonterminal_horizon_complete": 13
+      },
+      "early_exit_mean_attempts": 4.929919137466308,
+      "early_exits_by_update_block": [
+        {
+          "first_update": 1,
+          "last_update": 20,
+          "rollouts": 80,
+          "early_exits": 74
+        },
+        {
+          "first_update": 21,
+          "last_update": 40,
+          "rollouts": 80,
+          "early_exits": 76
+        },
+        {
+          "first_update": 41,
+          "last_update": 60,
+          "rollouts": 80,
+          "early_exits": 74
+        },
+        {
+          "first_update": 61,
+          "last_update": 80,
+          "rollouts": 80,
+          "early_exits": 73
+        },
+        {
+          "first_update": 81,
+          "last_update": 100,
+          "rollouts": 80,
+          "early_exits": 74
+        }
+      ],
       "early_exit_final_reply_categories": {
         "empty_tail": 250,
         "other_text": 85,
         "unclosed_tool_call": 36
+      },
+      "early_exit_recorded_advantages": {
+        "positive": 191,
+        "zero": 4,
+        "negative": 176
       },
       "early_exits_with_positive_reward": 331,
       "early_exit_group_winners_including_ties": 98,
@@ -61,10 +104,53 @@
     "validation_legal": 12,
     "validation_teacher_matches": 8,
     "reward_audit": {
+      "outcomes": {
+        "early_exit": 185,
+        "game_over": 18,
+        "nonterminal_horizon_complete": 197
+      },
+      "early_exit_mean_attempts": 8.783783783783784,
+      "early_exits_by_update_block": [
+        {
+          "first_update": 1,
+          "last_update": 20,
+          "rollouts": 80,
+          "early_exits": 49
+        },
+        {
+          "first_update": 21,
+          "last_update": 40,
+          "rollouts": 80,
+          "early_exits": 39
+        },
+        {
+          "first_update": 41,
+          "last_update": 60,
+          "rollouts": 80,
+          "early_exits": 27
+        },
+        {
+          "first_update": 61,
+          "last_update": 80,
+          "rollouts": 80,
+          "early_exits": 29
+        },
+        {
+          "first_update": 81,
+          "last_update": 100,
+          "rollouts": 80,
+          "early_exits": 41
+        }
+      ],
       "early_exit_final_reply_categories": {
         "empty_tail": 79,
         "other_text": 57,
         "unclosed_tool_call": 49
+      },
+      "early_exit_recorded_advantages": {
+        "positive": 75,
+        "zero": 0,
+        "negative": 110
       },
       "early_exits_with_positive_reward": 180,
       "early_exit_group_winners_including_ties": 25,

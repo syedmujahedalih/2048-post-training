@@ -211,8 +211,71 @@ def fixed_board_check():
     save(fig, "local-fixed-board-check")
 
 
+def early_exit_audit():
+    analysis = json.loads((ROOT / "results/local-mps-full-v1/analysis.json").read_text())
+    audit = analysis["full_sft_grpo"]["reward_audit"]
+    categories = audit["early_exit_final_reply_categories"]
+    blocks = audit["early_exits_by_update_block"]
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 6.1))
+    fig.subplots_adjust(left=0.19, right=0.96, top=0.73, bottom=0.29, wspace=0.43)
+    fig.text(0.07, 0.94, "What ended the 185 early rollouts?", fontsize=20, weight="bold")
+    fig.text(
+        0.07,
+        0.86,
+        "Full SFT + GRPO · 400 training rollouts · 185 early exits (46.25%) · legal moves remained",
+        fontsize=10,
+        color=MUTED,
+    )
+    labels = ["Empty reply", "Unclosed tool call", "Other reply"]
+    counts = [categories[k] for k in ("empty_tail", "unclosed_tool_call", "other_text")]
+    axes[0].barh(range(3), counts, height=0.52, color=[BLUE, ORANGE, MUTED])
+    axes[0].set_yticks(range(3), labels)
+    axes[0].invert_yaxis()
+    axes[0].set_xlim(0, max(counts) * 1.22)
+    axes[0].set_xlabel("Rollouts (saved final reply)")
+    axes[0].set_title("What the transcript shows", loc="left", pad=15)
+    for i, count in enumerate(counts):
+        axes[0].text(count + 2, i, str(count), va="center", weight="bold")
+    rates = [b["early_exits"] / b["rollouts"] for b in blocks]
+    axes[1].plot(range(len(blocks)), rates, color=BLUE, marker="o", linewidth=2)
+    axes[1].set_xticks(
+        range(len(blocks)), [f"{b['first_update']}–{b['last_update']}" for b in blocks]
+    )
+    axes[1].set_ylim(0, 0.80)
+    axes[1].yaxis.set_major_formatter(PercentFormatter(1))
+    axes[1].set_xlabel("Optimizer updates (80 rollouts per block)")
+    axes[1].set_title("Early exits did not disappear", loc="left", pad=15)
+    axes[1].grid(axis="y", color=GRID)
+    for i, rate in enumerate(rates):
+        axes[1].annotate(
+            f"{rate:.1%}", (i, rate), xytext=(0, 10), textcoords="offset points", ha="center"
+        )
+    fig.text(
+        0.07,
+        0.17,
+        "The other 215 rollouts: 197 reached the 16-attempt limit; 18 reached game over.",
+        fontsize=10,
+    )
+    fig.text(
+        0.07,
+        0.11,
+        "Reply categories do not identify stop causes or establish reward hacking. Repeated training boards; no full-game evaluation.",
+        fontsize=9.2,
+        color=MUTED,
+    )
+    fig.text(
+        0.07,
+        0.055,
+        "Source: saved grpo-episodes.jsonl, replay-checked by scripts/analyze_local_training.py",
+        fontsize=9,
+        color=MUTED,
+    )
+    save(fig, "local-grpo-early-exits")
+
+
 if __name__ == "__main__":
     style()
     sft_figure()
     grpo_comparison()
     fixed_board_check()
+    early_exit_audit()

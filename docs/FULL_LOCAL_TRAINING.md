@@ -76,9 +76,34 @@ and termination problems; they do not prove intentional stopping or establish
 why a reply ended. No post-terminal or unexecuted structured tail calls were
 recorded in this run.
 
+![Saved reply categories and early exits across training](figures/local-grpo-early-exits.png)
+
+These 185 exits are 46.25% of the 400 short training rollouts, not 185 completed
+games. The other outcomes were 197 nonterminal rollouts at the 16-attempt limit
+and 18 actual game overs. Early exits averaged 8.78 attempted moves. Across
+successive blocks of 20 updates, the early-exit counts were 49, 39, 27, 29 and 41
+out of 80 rollouts each; this was not a steadily increasing stopping pattern.
+
+The recorded GRPO advantages were positive for 75 early exits and negative for
+110. Thus, some incomplete rollouts were reinforced relative to their group,
+while most were penalized relative to their group. This does not show that
+stopping itself caused the high reward: the advantage applies to the trajectory,
+including its earlier successful moves.
+
+For example, update 37 included an exit after 13 attempted moves, 384 score
+gained and reward 5.8532. Its final reply proposed `DOWN` in a tool-call wrapper
+without a closing tag, so the move was not executed. The saved transcript
+does not retain per-turn finish reasons or raw generation IDs; it cannot
+distinguish an EOS, output truncation or other parsing failure in every case.
+Training used a 48-new-token per-reply cap. That cap is a possible contributor,
+not an established explanation for all exits. The SFT examples demonstrate
+single-turn board-to-move outputs, whereas these RL rollouts require repeated
+tool calls in a growing conversation; this is another hypothesis to test.
+
 The short horizon also rewards immediate merges without measuring the later
 board's survival. Treat early stopping and short-horizon optimization as reward
-design weaknesses, not demonstrated deliberate hacking. Compare full SFT and
+design weaknesses, not demonstrated learned exploitation. Reward hacking does
+not require conscious intent. Compare full SFT and
 post-SFT policies on complete held-out games before another RL run or reward
 change. Keep the current checkpoint and reward definition as the baseline.
 

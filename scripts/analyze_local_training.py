@@ -66,6 +66,30 @@ def summarize_grpo(name):
     masks = read_jsonl(run / "grpo-mask-audit.jsonl")
     assert len(masks) == 100
     early = [e for e in episodes if e["early_exit"]]
+    early_advantages = []
+    for mask in masks:
+        group = groups[mask["step"] + 1]
+        group_mean = statistics.mean(e["reward"] for e in group)
+        for episode, audit in zip(group, mask["rollouts"], strict=True):
+            assert episode["example_id"] == audit["example_id"]
+            advantage = audit["advantage"]
+            assert math.isfinite(advantage)
+            assert (advantage > 0) == (episode["reward"] > group_mean)
+            assert (advantage < 0) == (episode["reward"] < group_mean)
+            if episode["early_exit"]:
+                early_advantages.append(advantage)
+    assert len(early_advantages) == len(early)
+    early_blocks = []
+    for start in range(0, 100, 20):
+        block = [e for e in episodes if start <= e["update_before_generation"] < start + 20]
+        early_blocks.append(
+            {
+                "first_update": start + 1,
+                "last_update": start + 20,
+                "rollouts": len(block),
+                "early_exits": sum(e["early_exit"] for e in block),
+            }
+        )
     winners = [
         e
         for group in groups.values()
@@ -94,9 +118,23 @@ def summarize_grpo(name):
             p["teacher_match"] for p in summary["after_validation"]["predictions"]
         ),
         "reward_audit": {
+            "outcomes": {
+                "early_exit": len(early),
+                "game_over": sum(e["terminal"] for e in episodes),
+                "nonterminal_horizon_complete": sum(
+                    not e["terminal"] and not e["early_exit"] for e in episodes
+                ),
+            },
+            "early_exit_mean_attempts": statistics.mean(len(e["attempts"]) for e in early),
+            "early_exits_by_update_block": early_blocks,
             "early_exit_final_reply_categories": dict(
                 sorted(Counter(early_exit_category(e) for e in early).items())
             ),
+            "early_exit_recorded_advantages": {
+                "positive": sum(a > 0 for a in early_advantages),
+                "zero": sum(a == 0 for a in early_advantages),
+                "negative": sum(a < 0 for a in early_advantages),
+            },
             "early_exits_with_positive_reward": sum(e["reward"] > 0 for e in early),
             "early_exit_group_winners_including_ties": sum(e["early_exit"] for e in winners),
             "group_winners_including_ties": len(winners),
