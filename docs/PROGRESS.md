@@ -91,3 +91,12 @@
 - Started a detached pipeline: 100 real GRPO updates now, followed by a full
   8,000-example SFT epoch and another 100 GRPO updates from its checkpoint.
 - See `LOCAL_TRAINING_RUN.md` for active logs, checkpoints, and the queue.
+
+## First 100-update GRPO job completed
+
+- Completed 100 updates and 400 rollouts from the 20-example SFT warmup adapter.
+- Replay verified all 2,115 sampled move attempts and episode rewards.
+- Saved/reloaded the adapter with identical validation predictions.
+- Added `FIRST_LOCAL_GRPO.md` and a reproducible four-panel training plot.
+- The pipeline automatically advanced into the full 8,000-example SFT epoch;
+  the post-full-SFT GRPO job remains queued.

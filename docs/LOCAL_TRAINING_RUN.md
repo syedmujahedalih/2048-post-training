@@ -4,12 +4,15 @@ The authorized sequence runs independently of chat turns through
 `scripts/run_full_pipeline.py` on Apple M4 / MPS, using the pinned environment
 in `mps-trl-requirements.txt`. No rented GPU or paid service is used.
 
-1. **Running first:** 100 real 2048 GRPO updates, starting from the saved
+1. **Completed:** 100 real 2048 GRPO updates, starting from the saved
    20-example SFT warmup adapter. Four trajectories per starting board, capped
    at 16 decisions. This is not the adapter trained on the full dataset.
-2. **Queued:** one epoch over all 8,000 SFT examples, batch size 4 and 2,000
+2. **Running:** one epoch over all 8,000 SFT examples, batch size 4 and 2,000
    optimizer updates, starting afresh from the original pretrained student.
 3. **Queued:** 100 GRPO updates starting from that full SFT adapter.
+
+The [first run's report and plots](FIRST_LOCAL_GRPO.md) include all 100 updates
+and replay-verified trajectories.
 
 Student: `Qwen/Qwen2.5-1.5B-Instruct`, revision
 `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`. LoRA rank 4 on q/v projections,

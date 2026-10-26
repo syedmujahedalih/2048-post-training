@@ -5,6 +5,9 @@ Learn post-training end to end by teaching a small language model to play 2048.
 **Local training is now running:** real GRPO, then the full 8,000-example SFT
 epoch and post-SFT GRPO. See the [run status and logs](docs/LOCAL_TRAINING_RUN.md).
 
+The [first 100-update GRPO run is complete](docs/FIRST_LOCAL_GRPO.md), with plots
+and verified trajectories. The pipeline has continued into full-data SFT.
+
 The experiment is **solver demonstrations → SFT → online GRPO → game evaluation**.
 A frozen Strands Decider adviser is a conditional comparison, after measuring
 whether it gives useful 2048 advice.
@@ -21,8 +24,9 @@ whether it gives useful 2048 advice.
 
 **Local steps 1–3 are complete.** One-update SFT and synthetic-reward GRPO
 compatibility checks also pass on the Mac's MPS GPU, including the actual 1.5B
-Qwen student. Full SFT and game-environment RL remain to do; no rented compute
-was used. See the [MPS check and its limits](docs/MPS_TRL_CHECK.md).
+Qwen student. The stateful 100-update GRPO run is now complete, and full SFT
+is running. No rented compute was used. See the [MPS check](docs/MPS_TRL_CHECK.md)
+and the [subsequent GRPO results](docs/FIRST_LOCAL_GRPO.md).
 
 ![MPS compatibility check: observed update time and memory snapshots](docs/figures/mps-trl-overview.png)
 
