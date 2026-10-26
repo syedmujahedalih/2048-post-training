@@ -4,6 +4,12 @@ The SFT-only and original-instruct controls are running locally. They reuse the
 completed [GRPO benchmark](SERVED_EVALUATION.md) without changing its measurements.
 This comparison separates the contributions of our SFT and GRPO stages.
 
+The SFT position test is complete: 1,000/1,000 legal calls and 450 teacher
+first-choice matches, compared with GRPO's 1,000 legal calls and 445 matches.
+The two policies choose different directions on 83 boards: SFT alone matches
+the teacher on 31, and GRPO alone on 26. The small net difference is not a
+conclusion about game quality; the paired game comparison is still running.
+
 ## Controls
 
 | Stage | Artifact | Additional project training |

@@ -159,6 +159,18 @@ def analyze():
             "seeds_tied_score": int(np.sum(difference == 0)),
             "seeds_with_lower_score": int(np.sum(difference < 0)),
             "teacher_match_rate_difference": float(point_difference.sum() / 1000),
+            "positions_with_different_directions": sum(
+                a["decision"]["direction"] != b["decision"]["direction"]
+                for a, b in zip(model_records[after], model_records[before], strict=True)
+            ),
+            "teacher_match_gains": sum(
+                a["teacher_match"] and not b["teacher_match"]
+                for a, b in zip(model_records[after], model_records[before], strict=True)
+            ),
+            "teacher_match_losses": sum(
+                b["teacher_match"] and not a["teacher_match"]
+                for a, b in zip(model_records[after], model_records[before], strict=True)
+            ),
             "teacher_match_rate_difference_95_source_game_bootstrap": interval(
                 point_difference[cluster_indices].sum(axis=1) / sizes[cluster_indices].sum(axis=1)
             ),
